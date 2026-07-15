@@ -12,50 +12,91 @@ const luxuryImages = [
 // سحب المنتجات المخزنة بمفتاح Lunovia الجديد
 let products = JSON.parse(localStorage.getItem('lunovia_products')) || [];
 
+// تصنيفات المنتجات الفاخرة
+const categories = ["الكل", "خواتم", "قلائد", "أساور", "أقراط"];
+
 // توليد المنتجات الافتراضية المتنوعة بفخامة عند زيارة الموقع لأول مرة
 if (products.length === 0) {
     const baseNames = [
+        "خاتم السوليتير الملكي الرائع",
         "عقد هلال Lunovia المضيء", 
         "سوار الذهب المصقول عيار 18", 
-        "خاتم السوليتير الملكي الرائع", 
         "أقراط الياقوت الهادئ والنقي"
     ];
     const slogans = [
-        "لمسات راقية تفيض بالنعومة والدلال والجاذبية اللامعة",
         "تألق ملكي فريد يجذب الأنظار في هدوء تام ورقي مطلق",
-        "نسج من سحر الطبيعة ليرافق طلتك الجذابة والاستثنائية",
-        "قصة عشق أبدية من الذهب الخالص المستوحى من بريق القمر"
+        "قصة عشق أبدية من الذهب الخالص المستوحى من بريق القمر",
+        "سوار مصقول بعناية ليعكس جمال معصمك الفاتن",
+        "لمسات راقية تفيض بالنعومة والدلال والجاذبية اللامعة"
     ];
+    
+    // ربط التصنيفات بالترتيب مع الأسماء
+    const mappedCategories = ["خواتم", "قلائد", "أساور", "أقراط"];
     
     // توليد 70 قطعة فريدة بصور متبادلة غير متشابهة
     for (let i = 1; i <= 70; i++) {
+        const index = i % 4;
         products.push({
             id: i,
-            name: `${baseNames[i % 4]} - موديل ${i}`,
-            slogan: slogans[i % 4],
-            price: 1500 + (i * 10), // السعر بالجنيه المصري
-            img: luxuryImages[i % luxuryImages.length] // توزيع الصور بالتتابع لضمان التنوع وعدم التكرار المتتالي
+            name: `${baseNames[index]} - موديل ${i}`,
+            slogan: slogans[index],
+            category: mappedCategories[index],
+            price: 1500 + (i * 50), // السعر بالجنيه المصري بتدرج فخم
+            img: luxuryImages[i % luxuryImages.length] // توزيع الصور بالتتابع
         });
     }
     localStorage.setItem('lunovia_products', JSON.stringify(products));
 }
 
 let cart = [];
+let activeCategory = "الكل";
 
-// عرض المنتجات في المتجر بدقة واحترافية وبدون أي تداخل كلمات
+// عرض بار الأقسام بشكل مرن وأنيق
+function renderCategoryBar() {
+    const container = document.getElementById('category-bar-container');
+    if (!container) return;
+    
+    container.innerHTML = categories.map(cat => `
+        <button class="category-btn ${activeCategory === cat ? 'active' : ''}" onclick="filterCategory('${cat}')">
+            ${cat}
+        </button>
+    `).join('');
+}
+
+// تصفية المنتجات حسب القسم
+function filterCategory(category) {
+    activeCategory = category;
+    renderCategoryBar();
+    renderStore();
+}
+
+// عرض المنتجات في المتجر بدقة واحترافية وبدون أي تداخل كلمات وبسعر الجنيه المصري
 function renderStore() {
     const container = document.getElementById('products-container');
     if (!container) return;
     
-    container.innerHTML = products.map(p => `
-        <div class="product-card">
-            <div class="product-img-wrapper">
-                <img class="product-img" src="${p.img}" alt="${p.name}" loading="lazy">
+    // تصفية المنتجات بناءً على القسم النشط
+    const filteredProducts = activeCategory === "الكل" 
+        ? products 
+        : products.filter(p => p.category === activeCategory);
+    
+    if (filteredProducts.length === 0) {
+        container.innerHTML = `<p style="grid-column: 1/-1; text-align:center; color:var(--text-muted); padding:40px;">لا توجد قطع معروضة في هذا القسم حالياً...</p>`;
+        return;
+    }
+
+    container.innerHTML = filteredProducts.map(p => `
+        <div class="offer-card">
+            <div class="offer-img" style="background-image: url('${p.img}');">
+                <span class="badge">LUNOVIA</span>
             </div>
-            <div class="product-info">
-                <h3 class="product-title">${p.name}</h3>
-                <p class="product-slogan">${p.slogan}</p>
-                <div class="product-price">${p.price} ج.م</div>
+            <div class="offer-details">
+                <h3>${p.name}</h3>
+                <p class="offer-desc">${p.slogan}</p>
+                <div class="price-row">
+                    <span class="old-price">${Math.round(p.price * 1.2)} ج.م</span>
+                    <span class="new-price">${p.price} ج.م</span>
+                </div>
                 <button class="btn buy-btn" onclick="addToCart(${p.id})">إضافة للحقيبة الفاخرة ✨</button>
             </div>
         </div>
@@ -97,10 +138,18 @@ function showSection(sectionId) {
     if (storeSection) storeSection.style.display = sectionId === 'store-section' ? 'block' : 'none';
     if (cartSection) cartSection.style.display = sectionId === 'cart-section' ? 'block' : 'none';
     
+    // تحديث أزرار القائمة النشطة
+    const links = document.querySelectorAll('.nav-links a');
+    links.forEach(link => {
+        link.classList.remove('active');
+        if (sectionId === 'store-section' && link.innerText.includes('الرئيسية')) link.classList.add('active');
+        if (sectionId === 'cart-section' && link.innerText.includes('الحقيبة')) link.classList.add('active');
+    });
+
     if (sectionId === 'cart-section') renderCart();
 }
 
-// عرض عناصر السلة وحساب الإجمالي
+// عرض عناصر السلة وحساب الإجمالي بالجنيه المصري بشكل منسق ومصلح بالكامل
 function renderCart() {
     const container = document.getElementById('cart-items');
     const cartTotalEl = document.getElementById('cart-total');
@@ -109,28 +158,26 @@ function renderCart() {
     let total = 0;
     
     if (cart.length === 0) {
-        container.innerHTML = `<p style="text-align:center; color:var(--text-muted); padding: 20px;">حقيبتك الفاخرة فارغة حالياً...</p>`;
-        if (cartTotalEl) cartTotalEl.innerText = "0";
+        container.innerHTML = `<p style="text-align:center; color:var(--text-muted); padding: 40px;">حقيبتك الفاخرة فارغة حالياً...</p>`;
+        if (cartTotalEl) cartTotalEl.innerText = "0 ج.م";
         return;
     }
 
     container.innerHTML = cart.map((item, idx) => {
-    total += item.price;
-    return `
-        <div style="display:flex; justify-content:space-between; align-items:center; padding:10px 0; border-bottom:1px dashed var(--border-gold);">
-            <span style="color:var(--text-white); font-weight:600;">${item.name}</span>
-            <span style="color:var(--gold-primary); font-weight:700;">
-                ${item.price} ج.م
-                <button onclick="removeFromCart(${idx})" style="background:none; border:none; color:#e74c3c; margin-right:15px; cursor:pointer; font-weight:bold;">(حذف)</button>
-            </span>
-        </div>
-    `;
-}).join('');
-
+        total += item.price;
+        return `
+            <div style="display:flex; justify-content:space-between; align-items:center; padding:15px 0; border-bottom:1px dashed var(--border-gold);">
+                <span style="color:var(--text-white); font-weight:600;">${item.name}</span>
+                <span style="color:var(--gold-primary); font-weight:700;">
+                    ${item.price} ج.م
+                    <button onclick="removeFromCart(${idx})" style="background:none; border:none; color:#e74c3c; margin-right:15px; cursor:pointer; font-weight:bold; font-size:14px;">(حذف)</button>
+                </span>
+            </div>
+        `;
     }).join('');
     
     if (cartTotalEl) {
-        cartTotalEl.innerText = total;
+        cartTotalEl.innerText = `${total} ج.م`;
     }
 }
 
@@ -144,36 +191,19 @@ function removeFromCart(idx) {
     renderCart();
 }
 
-// معالجة وإرسال طلب الشراء الاحترافي عبر الواتساب بدقة متناهية
-function sendOrder() {
-    const name = document.getElementById('cust-name').value.trim();
-    const phone = document.getElementById('cust-phone').value.trim();
-    const gov = document.getElementById('cust-gov').value.trim();
-    const city = document.getElementById('cust-city').value.trim();
-    const street = document.getElementById('cust-street').value.trim();
-    const bld = document.getElementById('cust-building').value.trim();
-    const flr = document.getElementById('cust-floor').value.trim();
-
+// إرسال طلب الشراء المباشر والفاخر للواتساب بالجنيه المصري
+function checkoutWhatsApp() {
     if (cart.length === 0) {
         alert("لطفاً، أضف بعض القطع الفاخرة إلى حقيبتك أولاً قبل إتمام الطلب!");
         return;
     }
 
-    if (!name || !phone || !gov || !city || !street || !bld || !flr) { 
-        alert("لطفاً، أكمل كافة تفاصيل العنوان ورقم الهاتف لضمان دقة عملية الشحن."); 
-        return; 
-    }
-const orderItems = cart.map(item => `- ${item.name} (${item.price} ج.م)`).join('\n');
-    `💵 *الإجمالي العام للطلب:* ${totalAmount} ج.م\n`
+    const totalAmount = cart.reduce((sum, item) => sum + item.price, 0);
+    const orderItems = cart.map((item, idx) => `${idx + 1}- ${item.name} (${item.price} ج.م)`).join('\n');
 
     const message = `🛍️ *طلب شراء جديد من مجوهرات LUNOVIA* 🛍️\n\n` +
-                    `👤 *العميل المتميز:* ${name}\n` +
-                    `📞 *رقم الهاتف:* ${phone}\n` +
-                    `📍 *عنوان التوصيل:* \n` +
-                    `المحافظة: ${gov} | المدينة: ${city}\n` +
-                    `الشارع: ${street} | مبنى: ${bld} | الطابق: ${flr}\n\n` +
                     `📦 *القطع المطلوبة:* \n${orderItems}\n\n` +
-                    `💵 *الإجمالي العام للطلب:* ${totalAmount} $\n` +
+                    `💵 *الإجمالي العام للطلب:* ${totalAmount} ج.م\n\n` +
                     `✨ *الشعار:* Shine like the moon | lunovia.dpdns.org`;
 
     window.open(`https://wa.me/201065859268?text=${encodeURIComponent(message)}`, '_blank');
@@ -181,6 +211,7 @@ const orderItems = cart.map(item => `- ${item.name} (${item.price} ج.م)`).join
 
 // تهيئة تفعيل المتجر عند تحميل الصفحة بالكامل متوافقاً مع الـ Slider
 window.addEventListener('DOMContentLoaded', () => {
+    renderCategoryBar();
     renderStore();
 });
-                        
+        
