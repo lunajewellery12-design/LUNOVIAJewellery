@@ -205,7 +205,7 @@ function checkoutWhatsApp() {
                     `💵 *الإجمالي العام للطلب:* ${totalAmount} ج.م\n\n` +
                     `✨ *الشعار:* Shine like the moon | lunovia.dpdns.org`;
 
-    window.open(`https://wa.me/201065859268?text=${encodeURIComponent(message)}`, '_blank');
+    window.open(`https://wa.me/249969862218?text=${encodeURIComponent(message)}`, '_blank');
 }
 
 // تهيئة تفعيل المتجر عند تحميل الصفحة بالكامل متوافقاً مع الـ Slider
