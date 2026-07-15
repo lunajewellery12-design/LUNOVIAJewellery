@@ -33,7 +33,7 @@ if (products.length === 0) {
             id: i,
             name: `${baseNames[i % 4]} - موديل ${i}`,
             slogan: slogans[i % 4],
-            price: 350 + (i * 5), // أسعار متناسقة بالدولار لموقعك الفخم
+            price: 1500 + (i * 10), // السعر بالجنيه المصري
             img: luxuryImages[i % luxuryImages.length] // توزيع الصور بالتتابع لضمان التنوع وعدم التكرار المتتالي
         });
     }
@@ -55,7 +55,7 @@ function renderStore() {
             <div class="product-info">
                 <h3 class="product-title">${p.name}</h3>
                 <p class="product-slogan">${p.slogan}</p>
-                <div class="product-price">${p.price} $</div>
+                <div class="product-price">${p.price} ج.م</div>
                 <button class="btn buy-btn" onclick="addToCart(${p.id})">إضافة للحقيبة الفاخرة ✨</button>
             </div>
         </div>
@@ -115,16 +115,18 @@ function renderCart() {
     }
 
     container.innerHTML = cart.map((item, idx) => {
-        total += item.price;
-        return `
-            <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:15px; padding-bottom:10px; border-bottom:1px solid rgba(212,175,55,0.1); font-size:14px;">
-                <span style="color:var(--text-white); font-weight:600;">${item.name}</span>
-                <span style="color:var(--gold-primary); font-weight:700;">
-                    ${item.price} $ 
-                    <button onclick="removeFromCart(${idx})" style="background:none; border:none; color:#e74c3c; margin-right:15px; cursor:pointer; font-weight:bold;">(حذف)</button>
-                </span>
-            </div>
-        `;
+    total += item.price;
+    return `
+        <div style="display:flex; justify-content:space-between; align-items:center; padding:10px 0; border-bottom:1px dashed var(--border-gold);">
+            <span style="color:var(--text-white); font-weight:600;">${item.name}</span>
+            <span style="color:var(--gold-primary); font-weight:700;">
+                ${item.price} ج.م
+                <button onclick="removeFromCart(${idx})" style="background:none; border:none; color:#e74c3c; margin-right:15px; cursor:pointer; font-weight:bold;">(حذف)</button>
+            </span>
+        </div>
+    `;
+}).join('');
+
     }).join('');
     
     if (cartTotalEl) {
@@ -161,9 +163,8 @@ function sendOrder() {
         alert("لطفاً، أكمل كافة تفاصيل العنوان ورقم الهاتف لضمان دقة عملية الشحن."); 
         return; 
     }
-
-    const orderItems = cart.map(item => `- ${item.name} (${item.price} $)`).join('\n');
-    const totalAmount = document.getElementById('cart-total').innerText;
+const orderItems = cart.map(item => `- ${item.name} (${item.price} ج.م)`).join('\n');
+    `💵 *الإجمالي العام للطلب:* ${totalAmount} ج.م\n`
 
     const message = `🛍️ *طلب شراء جديد من مجوهرات LUNOVIA* 🛍️\n\n` +
                     `👤 *العميل المتميز:* ${name}\n` +
