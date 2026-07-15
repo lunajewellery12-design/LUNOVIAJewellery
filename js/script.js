@@ -1,8 +1,11 @@
-// --- التحكم بالبار المنزلق التلقائي (Slider) ---
+// --- 1. التحكم بالبار المنزلق التلقائي (Slider) بذكاء وأمان ---
 let currentSlide = 0;
 const slides = document.querySelectorAll('.slide');
 
 function showSlide(index) {
+    // التحقق أولاً من وجود شرائح لتجنب توقف الكود
+    if (slides.length === 0) return; 
+    
     slides.forEach(slide => slide.classList.remove('active'));
     
     currentSlide = index;
@@ -20,67 +23,86 @@ function prevSlide() {
     showSlide(currentSlide - 1);
 }
 
-// التغيير التلقائي للشرائح كل 4 ثوانٍ بسلاسة
-setInterval(nextSlide, 4000);
+// تشغيل السلايدر تلقائياً كل 4 ثوانٍ فقط في حال وجود شرائح بالصفحة
+if (slides.length > 0) {
+    setInterval(nextSlide, 4000);
+}
 
 
-// --- النوافذ المنبثقة للتحكم بلوحة الإدارة ---
+// --- 2. النوافذ المنبثقة للتحكم بلوحة الإدارة (مع التحقق من وجود العناصر) ---
 const adminBtn = document.getElementById('adminBtn');
 const loginModal = document.getElementById('loginModal');
 const closeModal = document.getElementById('closeModal');
 
-// فتح لوحة الدخول
-adminBtn.addEventListener('click', (e) => {
-    e.preventDefault();
-    loginModal.style.display = 'flex';
-});
+if (adminBtn && loginModal) {
+    // فتح لوحة الدخول
+    adminBtn.addEventListener('click', (e) => {
+        e.preventDefault();
+        loginModal.style.display = 'flex';
+    });
+}
 
-// إغلاق اللوحة
-closeModal.addEventListener('click', () => {
-    loginModal.style.display = 'none';
-    document.getElementById('loginError').style.display = 'none';
-});
+if (closeModal && loginModal) {
+    // إغلاق اللوحة عند الضغط على زر الإغلاق (X)
+    closeModal.addEventListener('click', () => {
+        loginModal.style.display = 'none';
+        const errorEl = document.getElementById('loginError');
+        if (errorEl) errorEl.style.display = 'none';
+    });
+}
 
 // إغلاق النافذة عند الضغط في أي مكان خارجها
 window.addEventListener('click', (e) => {
-    if (e.target === loginModal) {
+    if (loginModal && e.target === loginModal) {
         loginModal.style.display = 'none';
-        document.getElementById('loginError').style.display = 'none';
+        const errorEl = document.getElementById('loginError');
+        if (errorEl) errorEl.style.display = 'none';
     }
 });
 
 
-// --- حل مشكلة تسجيل دخول الإدارة البرمجي ---
+// --- 3. حل مشكلة تسجيل دخول الإدارة البرمجي وربطها بالهوية الجديدة ---
 const adminLoginForm = document.getElementById('adminLoginForm');
 const loginError = document.getElementById('loginError');
 
-adminLoginForm.addEventListener('submit', function(e) {
-    e.preventDefault(); // إيقاف إعادة التحميل التلقائي فوراً
-    
-    const email = document.getElementById('adminEmail').value.trim();
-    const password = document.getElementById('adminPassword').value;
-
-    // بريد وكلمة مرور تجريبية مخصصة للتحقق
-    const correctEmail = "admin@lunovia.com";
-    const correctPassword = "123"; 
-
-    if (email === correctEmail && password === correctPassword) {
-        // في حال النجاح
-        alert("تم التحقق بنجاح! جاري توجيهك إلى لوحة التحكم الإدارية لـ LUNOVIA...");
-        loginError.style.display = 'none';
-        loginModal.style.display = 'none';
+if (adminLoginForm) {
+    adminLoginForm.addEventListener('submit', function(e) {
+        e.preventDefault(); // إيقاف إعادة تحميل الصفحة العشوائي فوراً
         
-        // يمكنك توجيه المسؤول لصفحة الإدارة عبر هذا السطر:
-        // window.location.href = "admin-dashboard.html";
-    } else {
-        // إظهار رسالة الخطأ بشكل واضح
-        loginError.style.display = 'block';
-    }
-});
+        const email = document.getElementById('adminEmail').value.trim();
+        const password = document.getElementById('adminPassword').value;
 
+        // بيانات التحقق الخاصة بإدارة LUNOVIA
+        const correctEmail = "admin@lunovia.com";
+        const correctPassword = "123"; 
 
-// --- دالة طلب العروض الحصرية التفاعلية ---
-function openOrder(offerName) {
-    alert(`لقد اخترت طلب: (${offerName}).\nمرحباً بك في LUNOVIA، سيتم ربطك بخدمة العملاء لتأكيد تفاصيل الشحن الفاخر الخاص بك.`);
+        if (email === correctEmail && password === correctPassword) {
+            // حفظ بيانات المسؤول في الذاكرة لربطها بملفي store.js و admin.js
+            const adminUser = {
+                name: "المدير العام لـ LUNOVIA",
+                provider: "لوحة تحكم الإدارة"
+            };
+            localStorage.setItem('lunovia_user', JSON.stringify(adminUser));
+
+            alert("✨ تم التحقق بنجاح! جاري تهيئة لوحة التحكم الفاخرة لـ LUNOVIA...");
+            
+            if (loginError) loginError.style.display = 'none';
+            if (loginModal) loginModal.style.display = 'none';
+            
+            // يمكنك فك التعليق عن السطر التالي للتوجيه التلقائي لصفحة الإدارة فوراً:
+            // window.location.href = "admin.html"; 
+        } else {
+            // إظهار رسالة الخطأ بشكل أنيق
+            if (loginError) {
+                loginError.style.display = 'block';
+            }
+        }
+    });
 }
 
+
+// --- 4. دالة طلب العروض الحصرية التفاعلية ---
+function openOrder(offerName) {
+    alert(`لقد اخترت طلب: (${offerName}).\nمرحباً بك في عالم LUNOVIA الراقي، سيتم ربطك بخدمة العملاء لتأكيد تفاصيل الشحن الفاخر الخاص بك.`);
+}
+    
