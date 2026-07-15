@@ -104,41 +104,52 @@
         </div>
     </main>
 
-    <!-- نافذة تسجيل دخول الإدارة المنبثقة (Admin Login Modal) -->
-    <div class="modal" id="loginModal">
-        <div class="modal-content">
-            <span class="close-btn" id="closeModal">&times;</span>
-            <div class="modal-logo">
-                <h2>LUNOVIA</h2>
-                <p>لوحة التحكم بالادارة</p>
-            </div>
+       <!-- نافذة تسجيل الدخول المنبثقة المطورة (Modal) لـ LUNOVIA -->
+    <div id="auth-modal" class="modal-overlay">
+        <div class="modal-content lunovia-modal">
+            <span class="close-modal" onclick="closeAuthModal()">&times;</span>
             
-            <form id="adminLoginForm">
+            <!-- شعار وهوية لوحة التحكم -->
+            <div class="modal-header">
+                <h2 class="brand-title">LUNOVIA</h2>
+                <p class="brand-subtitle" id="auth-subtitle">لوحة التحكم بالإدارة</p>
+            </div>
+
+            <!-- تبويب التبديل السلس بين العميل والإدارة -->
+            <div class="modal-tabs">
+                <button id="tab-admin" class="tab-btn active" onclick="switchAuthRole('admin')">🔑 الإدارة</button>
+                <button id="tab-customer" class="tab-btn" onclick="switchAuthRole('customer')">👤 العميل</button>
+            </div>
+
+            <!-- نموذج الإدخال الموحد والذكي -->
+            <form id="auth-form" onsubmit="handleAuthSubmit(event)">
+                <!-- حقل البريد الإلكتروني -->
                 <div class="input-group">
-                    <label for="adminEmail">البريد الإلكتروني للادارة</label>
-                    <input type="email" id="adminEmail" placeholder="admin@lunovia.com" required>
+                    <label for="auth-email">البريد الإلكتروني</label>
+                    <input type="email" id="auth-email" required placeholder="example@lunovia.com">
                 </div>
+                
+                <!-- حقل كلمة المرور -->
                 <div class="input-group">
-                    <label for="adminPassword">كلمة المرور</label>
-                    <input type="password" id="adminPassword" placeholder="••••••••" required>
+                    <label for="auth-password">كلمة المرور</label>
+                    <input type="password" id="auth-password" required placeholder="••••••••">
                 </div>
-                
-                <button type="submit" class="btn submit-btn">تسجيل الدخول</button>
-                
-                <div class="divider-text">أو تسجيل الدخول السريع</div>
-                
-                <div class="social-login-container">
-                    <button type="button" class="social-btn email-btn" title="سجل بالبريد الإلكتروني">
-                        <i class="fas fa-envelope"></i>
-                    </button>
-                    <button type="button" class="social-btn icloud-btn" title="سجل باستخدام iCloud">
-                        <i class="fab fa-apple"></i>
-                    </button>
-                </div>
+
+                <!-- زر تسجيل الدخول التفاعلي -->
+                <button type="submit" id="auth-submit-btn" class="auth-submit-btn">تسجيل الدخول</button>
             </form>
-            <div id="loginError" class="error-msg">البريد الإلكتروني أو كلمة السر غير صحيحة!</div>
+
+            <!-- خيارات الدخول السريع -->
+            <div class="quick-login-area">
+                <span class="quick-login-title">أو تسجيل الدخول السريع</span>
+                <div class="quick-login-buttons">
+                    <button type="button" class="quick-btn google-btn" onclick="quickLogin('google')">🌐 Google</button>
+                    <button type="button" class="quick-btn apple-btn" onclick="quickLogin('apple')">🍎 Apple</button>
+                </div>
+            </div>
         </div>
     </div>
+
 
     <!-- تذييل الصفحة (Footer) -->
     <footer>
