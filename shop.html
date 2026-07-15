@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+
+<meta charset="UTF-8">
+
+<meta
+name="viewport"
+content="width=device-width,initial-scale=1.0">
+
+<meta
+name="description"
+content="Browse all jewelry products at LUNOVIA">
+
+<title data-title="shop.title">
+
+LUNOVIA | Shop
+
+</title>
+
+<link
+rel="stylesheet"
+href="assets/css/style.css">
+
+<link
+rel="stylesheet"
+href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+
+</head>
+
+<body>
+
+<div id="app">
+<header class="header">
+
+<div class="container">
+
+<a
+href="index.html"
+class="logo">
+
+LUNOVIA
+
+</a>
+
+<nav class="navbar">
+
+<ul class="nav-list">
+
+<li>
+
+<a href="index.html">
+
+Home
+
+</a>
+
+</li>
+
+<li>
+
+<a
+href="shop.html"
+class="active">
+
+Shop
+
+</a>
+
+</li>
+
+<li>
+
+<a href="about.html">
+
+About
+
+</a>
+
+</li>
+
+<li>
+
+<a href="contact.html">
+
+Contact
+
+</a>
+
+</li>
+
+</ul>
+
+</nav>
+
+<div class="header-actions">
+
+<a
+href="wishlist.html"
+class="icon-button">
+
+<i class="fa-regular fa-heart"></i>
+
+<span
+class="badge"
+id="wishlistCount">
+
+0
+
+</span>
+
+</a>
+
+<a
+href="cart.html"
+class="icon-button">
+
+<i class="fa-solid fa-bag-shopping"></i>
+
+<span
+class="badge"
+id="cartCount">
+
+0
+
+</span>
+
+</a>
+
+</div>
+
+</div>
+
+</header>
+<main>
+
+<section class="featured-products">
+
+<div class="container">
+
+<div class="section-header">
+
+<h1 data-i18n="shop.title">
+
+Shop
+
+</h1>
+
+<p data-i18n="shop.description">
+
+Discover all available jewelry.
+
+</p>
+
+</div>
+
+<div
+
+class="products-grid"
+
+id="productsGrid">
+
+</div>
+
+<div class="pagination"
+
+id="pagination">
+
+</div>
+
+</div>
+
+</section>
+
+</main>
+<!--=========================================
+PRODUCT TEMPLATE
+==========================================-->
+
+<template id="productCardTemplate">
+
+<article class="product-card">
+
+<img
+
+class="product-image"
+
+src=""
+
+alt="">
+
+<div class="product-content">
+
+<h3 class="product-title">
+
+</h3>
+
+<p class="product-price">
+
+</p>
+
+<div class="product-actions">
+
+<button
+
+type="button"
+
+class="btn btn-primary add-cart">
+
+Add To Cart
+
+</button>
+
+<button
+
+type="button"
+
+class="btn btn-outline add-wishlist">
+
+<i class="fa-regular fa-heart"></i>
+
+</button>
+
+</div>
+
+</div>
+
+</article>
+
+</template>
