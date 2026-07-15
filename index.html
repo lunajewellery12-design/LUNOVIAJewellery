@@ -1,169 +1,652 @@
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>LUNOVIA Jewellery | Shine like the moon</title>
-    <!-- استدعاء ملف الـ CSS مع ميز كسر الكاش لضمان تحميل التصميم الجديد -->
-    <link rel="stylesheet" href="css/style.css?v=3.0">
-    <!-- FontAwesome الأيقونات الفخمة -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>LUNOVIA Jewellery | Luxury Accessories & Fine Jewelry</title>
+
+<meta name="description"
+content="اكتشفي مجموعة LUNOVIA الفاخرة من الساعات والخواتم والأساور والأقراط والنظارات والإكسسوارات النسائية الراقية.">
+
+<meta name="keywords"
+content="مجوهرات, اكسسوارات نسائية, ساعات نسائية, خواتم, اقراط, نظارات فاخرة">
+
+<meta name="author" content="LUNOVIA">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+<link rel="stylesheet"
+href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+
+<link rel="stylesheet" href="assets/css/style.css">
+
 </head>
+
 <body>
 
-    <!-- شريط الإعلان والترويج العلوي المميز للدومين -->
-    <div class="domain-bar">
-        <span>مرحباً بكم في عالم الأناقة الفاخرة عبر موقعنا الرسمي: <a href="http://lunovia.dpdns.org" target="_blank">lunovia.dpdns.org</a></span>
-    </div>
+<!-- ========================= -->
+<!-- Announcement Bar -->
+<!-- ========================= -->
 
-    <!-- الترويسة الرئيسية (Header) -->
-    <header>
-        <div class="logo">
-    <a href="index.html">
-        <img src="logo.png" alt="LUNOVIA" class="logo-img">
-    </a>
+<div class="announcement-bar">
+
+<div class="announcement-track">
+
+<span>
+🔥 خصم حتى 50% على المنتجات المختارة
+</span>
+
+<span>
+🚚 شحن مجاني للطلبات فوق 150$
+</span>
+
+<span>
+💎 منتجات أصلية بضمان الجودة
+</span>
+
+<span>
+🎁 هدية مجانية مع الطلبات الخاصة
+</span>
+
 </div>
 
-        <nav>
-            <ul class="nav-links">
-                <li><a href="#" class="active" onclick="showSection('store-section')">الرئيسية</a></li>
-                <li><a href="#" onclick="showSection('cart-section')">الحقيبة الفاخرة <span id="cart-count">0</span></a></li>
-                <li><a href="#" id="adminBtn"><i class="fas fa-user-shield"></i> لوحة الإدارة</a></li>
-            </ul>
-        </nav>
-    </header>
+</div>
 
-    <!-- قسم المتجر الرئيسي والديناميكي -->
-    <main id="store-section">
-        
-        <!-- قسم السلايدر (عرض الصور المتحركة) المصلح هيكلياً بالكامل -->
-        <section class="slider-container">
-            <div class="slider">
-                <!-- الشريحة الأولى -->
-                <div class="slide active" style="background-image: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('https://images.unsplash.com/photo-1599643478518-a784e5dc4c8f?auto=format&fit=crop&w=1200&q=80');">
-                    <div class="slide-content">
-                        <h2>مجموعتنا الذهبية اللامعة</h2>
-                        <p>بريقٌ مستوحى من سحر القمر ونقاء الذهب</p>
-                    </div>
-                </div>
-                <!-- الشريحة الثانية -->
-                <div class="slide" style="background-image: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('https://images.unsplash.com/photo-1535632066927-ab7c9ab60908?auto=format&fit=crop&w=1200&q=80');">
-                    <div class="slide-content">
-                        <h2>قلائد اللؤلؤ الفاخرة</h2>
-                        <p>قطع فنية صُممت لتمنحك إطلالة ملكية ساحرة</p>
-                    </div>
-                </div>
-                <!-- الشريحة الثالثة -->
-                <div class="slide" style="background-image: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('https://images.unsplash.com/photo-1601121141461-9d6647bca1ed?auto=format&fit=crop&w=1200&q=80');">
-                    <div class="slide-content">
-                        <h2>خواتم الألماس النقية</h2>
-                        <p>صياغة دقيقة تخلّد أجمل لحظات العمر</p>
-                    </div>
-                </div>
-            </div>
-            <!-- أزرار التنقل البرمجية المصلحة داخل الحاوية -->
-            <button class="slide-btn prev" onclick="prevSlide()">‹</button>
-            <button class="slide-btn next" onclick="nextSlide()">›</button>
-        </section>
+<!-- ========================= -->
+<!-- Header -->
+<!-- ========================= -->
 
-        <!-- قسم تصنيفات المنتجات (البار المنزلق الأنيق) -->
-        <div id="category-bar-container">
-            <!-- سيقوم ملف store.js بإنشاء أزرار التصنيفات هنا ديناميكياً وبشكل منسق -->
-        </div>
+<header class="main-header">
 
-        <!-- قسم العروض والمنتجات الأكثر تنسيقاً واحترافية -->
-        <section id="offers" class="offers-section">
-            <div class="section-title">
-                <h2>العروض والقطع المختارة</h2>
-                <p class="tagline">SHINE LIKE THE MOON</p>
-            </div>
+<div class="container">
 
-            <!-- حاوية المنتجات الوحيدة والأساسية (سيتم تفريغ الـ 70 منتجاً بالجنيه المصري هنا تلقائياً) -->
-            <div id="products-container" class="offers-grid"></div>
-        </section>
+<div class="logo">
 
-    </main>
+<img src="assets/images/logo.png" alt="LUNOVIA">
 
-    <!-- قسم سلة المشتريات (يظهر عند الضغط على الحقيبة الفاخرة) -->
-    <main id="cart-section" style="display: none; padding: 40px 20px; max-width: 1200px; margin: auto;">
+</div>
+
+<nav class="main-nav">
+
+<ul>
+
+<li>
+<a href="index.html">الرئيسية</a>
+</li>
+
+<li>
+<a href="category.html?cat=watches">الساعات</a>
+</li>
+
+<li>
+<a href="category.html?cat=rings">الخواتم</a>
+</li>
+
+<li>
+<a href="category.html?cat=bracelets">الأساور</a>
+</li>
+
+<li>
+<a href="category.html?cat=earrings">الأقراط</a>
+</li>
+
+<li>
+<a href="category.html?cat=anklets">الخلخال</a>
+</li>
+
+<li>
+<a href="category.html?cat=sunglasses">النظارات</a>
+</li>
+
+<li>
+<a href="shop.html">جميع المنتجات</a>
+</li>
+
+</ul>
+
+</nav>
+
+<div class="header-actions">
+
+<button class="search-btn">
+<i class="fa-solid fa-magnifying-glass"></i>
+</button>
+
+<a href="wishlist.html">
+<i class="fa-regular fa-heart"></i>
+</a>
+
+<a href="cart.html" class="cart-icon">
+
+<i class="fa-solid fa-bag-shopping"></i>
+
+<span class="cart-count">
+0
+</span>
+
+</a>
+
+<a href="login.html" class="login-btn">
+
+<i class="fa-regular fa-user"></i>
+
+</a>
+
+</div>
+
+</div>
+
+</header>
+
+<!-- ========================= -->
+<!-- Hero Section -->
+<!-- ========================= -->
+
+<section class="hero">
+
+<div class="hero-overlay"></div>
+
+<div class="hero-content">
+
+<span class="hero-tag">
+Luxury Collection 2025
+</span>
+
+<h1>
+اكتشفي أناقة تتجاوز الزمن
+</h1>
+
+<p>
+
+تشكيلة فاخرة من المجوهرات والإكسسوارات المصممة
+لإبراز جمالك بأسلوب راقٍ يعكس شخصيتك الفريدة.
+
+</p>
+
+<div class="hero-buttons">
+
+<a href="shop.html" class="btn btn-gold">
+
+تسوقي الآن
+
+</a>
+
+<a href="#collections" class="btn btn-outline">
+
+استكشاف المجموعات
+
+</a>
+
+</div>
+
+</div>
+
+</section>
+
+<!-- ========================= -->
+<!-- Featured Categories -->
+<!-- ========================= -->
+
+<section id="collections" class="featured-categories">
+
+<div class="container">
+
+<div class="section-title">
+
+<span>
+LUNOVIA COLLECTIONS
+</span>
+
+<h2>
+تسوقي حسب الفئة
+</h2>
+
+</div>
+
+<div class="category-grid">
+
+<a href="#" class="category-card">
+
+<img src="assets/images/categories/watch.jpg">
+
+<div class="category-info">
+
+<h3>الساعات</h3>
+
+<p>Luxury Watches</p>
+
+</div>
+
+</a>
+
+<a href="#" class="category-card">
+
+<img src="assets/images/categories/ring.jpg">
+
+<div class="category-info">
+
+<h3>الخواتم</h3>
+
+<p>Elegant Rings</p>
+
+</div>
+
+</a>
+
+<a href="#" class="category-card">
+
+<img src="assets/images/categories/bracelet.jpg">
+
+<div class="category-info">
+
+<h3>الأساور</h3>
+
+<p>Premium Bracelets</p>
+
+</div>
+
+</a>
+
+<a href="#" class="category-card">
+
+<img src="assets/images/categories/earring.jpg">
+
+<div class="category-info">
+
+<h3>الأقراط</h3>
+
+<p>Luxury Earrings</p>
+
+</div>
+
+</a>
+
+</div>
+
+</div>
+
+</section>
+
+  <!-- ========================= -->
+<!-- Best Sellers -->
+<!-- ========================= -->
+
+<section class="products-section">
+
+    <div class="container">
+
         <div class="section-title">
-            <h2>حقيبة المقتنيات الفاخرة</h2>
-            <p class="tagline">مشترياتك الراقية من LUNOVIA</p>
+            <span>BEST SELLERS</span>
+            <h2>الأكثر مبيعاً</h2>
         </div>
-        
-        <div style="background: #111; border: 1px solid var(--border-gold); padding: 30px; border-radius: 8px; box-shadow: 0 10px 30px rgba(0,0,0,0.5);">
-            <div id="cart-items">
-                <!-- هنا تنزل السلة برمجياً -->
-            </div>
-            <div style="display:flex; justify-content:space-between; align-items:center; margin-top:25px; padding-top:20px; border-top: 1px solid var(--border-gold);">
-                <h3 style="color:var(--text-white);">💵 الإجمالي العام:</h3>
-                <h3 style="color:var(--gold-primary);" id="cart-total">0 ج.م</h3>
-            </div>
-            <button class="btn buy-btn" style="width:100%; margin-top:20px; padding:15px; font-size:18px;" onclick="checkoutWhatsApp()">
-                <i class="fab fa-whatsapp"></i> إرسال الطلب عبر الواتساب لتأكيد الشراء
-            </button>
+
+        <div id="bestSellerProducts" class="products-grid">
+            <!-- يتم تعبئة المنتجات بواسطة JavaScript -->
         </div>
-    </main>
 
-       <!-- نافذة تسجيل الدخول المنبثقة المطورة (Modal) لـ LUNOVIA -->
-    <div id="auth-modal" class="modal-overlay">
-        <div class="modal-content lunovia-modal">
-            <span class="close-modal" onclick="closeAuthModal()">&times;</span>
-            
-            <!-- شعار وهوية لوحة التحكم -->
-            <div class="modal-header">
-                <h2 class="brand-title">LUNOVIA</h2>
-                <p class="brand-subtitle" id="auth-subtitle">لوحة التحكم بالإدارة</p>
-            </div>
-
-            <!-- تبويب التبديل السلس بين العميل والإدارة -->
-            <div class="modal-tabs">
-                <button id="tab-admin" class="tab-btn active" onclick="switchAuthRole('admin')">🔑 الإدارة</button>
-                <button id="tab-customer" class="tab-btn" onclick="switchAuthRole('customer')">👤 العميل</button>
-            </div>
-
-            <!-- نموذج الإدخال الموحد والذكي -->
-            <form id="auth-form" onsubmit="handleAuthSubmit(event)">
-                <!-- حقل البريد الإلكتروني -->
-                <div class="input-group">
-                    <label for="auth-email">البريد الإلكتروني</label>
-                    <input type="email" id="auth-email" required placeholder="example@lunovia.com">
-                </div>
-                
-                <!-- حقل كلمة المرور -->
-                <div class="input-group">
-                    <label for="auth-password">كلمة المرور</label>
-                    <input type="password" id="auth-password" required placeholder="••••••••">
-                </div>
-
-                <!-- زر تسجيل الدخول التفاعلي -->
-                <button type="submit" id="auth-submit-btn" class="auth-submit-btn">تسجيل الدخول</button>
-            </form>
-
-            <!-- خيارات الدخول السريع -->
-            <div class="quick-login-area">
-                <span class="quick-login-title">أو تسجيل الدخول السريع</span>
-                <div class="quick-login-buttons">
-                    <button type="button" class="quick-btn google-btn" onclick="quickLogin('google')">🌐 Google</button>
-                    <button type="button" class="quick-btn apple-btn" onclick="quickLogin('apple')">🍎 Apple</button>
-                </div>
-            </div>
-        </div>
     </div>
 
+</section>
 
-    <!-- تذييل الصفحة (Footer) -->
-    <footer>
-        <div class="footer-content">
-            <h3>LUNOVIA JEWELLERY</h3>
-            <p>"Shine like the moon"</p>
-            <p class="footer-domain">lunovia.dpdns.org &copy; 2026</p>
+<!-- ========================= -->
+<!-- New Arrivals -->
+<!-- ========================= -->
+
+<section class="products-section light-bg">
+
+    <div class="container">
+
+        <div class="section-title">
+            <span>NEW ARRIVALS</span>
+            <h2>وصل حديثاً</h2>
         </div>
-    </footer>
 
-    <script src="./js/auth.js"></script>
-<script src="/js/store.js"></script>
+        <div id="newArrivalProducts" class="products-grid">
+            <!-- JavaScript -->
+        </div>
 
+    </div>
+
+</section>
+
+<!-- ========================= -->
+<!-- Flash Sale -->
+<!-- ========================= -->
+
+<section class="flash-sale">
+
+    <div class="container">
+
+        <div class="flash-content">
+
+            <h2>⚡ عروض اليوم</h2>
+
+            <p>
+                استمتعي بخصومات حصرية لفترة محدودة.
+            </p>
+
+            <div id="countdown" class="countdown">
+
+                <div>
+                    <span id="days">00</span>
+                    <small>يوم</small>
+                </div>
+
+                <div>
+                    <span id="hours">00</span>
+                    <small>ساعة</small>
+                </div>
+
+                <div>
+                    <span id="minutes">00</span>
+                    <small>دقيقة</small>
+                </div>
+
+                <div>
+                    <span id="seconds">00</span>
+                    <small>ثانية</small>
+                </div>
+
+            </div>
+
+            <a href="shop.html" class="btn btn-gold">
+                تسوقي الآن
+            </a>
+
+        </div>
+
+    </div>
+
+</section>
+
+<!-- ========================= -->
+<!-- Testimonials -->
+<!-- ========================= -->
+
+<section class="testimonials">
+
+<div class="container">
+
+<div class="section-title">
+
+<span>OUR CLIENTS</span>
+
+<h2>آراء عملائنا</h2>
+
+</div>
+
+<div class="testimonial-slider">
+
+<div class="testimonial">
+
+<p>
+
+★★★★★
+
+<br><br>
+
+"الخامة فاخرة جداً والتغليف راقٍ، التجربة كانت ممتازة."
+
+</p>
+
+<h4>سارة أحمد</h4>
+
+</div>
+
+<div class="testimonial">
+
+<p>
+
+★★★★★
+
+<br><br>
+
+"وصل الطلب بسرعة وكانت الساعة أجمل من الصور."
+
+</p>
+
+<h4>نور محمد</h4>
+
+</div>
+
+<div class="testimonial">
+
+<p>
+
+★★★★★
+
+<br><br>
+
+"أفضل متجر تعاملت معه من ناحية الجودة وخدمة العملاء."
+
+</p>
+
+<h4>ريم خالد</h4>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+<!-- ========================= -->
+<!-- Newsletter -->
+<!-- ========================= -->
+
+<section class="newsletter">
+
+<div class="container">
+
+<h2>
+
+اشتركي بالنشرة البريدية
+
+</h2>
+
+<p>
+
+واحصلي على أحدث العروض والإصدارات الجديدة.
+
+</p>
+
+<form id="newsletterForm">
+
+<input
+
+type="email"
+
+placeholder="أدخلي بريدك الإلكتروني"
+
+required
+
+>
+
+<button>
+
+اشترك الآن
+
+</button>
+
+</form>
+
+</div>
+
+</section>
+
+<!-- ========================= -->
+<!-- Instagram -->
+<!-- ========================= -->
+
+<section class="instagram">
+
+<div class="container">
+
+<div class="section-title">
+
+<span>INSTAGRAM</span>
+
+<h2>@LUNOVIA</h2>
+
+</div>
+
+<div class="instagram-grid">
+
+<img src="assets/images/instagram/1.jpg">
+
+<img src="assets/images/instagram/2.jpg">
+
+<img src="assets/images/instagram/3.jpg">
+
+<img src="assets/images/instagram/4.jpg">
+
+<img src="assets/images/instagram/5.jpg">
+
+<img src="assets/images/instagram/6.jpg">
+
+</div>
+
+</div>
+
+</section>
+
+<!-- ========================= -->
+<!-- Footer -->
+<!-- ========================= -->
+
+<footer>
+
+<div class="container footer-grid">
+
+<div>
+
+<img
+
+src="assets/images/logo.png"
+
+class="footer-logo"
+
+alt="LUNOVIA">
+
+<p>
+
+LUNOVIA Luxury Jewellery
+
+<br>
+
+Luxury Beyond Imagination.
+
+</p>
+
+</div>
+
+<div>
+
+<h3>التسوق</h3>
+
+<ul>
+
+<li><a href="shop.html">جميع المنتجات</a></li>
+
+<li><a href="wishlist.html">المفضلة</a></li>
+
+<li><a href="cart.html">السلة</a></li>
+
+<li><a href="orders.html">طلباتي</a></li>
+
+</ul>
+
+</div>
+
+<div>
+
+<h3>خدمة العملاء</h3>
+
+<ul>
+
+<li><a href="#">سياسة الإرجاع</a></li>
+
+<li><a href="#">الشحن</a></li>
+
+<li><a href="#">سياسة الخصوصية</a></li>
+
+<li><a href="#">تواصل معنا</a></li>
+
+</ul>
+
+</div>
+
+<div>
+
+<h3>تابعنا</h3>
+
+<div class="social-links">
+
+<a href="#"><i class="fab fa-facebook-f"></i></a>
+
+<a href="#"><i class="fab fa-instagram"></i></a>
+
+<a href="#"><i class="fab fa-x-twitter"></i></a>
+
+<a href="#"><i class="fab fa-tiktok"></i></a>
+
+</div>
+
+</div>
+
+</div>
+
+<div class="copyright">
+
+© 2025 LUNOVIA Jewellery
+
+All Rights Reserved.
+
+</div>
+
+</footer>
+
+<!-- ========================= -->
+<!-- Search Modal -->
+<!-- ========================= -->
+
+<div id="searchModal" class="search-modal">
+
+<div class="search-box">
+
+<input
+type="text"
+placeholder="ابحثي عن منتج..."
+id="searchInput">
+
+<button id="closeSearch">
+
+<i class="fa-solid fa-xmark"></i>
+
+</button>
+
+</div>
+
+<div id="searchResults"></div>
+
+</div>
+
+<!-- ========================= -->
+<!-- Scripts -->
+<!-- ========================= -->
+
+<script src="assets/js/store.js"></script>
+
+<script src="assets/js/auth.js"></script>
+
+<script src="assets/js/script.js"></script>
 
 </body>
-</html>
+
+                    </html>  
