@@ -800,3 +800,186 @@ document.addEventListener(
 renderAnalyticsDashboard
 
 );
+/*==================================================
+ANALYTICS UTILITIES
+Version 1.4
+==================================================*/
+
+/*=========================================
+GET SUMMARY
+=========================================*/
+
+function getAnalyticsSummary(){
+
+return{
+
+pageViews:
+
+analytics.pageViews,
+
+productViews:
+
+analytics.productViews,
+
+cartAdds:
+
+analytics.cartAdds,
+
+wishlistAdds:
+
+analytics.wishlistAdds,
+
+orders:
+
+analytics.orders,
+
+revenue:
+
+analytics.revenue,
+
+searches:
+
+analytics.searches,
+
+sessions:
+
+analytics.sessions
+
+};
+
+}
+
+/*=========================================
+GET CONVERSION RATE
+=========================================*/
+
+function getConversionRate(){
+
+if(
+
+analytics.pageViews===0
+
+){
+
+return 0;
+
+}
+
+return(
+
+(
+
+analytics.orders/
+
+analytics.pageViews
+
+)*100
+
+).toFixed(2);
+
+}
+
+/*=========================================
+AVERAGE ORDER VALUE
+=========================================*/
+
+function getAverageOrderValue(){
+
+if(
+
+analytics.orders===0
+
+){
+
+return 0;
+
+}
+
+return(
+
+analytics.revenue/
+
+analytics.orders
+
+).toFixed(2);
+
+}
+
+/*=========================================
+CLEAR EVENT LOG
+=========================================*/
+
+function clearEventLog(){
+
+analytics.events=[];
+
+saveAnalytics();
+
+}
+
+/*=========================================
+PRINT SUMMARY
+=========================================*/
+
+function printAnalyticsSummary(){
+
+console.table({
+
+"Page Views":
+
+analytics.pageViews,
+
+"Product Views":
+
+analytics.productViews,
+
+"Cart Adds":
+
+analytics.cartAdds,
+
+"Wishlist Adds":
+
+analytics.wishlistAdds,
+
+"Orders":
+
+analytics.orders,
+
+"Revenue":
+
+analytics.revenue,
+
+"Searches":
+
+analytics.searches,
+
+"Sessions":
+
+analytics.sessions,
+
+"Conversion %":
+
+getConversionRate(),
+
+"Average Order":
+
+getAverageOrderValue()
+
+});
+
+}
+
+/*=========================================
+WINDOW EVENTS
+=========================================*/
+
+window.addEventListener(
+
+"beforeunload",
+
+function(){
+
+saveAnalytics();
+
+});
+
