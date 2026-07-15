@@ -3,85 +3,171 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Luna Jewellery | عالم الفخامة الهادئة</title>
-    <link rel="stylesheet" href="css/style.css">
-    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700&family=Cinzel:wght@700&display=swap" rel="stylesheet">
+    <title>LUNOVIA Jewellery | Shine like the moon</title>
+    <link rel="stylesheet" href="style.css">
+    <!-- FontAwesome الأيقونات الفخمة -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 <body>
 
+    <!-- شريط الإعلان والترويج العلوي المميز للدومين -->
+    <div class="domain-bar">
+        <span>مرحباً بكم في عالم الأناقة الفاخرة عبر موقعنا الرسمي: <a href="http://lunovia.dpdns.org" target="_blank">lunovia.dpdns.org</a></span>
+    </div>
+
+    <!-- الترويسة الرئيسية (Header) -->
     <header>
-        <div class="logo-area" onclick="showSection('store-section')">
-            <img class="logo-img" src="logo.png" alt="Luna Logo" onerror="this.src='https://images.unsplash.com/photo-1617038260897-41a1f14a8ca0?w=100'">
-            <h1 class="brand-name">Luna Jewellery</h1>
+        <div class="logo">
+            <h1 class="logo-text">LUNOVIA</h1>
+            <p class="logo-sub">JEWELLERY</p>
         </div>
-        <div style="display: flex; gap: 10px;">
-            <button class="btn btn-secondary" onclick="openLoginModal()" id="login-nav-btn">دخول الإدارة / الحساب</button>
-            <button class="btn" onclick="showSection('cart-section')">الحقيبة (<span id="cart-count">0</span>)</button>
-        </div>
+        <nav>
+            <ul class="nav-links">
+                <li><a href="#home" class="active">الرئيسية</a></li>
+                <li><a href="#offers">العروض الخاصة</a></li>
+                <li><a href="#about">قصتنا</a></li>
+                <li><a href="#" id="adminBtn"><i class="fas fa-user-shield"></i> لوحة الإدارة</a></li>
+            </ul>
+        </nav>
     </header>
 
-    <!-- شاشة المعرض الرئيسية المريحة للعين -->
-    <section id="store-section">
-        <div class="products-grid" id="products-container"></div>
+    <!-- البار العلوي المنزلق للمنتجات (Product Slider) -->
+    <section class="slider-container" id="home">
+        <div class="slider">
+            <!-- الشريحة الأولى -->
+            <div class="slide active" style="background-image: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('https://images.unsplash.com/photo-1599643478518-a784e5dc4c8f?auto=format&fit=crop&w=1200&q=80');">
+                <div class="slide-content">
+                    <h2>مجموعتنا الذهبية اللامعة</h2>
+                    <p>بريقٌ مستوحى من سحر القمر ونقاء الذهب</p>
+                </div>
+            </div>
+            <!-- الشريحة الثانية -->
+            <div class="slide" style="background-image: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('https://images.unsplash.com/photo-1535632066927-ab7c9ab60908?auto=format&fit=crop&w=1200&q=80');">
+                <div class="slide-content">
+                    <h2>قلائد اللؤلؤ الفاخرة</h2>
+                    <p>قطع فنية صُممت لتمنحك إطلالة ملكية ساحرة</p>
+                </div>
+            </div>
+            <!-- الشريحة الثالثة -->
+            <div class="slide" style="background-image: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('https://images.unsplash.com/photo-1601121141461-9d6647bca1ed?auto=format&fit=crop&w=1200&q=80');">
+                <div class="slide-content">
+                    <h2>خواتم الألماس النقية</h2>
+                    <p>صياغة دقيقة تخلّد أجمل لحظات العمر</p>
+                </div>
+            </div>
+        </div>
+        <!-- أزرار التنقل -->
+        <button class="slide-btn prev" onclick="prevSlide()">&#10094;</button>
+        <button class="slide-btn next" onclick="nextSlide()">&#10095;</button>
     </section>
 
-    <!-- شاشة السلة والدفع والتوصيل المحسنة -->
-    <section id="cart-section" class="modal-content" style="display:none; max-width:700px; margin:60px auto;">
-        <h2 style="margin-bottom:20px; font-weight:700;">تفاصيل طلبك الفاخر</h2>
-        <div id="cart-items" style="margin-bottom:25px; border-bottom:1px solid var(--border-color); padding-bottom:15px;"></div>
-        
-        <div style="font-size:20px; font-weight:700; margin-bottom:25px; display:flex; justify-content:space-between;">
-            <span>إجمالي القيمة:</span>
-            <span id="cart-total" style="color:var(--luxury-gold);">0 ج.م</span>
+    <!-- مسافة فاصلة منسقة قبل بدء صف العروض -->
+    <div class="section-divider"></div>
+
+    <!-- قسم العروض والمنتجات الأكثر تنسيقاً واحترافية -->
+    <section id="offers" class="offers-section">
+        <div class="section-title">
+            <h2>العروض والقطع المختارة</h2>
+            <p class="tagline">SHINE LIKE THE MOON</p>
         </div>
 
-        <form id="shipping-form" style="display:grid; gap:15px;">
-            <h3 style="font-size:16px; color:var(--luxury-gold); margin-bottom:5px;">بيانات التوصيل والشحن</h3>
-            <input type="text" id="cust-name" placeholder="الاسم ثلاثي" class="form-input" required>
-            <input type="tel" id="cust-phone" placeholder="رقم هاتف العميل" class="form-input" required>
-            <div style="display:grid; grid-template-columns:1fr 1fr; gap:10px;">
-                <input type="text" id="cust-gov" placeholder="المحافظة" class="form-input" required>
-                <input type="text" id="cust-city" placeholder="المدينة" class="form-input" required>
+        <div class="offers-grid">
+            <!-- العرض الأول: عقد اللؤلؤ الاستثنائي -->
+            <div class="offer-card">
+                <div class="offer-img" style="background-image: url('https://images.unsplash.com/photo-1515562141207-7a88fb7ce338?auto=format&fit=crop&w=600&q=80');">
+                    <span class="badge">الأكثر طلباً</span>
+                </div>
+                <div class="offer-details">
+                    <h3>عقد اللؤلؤ "مونلايت" الفخم</h3>
+                    <p class="offer-desc">سلسلة من الذهب الخالص عيار 18 تزدان بلؤلؤة طبيعية مستديرة مستوحاة من هلال Lunovia الساحر.</p>
+                    <div class="price-row">
+                        <span class="old-price">450$</span>
+                        <span class="new-price">390$</span>
+                    </div>
+                    <button class="btn buy-btn" onclick="openOrder('عقد اللؤلؤ مونلايت - 390$')">اطلب الآن</button>
+                </div>
             </div>
-            <div style="display:grid; grid-template-columns:2fr 1fr 1fr; gap:10px;">
-                <input type="text" id="cust-street" placeholder="الشارع" class="form-input" required>
-                <input type="text" id="cust-building" placeholder="العمارة" class="form-input" required>
-                <input type="text" id="cust-floor" placeholder="رقم الشقة" class="form-input" required>
+
+            <!-- العرض الثاني: خاتم السوليتير الملكي -->
+            <div class="offer-card">
+                <div class="offer-img" style="background-image: url('https://images.unsplash.com/photo-1605100804763-247f67b3557e?auto=format&fit=crop&w=600&q=80');">
+                    <span class="badge">خصم خاص</span>
+                </div>
+                <div class="offer-details">
+                    <h3>خاتم السوليتير "أورورا"</h3>
+                    <p class="offer-desc">صياغة دقيقة من البلاتين اللامع يتوسطها حجر ألماس نقي صمم ليعكس النجوم والبريق الأبدي.</p>
+                    <div class="price-row">
+                        <span class="old-price">550$</span>
+                        <span class="new-price">450$</span>
+                    </div>
+                    <button class="btn buy-btn" onclick="openOrder('خاتم السوليتير أورورا - 450$')">اطلب الآن</button>
+                </div>
             </div>
-            <button type="button" class="btn" style="background:#128c7e; border-color:#128c7e;" onclick="sendOrder()">تأكيد الطلب عبر WhatsApp 💬</button>
-        </form>
+
+            <!-- العرض الثالث: طقم النجمة الذهبية -->
+            <div class="offer-card">
+                <div class="offer-img" style="background-image: url('https://images.unsplash.com/photo-1535632066927-ab7c9ab60908?auto=format&fit=crop&w=600&q=80');">
+                    <span class="badge">إصدار محدود</span>
+                </div>
+                <div class="offer-details">
+                    <h3>طقم "ستيلار" الكامل</h3>
+                    <p class="offer-desc">طقم متناسق يتألف من عقد وأقراط دائرية تجسد النجمة الثمانية المتوهجة مع بريق لا يضاهى.</p>
+                    <div class="price-row">
+                        <span class="old-price">790$</span>
+                        <span class="new-price">620$</span>
+                    </div>
+                    <button class="btn buy-btn" onclick="openOrder('طقم ستيلار الكامل - 620$')">اطلب الآن</button>
+                </div>
+            </div>
+        </div>
     </section>
 
-    <!-- نافذة تسجيل الدخول المزدوجة (عملاء / إدارة آمنة) -->
-    <div id="login-modal" class="modal">
+    <!-- نافذة تسجيل دخول الإدارة المنبثقة (Admin Login Modal) -->
+    <div class="modal" id="loginModal">
         <div class="modal-content">
-            <h2 style="text-align:center; color:var(--luxury-gold); margin-bottom:10px;">تسجيل الدخول الآمن</h2>
+            <span class="close-btn" id="closeModal">&times;</span>
+            <div class="modal-logo">
+                <h2>LUNOVIA</h2>
+                <p>لوحة التحكم بالادارة</p>
+            </div>
             
-            <!-- بوابات الدخول السريع للعملاء -->
-            <div class="auth-providers">
-                <button class="provider-btn" onclick="mockLogin('Google')">
-                    <img src="https://cdn-icons-png.flaticon.com/512/300/300221.png" class="provider-icon" alt="Google"> جوجل
-                </button>
-                <button class="provider-btn" onclick="mockLogin('Apple')">
-                    <img src="https://cdn-icons-png.flaticon.com/512/0/747.png" class="provider-icon" alt="Apple"> آبل
-                </button>
-            </div>
-
-            <hr style="border:none; border-top:1px solid var(--border-color); margin:25px 0;">
-
-            <!-- بوابة المسؤولين الحصرية لـ فيراس -->
-            <h4 style="margin-bottom:12px; font-size:14px; text-align:center; color:var(--text-muted);">تسجيل دخول الإدارة (خاص بـ Luna Jewellery)</h4>
-            <div style="display:grid; gap:10px;">
-                <input type="email" id="admin-email" placeholder="البريد الإلكتروني للإدارة" class="form-input">
-                <input type="password" id="admin-pass" placeholder="كلمة المرور" class="form-input">
-                <button class="btn" onclick="tryAdminLogin()" style="background-color:var(--luxury-gold); border-color:var(--luxury-gold);">دخول لوحة التحكم</button>
-            </div>
-
-            <button class="btn btn-secondary" onclick="closeLoginModal()" style="width:100%; margin-top:20px;">إغلاق</button>
+            <form id="adminLoginForm">
+                <div class="input-group">
+                    <label for="adminEmail">البريد الإلكتروني للادارة</label>
+                    <input type="email" id="adminEmail" placeholder="admin@lunovia.com" required>
+                </div>
+                <div class="input-group">
+                    <label for="adminPassword">كلمة المرور</label>
+                    <input type="password" id="adminPassword" placeholder="••••••••" required>
+                </div>
+                
+                <button type="submit" class="btn submit-btn">تسجيل الدخول</button>
+                
+                <div class="divider-text">أو تسجيل الدخول السريع</div>
+                
+                <!-- الأيقونات بعد إعادة تنسيق أحجامها بدقة واحترافية مطلقة -->
+                <div class="social-login-container">
+                    <button type="button" class="social-btn email-btn" title="سجل بالبريد الإلكتروني">
+                        <i class="fas fa-envelope"></i>
+                    </button>
+                    <button type="button" class="social-btn icloud-btn" title="سجل باستخدام iCloud">
+                        <i class="fab fa-apple"></i>
+                    </button>
+                </div>
+            </form>
+            <div id="loginError" class="error-msg">البريد الإلكتروني أو كلمة السر غير صحيحة!</div>
         </div>
     </div>
 
-    <script src="js/auth.js"></script>
-    <script src="js/store.js"></script>
+    <!-- تذييل الصفحة (Footer) -->
+    <footer>
+        <div class="footer-content">
+            <h3>LUNOVIA JEWELLERY</h3>
+            <p>"Shine like the moon"</p>
+            <p class="footer-domain">lunovia.dpdns.org &copy; 2026</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
 </body>
 </html>
