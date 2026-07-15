@@ -1,29 +1,23 @@
-// قاعدة بيانات تجريبية سحابية مدمجة (70 منتج مع عبارات رنانة)
-const mockDbUrl = "https://images.unsplash.com/";
-const categories = [
-    { name: "خاتم الياقوت الأحمر الملكي", slogan: "بريق العاطفة يلتف حول إصبعكِ", price: 1000, img: "photo-1605100804763-247f67b3557e?w=400" },
-    { name: "سلسلة اللؤلؤ الأبيض الناعم", slogan: "كأنها هالة من ضوء القمر تنساب برقة", price: 1200, img: "photo-1599643478518-a784e5dc4c8f?w=400" },
-    { name: "خاتم الألماس الفضي الفاخر", slogan: "خلود اللحظة يتجسد في بريق نقي", price: 500, img: "photo-1603561591411-07134e71a2a9?w=400" },
-    { name: "حلق الفراشة الذهبية الأنيق", slogan: "رفرفة من الأناقة تلامس وجنتيكِ", price: 600, img: "photo-1635767798638-3e25273a8236?w=400" }
-];
+const defaultImg = "https://images.unsplash.com/photo-1599643478518-a784e5dc4c8f?w=500";
+let products = JSON.parse(localStorage.getItem('luna_products')) || [];
 
-// تكرار وتوليد 70 منتجاً فريداً بعبارات رنانة تلقائية ومختلفة لتجربة تصفح غنية جداً
-let products = JSON.parse(localStorage.getItem('luna_products'));
-if (!products) {
-    products = [];
+// توليد المنتجات الـ 70 الافتراضية إذا كانت السلة فارغة لأول مرة
+if (products.length === 0) {
+    const baseNames = ["خاتم الزمرد الأخضر", "سوار الذهب المصقول", "عقد اللؤلؤ المضيء", "أقراط الياقوت الهادئ"];
     const slogans = [
-        "سحر لا يُقاوم يعبر عن حضورك الطاغي", "إبداع حقيقي يروي تفاصيل فخامتك", 
-        "لمعان خالد يليق بملكة", "دقة الصنعة في قالب أنثوي رقيق", 
-        "جمال ممتد عبر الأجيال", "الأناقة لا تحتاج إلى كلمات"
+        "لمسات راقية تفيض بالنعومة والدلال",
+        "تألق ملكي يجلب الأنظار في هدوء تام",
+        "نسج من سحر الطبيعة ليرافق طلتك الجذابة",
+        "قصة عشق أبدية من الذهب الخالص وصنعة اليدين"
     ];
+    
     for (let i = 1; i <= 70; i++) {
-        const base = categories[(i - 1) % categories.length];
         products.push({
             id: i,
-            name: `${base.name} - الإصدار المحدود ${i}`,
-            slogan: slogans[i % slogans.length] + ` (تصميم فريد #${i})`,
-            price: base.price + (i * 5), // اختلاف طفيف في الأسعار لإعطاء طابع طبيعي
-            img: mockDbUrl + base.img
+            name: `${baseNames[i % 4]} - موديل ${i}`,
+            slogan: slogans[i % 4],
+            price: 1500 + (i * 10),
+            img: defaultImg
         });
     }
     localStorage.setItem('luna_products', JSON.stringify(products));
@@ -34,9 +28,12 @@ let cart = [];
 function renderStore() {
     const container = document.getElementById('products-container');
     if(!container) return;
+    
     container.innerHTML = products.map(p => `
         <div class="product-card">
-            <img class="product-img" src="${p.img}" alt="${p.name}">
+            <div class="product-img-wrapper">
+                <img class="product-img" src="${p.img}" alt="${p.name}">
+            </div>
             <div class="product-info">
                 <h3 class="product-title">${p.name}</h3>
                 <p class="product-slogan">${p.slogan}</p>
@@ -52,8 +49,8 @@ function addToCart(id) {
     cart.push(product);
     document.getElementById('cart-count').innerText = cart.length;
     
-    // تسجيل اهتمام المستخدم سحابياً محلياً لمحاكاة قاعدة البيانات
-    const currentUser = JSON.parse(localStorage.getItem('luna_user')) || { name: "عميل زائر", provider: "مجهول" };
+    // محاكاة تسجيل تحليلات التصفح والاهتمامات
+    const currentUser = JSON.parse(localStorage.getItem('luna_user')) || { name: "عميل زائر", provider: "منصة المتجر العامة" };
     const logs = JSON.parse(localStorage.getItem('luna_analytics')) || [];
     logs.push({
         user: currentUser.name,
@@ -63,7 +60,7 @@ function addToCart(id) {
     });
     localStorage.setItem('luna_analytics', JSON.stringify(logs));
     
-    alert(`تمت إضافة ${product.name} بنجاح!`);
+    alert(`تم اختيار ${product.name} بنجاح!`);
 }
 
 function showSection(sectionId) {
@@ -78,9 +75,9 @@ function renderCart() {
     container.innerHTML = cart.map((item, idx) => {
         total += item.price;
         return `
-            <div style="display:flex; justify-content:space-between; margin-bottom:10px;">
+            <div style="display:flex; justify-content:space-between; margin-bottom:12px; font-size:14px;">
                 <span>${item.name}</span>
-                <span>${item.price} ج.م <button onclick="removeFromCart(${idx})" style="background:none; border:none; color:red; cursor:pointer;">(حذف)</button></span>
+                <span style="font-weight:700;">${item.price} ج.م <button onclick="removeFromCart(${idx})" style="background:none; border:none; color:#e05c5c; margin-right:10px; cursor:pointer;">(حذف)</button></span>
             </div>
         `;
     }).join('');
@@ -102,17 +99,23 @@ function sendOrder() {
     const bld = document.getElementById('cust-building').value;
     const flr = document.getElementById('cust-floor').value;
 
-    if(!name || !phone || !gov) { alert("من فضلك املأ حقول التوصيل الأساسية!"); return; }
+    if(!name || !phone || !gov || !city || !street || !bld || !flr) { 
+        alert("لطفاً، أكمل كافة تفاصيل العنوان ورقم الهاتف لضمان دقة عملية الشحن."); 
+        return; 
+    }
+
+    const orderItems = cart.map(item => `- ${item.name} (${item.price} ج.م)`).join('\n');
 
     const message = `🛍️ *طلب شراء جديد من متجر Luna Jewellery* 🛍️\n\n` +
                     `👤 *العميل:* ${name}\n` +
                     `📞 *الهاتف:* ${phone}\n` +
-                    `📍 *العنوان بالتفصيل:* محافظة ${gov} - مدينة ${city} - شارع ${street} - عمارة ${bld} - شقة ${flr}\n\n` +
-                    `💵 *إجمالي المبلغ:* ${document.getElementById('cart-total').innerText} ج.م محولة عبر فودافون كاش.\n\n` +
-                    `يرجى تأكيد الشحن والتواصل معنا فوراً!`;
+                    `📍 *تفاصيل الشحن:* \n` +
+                    `المحافظة: ${gov} | المدينة: ${city}\n` +
+                    `الشارع: ${street} | عمارة: ${bld} | شقة رقم: ${flr}\n\n` +
+                    `📦 *الطلبات:* \n${orderItems}\n\n` +
+                    `💵 *إجمالي الحساب:* ${document.getElementById('cart-total').innerText} ج.م (محولة عبر فودافون كاش)`;
 
     window.open(`https://wa.me/201065859268?text=${encodeURIComponent(message)}`, '_blank');
 }
 
 window.onload = renderStore;
-      
