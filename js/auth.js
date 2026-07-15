@@ -93,3 +93,38 @@ function loginAsClient(platform) {
     const loginModal = document.getElementById('loginModal');
     if (loginModal) loginModal.style.display = 'none';
 }
+
+// دالة لفتح نافذة تسجيل الدخول وإظهارها بنعومة
+function openAuthModal() {
+    const modal = document.getElementById('auth-modal');
+    modal.style.display = 'flex';
+    setTimeout(() => {
+        modal.classList.add('active');
+    }, 10);
+}
+
+// دالة لإغلاق النافذة وإخفائها من الشاشة بالكامل
+function closeAuthModal() {
+    const modal = document.getElementById('auth-modal');
+    modal.classList.remove('active');
+    setTimeout(() => {
+        modal.style.display = 'none';
+    }, 300); // متوافق مع وقت الـ Transition في الـ CSS لضمان الخروج السلس
+}
+
+// دالة التبديل التفاعلي بين تبويبات تسجيل الدخول
+function switchAuthRole(role) {
+    const tabAdmin = document.getElementById('tab-admin');
+    const tabCustomer = document.getElementById('tab-customer');
+    const subtitle = document.getElementById('auth-subtitle');
+    
+    if (role === 'admin') {
+        tabAdmin.classList.add('active');
+        tabCustomer.classList.remove('active');
+        subtitle.innerText = "لوحة التحكم بالإدارة";
+    } else {
+        tabCustomer.classList.add('active');
+        tabAdmin.classList.remove('active');
+        subtitle.innerText = "تسجيل دخول العميل الفاخر";
+    }
+}
