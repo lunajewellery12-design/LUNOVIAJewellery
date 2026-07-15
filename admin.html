@@ -3,73 +3,89 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>لوحة إدارة Luna Jewellery</title>
+    <title>لوحة التحكم الفخمة | Luna Jewellery</title>
     <link rel="stylesheet" href="css/style.css">
     <style>
-        .admin-container { max-width: 1100px; margin: 40px auto; padding: 20px; background:#fff; border-radius:12px; box-shadow:var(--shadow); }
-        .tab-btn { padding:10px 20px; margin-left:10px; cursor:pointer; background:#fff; border:1px solid var(--logo-gold); border-radius:5px; }
-        .tab-btn.active { background:var(--logo-gold); color:#fff; }
-        .table { width:100%; border-collapse:collapse; margin-top:20px; }
-        .table th, .table td { padding:12px; border:1px solid #ddd; text-align:center; }
+        .admin-container { max-width: 1100px; margin: 40px auto; padding: 30px; background:#fff; border-radius:20px; box-shadow:var(--light-shadow); border:1px solid var(--border-color); }
+        .tab-btn { padding:12px 24px; margin-left:10px; cursor:pointer; background:#fff; border:1px solid var(--border-color); border-radius:50px; font-weight:600; transition:0.3s; }
+        .tab-btn.active { background:var(--luxury-gold); color:#fff; border-color:var(--luxury-gold); }
+        .table { width:100%; border-collapse:collapse; margin-top:25px; }
+        .table th, .table td { padding:16px; border-bottom:1px solid var(--border-color); text-align:center; }
+        .table th { background-color: var(--soft-cream); color: var(--charcoal-soft); }
     </style>
+    <script>
+        // كود حماية حارس الصفحة: يُطرد المتسلل فوراً قبل تحميل المحتوى
+        if (localStorage.getItem('luna_admin_auth') !== 'authenticated') {
+            alert('عذراً، هذه المنطقة محظورة! يرجى تسجيل الدخول كمسؤول أولاً.');
+            window.location.href = 'index.html';
+        }
+    </script>
 </head>
 <body>
     <header>
         <div class="logo-area">
             <img class="logo-img" src="logo.png" alt="Luna Logo">
-            <h1 class="brand-name">لوحة تحكم الإدارة</h1>
+            <h1 class="brand-name">لوحة التحكم والمخزون</h1>
         </div>
-        <a href="index.html" class="btn">العودة للمتجر</a>
+        <div style="display:flex; gap:10px;">
+            <button onclick="logoutAdmin()" class="btn btn-secondary">تسجيل الخروج</button>
+            <a href="index.html" class="btn">عرض المتجر الرسمي</a>
+        </div>
     </header>
 
     <div class="admin-container">
         <div>
-            <button class="tab-btn active" onclick="switchTab('analytics')">سجل نشاط العملاء 📊</button>
-            <button class="tab-btn" onclick="switchTab('inventory')">إدارة العروض والأسعار 🏷️</button>
+            <button class="tab-btn active" onclick="switchTab('analytics')">سجل نشاط العملاء وعروضهم المفضلة 📊</button>
+            <button class="tab-btn" onclick="switchTab('inventory')">إضافة وتعديل العروض والأسعار 🏷️</button>
         </div>
 
-        <!-- تبويب مراقبة العملاء -->
+        <!-- سجل تصفح واهتمامات العملاء -->
         <div id="analytics-tab" class="tab-content" style="display:block;">
-            <h3 style="margin-top:20px;">سجل التصفح السحابي التجريبي</h3>
+            <h3 style="margin-top:25px; font-size:18px; color:var(--luxury-gold);">بيانات تصفح العملاء التجريبية</h3>
             <table class="table">
                 <thead>
                     <tr>
-                        <th>اسم العميل</th>
-                        <th>طريقة الدخول</th>
-                        <th>المنتج الذي نال الاهتمام</th>
-                        <th>وقت الزيارة</th>
+                        <th>العميل</th>
+                        <th>وسيلة الدخول</th>
+                        <th>العرض المفضل (الذي نقر عليه)</th>
+                        <th>توقيت التفاعل</th>
                     </tr>
                 </thead>
-                <tbody id="logs-tbody">
-                    <!-- تعبأ ديناميكياً -->
-                </tbody>
+                <tbody id="logs-tbody"></tbody>
             </table>
         </div>
 
-        <!-- تبويب إدارة المخزون والعروض -->
+        <!-- إدارة المنتجات ورفع الصور الفورية -->
         <div id="inventory-tab" class="tab-content" style="display:none;">
-            <h3 style="margin-top:20px;">إضافة عرض جديد</h3>
-            <form id="add-product-form" style="display:grid; grid-template-columns:1fr 1fr 1fr; gap:10px; margin-top:15px;">
-                <input type="text" id="new-title" placeholder="اسم المنتج" required style="padding:10px;">
-                <input type="number" id="new-price" placeholder="السعر (ج.م)" required style="padding:10px;">
-                <input type="text" id="new-slogan" placeholder="الجملة الرنانة" required style="padding:10px;">
-                <button type="submit" class="btn">إضافة العرض للمتجر</button>
+            <h3 style="margin-top:25px; font-size:18px; color:var(--luxury-gold);">إضافة قطعة مجوهرات جديدة</h3>
+            
+            <form id="add-product-form" style="display:grid; grid-template-columns:1fr 1fr; gap:15px; margin-top:20px;">
+                <input type="text" id="new-title" placeholder="اسم القطعة" class="form-input" required>
+                <input type="number" id="new-price" placeholder="السعر (ج.م)" class="form-input" required>
+                <input type="text" id="new-slogan" placeholder="عبارة تسويقية رنانة" class="form-input" required>
+                
+                <div style="display:flex; flex-direction:column; gap:5px;">
+                    <label style="font-size:13px; color:var(--text-muted); font-weight:600;">اختر صورة العرض من جهازك 📷:</label>
+                    <input type="file" id="new-img-file" accept="image/*" class="form-input" style="padding:8px;" required>
+                </div>
+
+                <div style="grid-column: span 2; text-align: left; margin-top:10px;">
+                    <button type="submit" class="btn">حفظ وإضافة العرض للمتجر ✨</button>
+                </div>
             </form>
 
-            <h3 style="margin-top:40px;">العروض الحالية</h3>
+            <h3 style="margin-top:40px; font-size:18px; color:var(--luxury-gold);">العروض الحالية بالمتجر</h3>
             <table class="table">
                 <thead>
                     <tr>
-                        <th>صورة المنتج</th>
+                        <th>صورة القطعة</th>
                         <th>الاسم</th>
-                        <th>الجملة الرنانة</th>
+                        <th>العبارة الرنانة</th>
                         <th>السعر (ج.م)</th>
-                        <th>إجراءات</th>
+                        <th>تعديل/حذف</th>
                     </tr>
                 </thead>
-                <tbody id="products-tbody">
-                    <!-- تعبأ ديناميكياً وتسمح بتعديل السعر المباشر -->
-                </tbody>
+                <tbody id="products-tbody"></tbody>
             </table>
         </div>
     </div>
@@ -77,4 +93,3 @@
     <script src="js/admin.js"></script>
 </body>
 </html>
-
