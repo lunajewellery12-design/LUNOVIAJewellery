@@ -1,130 +1,70 @@
-// تشغيل منطق تسجيل الدخول الفاخر لـ LUNOVIA
+// الانتظار حتى تحميل كامل عناصر الصفحة (DOM) لضمان ربط الأزرار بنجاح
 document.addEventListener('DOMContentLoaded', () => {
-    const loginModal = document.getElementById('loginModal');
     const adminBtn = document.getElementById('adminBtn');
-    const closeModal = document.getElementById('closeModal');
-    const adminLoginForm = document.getElementById('adminLoginForm');
-    const loginError = document.getElementById('loginError');
+    const closeModalBtn = document.querySelector('.close-modal');
+    const modalOverlay = document.getElementById('auth-modal');
 
-    // 1. فتح وإغلاق النافذة المنبثقة
-    if (adminBtn && loginModal) {
+    // 1. ربط زر "لوحة الإدارة" في الهيدر لفتح النافذة
+    if (adminBtn) {
         adminBtn.addEventListener('click', (e) => {
-            e.preventDefault();
-            loginModal.style.display = 'flex';
+            e.preventDefault(); // يمنع الصفحة من القفز لأعلى عند الضغط
+            openAuthModal();
         });
     }
 
-    if (closeModal && loginModal) {
-        closeModal.addEventListener('click', () => {
-            loginModal.style.display = 'none';
-            if (loginError) loginError.style.display = 'none';
+    // 2. ربط علامة الـ X لإغلاق النافذة
+    if (closeModalBtn) {
+        closeModalBtn.addEventListener('click', (e) => {
+            e.preventDefault();
+            closeAuthModal();
         });
     }
 
-    // إغلاق النافذة عند الضغط خارجها
-    window.addEventListener('click', (e) => {
-        if (e.target === loginModal) {
-            loginModal.style.display = 'none';
-            if (loginError) loginError.style.display = 'none';
-        }
-    });
-
-    // 2. التحقق من بيانات دخول الإدارة والتحويل لصفحة لوحة التحكم
-    if (adminLoginForm) {
-        adminLoginForm.addEventListener('submit', (e) => {
-            e.preventDefault();
-            
-            const email = document.getElementById('adminEmail').value.trim();
-            const password = document.getElementById('adminPassword').value.trim();
-
-            // البريد الإلكتروني المعتمد لكلمة سر الإدارة (تستطيع تعديلها بحرية)
-            if (email === "jewellery12@gmail.com" && password === "12345678") {
-                // حفظ جلسة الإدارة في المتصفح للتعرف عليه في لوحة التحكم
-                localStorage.setItem('lunovia_user', JSON.stringify({
-                    name: "المدير العام",
-                    role: "admin",
-                    provider: "لوحة التحكم الرئيسية"
-                }));
-                
-                if (loginError) loginError.style.display = 'none';
-                alert("✨ تم التحقق من هويتك بنجاح! جاري الانتقال للوحة الإدارة الفاخرة...");
-                window.location.href = "admin.html"; // التوجيه لصفحة الإدارة
-            } else {
-                if (loginError) loginError.style.display = 'block';
+    // 3. إغلاق النافذة تلقائياً عند الضغط في أي مكان خارج الصندوق المضيء
+    if (modalOverlay) {
+        modalOverlay.addEventListener('click', (e) => {
+            if (e.target === modalOverlay) {
+                closeAuthModal();
             }
         });
     }
 });
 
-// 3. التبديل الفخم بين تبويبات الإدارة والعملاء في واجهة تسجيل الدخول
-function switchLoginTab(type) {
-    const adminForm = document.getElementById('adminLoginForm');
-    const clientSection = document.getElementById('clientLoginSection');
-    const tabs = document.querySelectorAll('.tab-btn');
-
-    tabs.forEach(btn => btn.classList.remove('active'));
-
-    if (type === 'admin') {
-        tabs[0].classList.add('active');
-        if (adminForm) adminForm.style.display = 'block';
-        if (clientSection) clientSection.style.display = 'none';
-    } else {
-        tabs[1].classList.add('active');
-        if (adminForm) adminForm.style.display = 'none';
-        if (clientSection) clientSection.style.display = 'block';
+// دالة لفتح نافذة تسجيل الدخول برمجياً وبنعومة
+function openAuthModal() {
+    const modal = document.getElementById('auth-modal');
+    if (modal) {
+        modal.style.display = 'flex';
+        setTimeout(() => {
+            modal.classList.add('active');
+        }, 10);
     }
 }
 
-// 4. دالة تسجيل دخول العميل الفورية وتنشيط حسابه
-function loginAsClient(platform) {
-    const randomID = Math.floor(1000 + Math.random() * 9000);
-    const clientName = `عميل متميز #${randomID}`;
-    
-    // حفظ بيانات العميل في الذاكرة لتخصيص عمليات الشراء والتحليلات
-    localStorage.setItem('lunovia_user', JSON.stringify({
-        name: clientName,
-        role: "client",
-        provider: platform
-    }));
-
-    alert(`✨ أهلاً بك! تم تسجيل دخولك بنجاح عبر منصة [ ${platform} ]. مقتنياتك الفاخرة باتت محفوظة الآن.`);
-    
-    // إغلاق المودال تلقائياً
-    const loginModal = document.getElementById('loginModal');
-    if (loginModal) loginModal.style.display = 'none';
-}
-
-// دالة لفتح نافذة تسجيل الدخول وإظهارها بنعومة
-function openAuthModal() {
-    const modal = document.getElementById('auth-modal');
-    modal.style.display = 'flex';
-    setTimeout(() => {
-        modal.classList.add('active');
-    }, 10);
-}
-
-// دالة لإغلاق النافذة وإخفائها من الشاشة بالكامل
+// دالة لإغلاق النافذة برمجياً بالكامل
 function closeAuthModal() {
     const modal = document.getElementById('auth-modal');
-    modal.classList.remove('active');
-    setTimeout(() => {
-        modal.style.display = 'none';
-    }, 300); // متوافق مع وقت الـ Transition في الـ CSS لضمان الخروج السلس
+    if (modal) {
+        modal.classList.remove('active');
+        setTimeout(() => {
+            modal.style.display = 'none';
+        }, 300); // يتوافق مع تأثير الحركة التدريجي بالـ CSS
+    }
 }
 
-// دالة التبديل التفاعلي بين تبويبات تسجيل الدخول
+// دالة التبديل بين حساب العميل وحساب الإدارة داخل النافذة
 function switchAuthRole(role) {
     const tabAdmin = document.getElementById('tab-admin');
     const tabCustomer = document.getElementById('tab-customer');
     const subtitle = document.getElementById('auth-subtitle');
     
     if (role === 'admin') {
-        tabAdmin.classList.add('active');
-        tabCustomer.classList.remove('active');
-        subtitle.innerText = "لوحة التحكم بالإدارة";
+        if (tabAdmin) tabAdmin.classList.add('active');
+        if (tabCustomer) tabCustomer.classList.remove('active');
+        if (subtitle) subtitle.innerText = "لوحة التحكم بالإدارة";
     } else {
-        tabCustomer.classList.add('active');
-        tabAdmin.classList.remove('active');
-        subtitle.innerText = "تسجيل دخول العميل الفاخر";
+        if (tabCustomer) tabCustomer.classList.add('active');
+        if (tabAdmin) tabAdmin.classList.remove('active');
+        if (subtitle) subtitle.innerText = "تسجيل دخول العميل الفاخر";
     }
 }
