@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Luna Jewellery | متجر الفخامة الأول</title>
+    <title>Luna Jewellery | عالم الفخامة الهادئة</title>
     <link rel="stylesheet" href="css/style.css">
     <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700&family=Cinzel:wght@700&display=swap" rel="stylesheet">
 </head>
@@ -14,75 +14,70 @@
             <img class="logo-img" src="logo.png" alt="Luna Logo" onerror="this.src='https://images.unsplash.com/photo-1617038260897-41a1f14a8ca0?w=100'">
             <h1 class="brand-name">Luna Jewellery</h1>
         </div>
-        <div>
-            <button class="btn" onclick="openLoginModal()" id="login-nav-btn">تسجيل الدخول</button>
-            <button class="btn" onclick="showSection('cart-section')">السلة (<span id="cart-count">0</span>)</button>
+        <div style="display: flex; gap: 10px;">
+            <button class="btn btn-secondary" onclick="openLoginModal()" id="login-nav-btn">دخول الإدارة / الحساب</button>
+            <button class="btn" onclick="showSection('cart-section')">الحقيبة (<span id="cart-count">0</span>)</button>
         </div>
     </header>
 
-    <!-- شاشة المعرض الرئيسية -->
-    <section id="store-section" class="store-page">
-        <div class="products-grid" id="products-container">
-            <!-- المنتجات الـ 70 تولد ديناميكياً بواسطة store.js لمنع بطء تحميل الصفحة -->
-        </div>
+    <!-- شاشة المعرض الرئيسية المريحة للعين -->
+    <section id="store-section">
+        <div class="products-grid" id="products-container"></div>
     </section>
 
     <!-- شاشة السلة والدفع والتوصيل المحسنة -->
-    <section id="cart-section" class="modal-content" style="display:none; max-width:800px; margin:40px auto; padding:30px;">
-        <h2>حقيبة المشتريات وتفاصيل التوصيل</h2>
-        <div id="cart-items" style="margin-bottom:20px;"></div>
+    <section id="cart-section" class="modal-content" style="display:none; max-width:700px; margin:60px auto;">
+        <h2 style="margin-bottom:20px; font-weight:700;">تفاصيل طلبك الفاخر</h2>
+        <div id="cart-items" style="margin-bottom:25px; border-bottom:1px solid var(--border-color); padding-bottom:15px;"></div>
         
-        <div style="font-size:20px; font-weight:700; margin-bottom:20px; text-align:left;">
-            المجموع: <span id="cart-total" style="color:var(--logo-gold);">0</span> ج.م
+        <div style="font-size:20px; font-weight:700; margin-bottom:25px; display:flex; justify-content:space-between;">
+            <span>إجمالي القيمة:</span>
+            <span id="cart-total" style="color:var(--luxury-gold);">0 ج.م</span>
         </div>
 
-        <!-- فورم شحن احترافي ومفصل -->
-        <form id="shipping-form" style="display:grid; gap:15px; margin-bottom:25px;">
-            <h3>بيانات التوصيل والشحن</h3>
-            <input type="text" id="cust-name" placeholder="الاسم ثلاثي" class="form-input" required style="padding:12px; border-radius:8px; border:1px solid #ddd;">
-            <input type="tel" id="cust-phone" placeholder="رقم الهاتف للتواصل" class="form-input" required style="padding:12px; border-radius:8px; border:1px solid #ddd;">
+        <form id="shipping-form" style="display:grid; gap:15px;">
+            <h3 style="font-size:16px; color:var(--luxury-gold); margin-bottom:5px;">بيانات التوصيل والشحن</h3>
+            <input type="text" id="cust-name" placeholder="الاسم ثلاثي" class="form-input" required>
+            <input type="tel" id="cust-phone" placeholder="رقم هاتف العميل" class="form-input" required>
             <div style="display:grid; grid-template-columns:1fr 1fr; gap:10px;">
-                <input type="text" id="cust-gov" placeholder="المحافظة" required style="padding:12px; border-radius:8px; border:1px solid #ddd;">
-                <input type="text" id="cust-city" placeholder="المدينة/المنطقة" required style="padding:12px; border-radius:8px; border:1px solid #ddd;">
+                <input type="text" id="cust-gov" placeholder="المحافظة" class="form-input" required>
+                <input type="text" id="cust-city" placeholder="المدينة" class="form-input" required>
             </div>
             <div style="display:grid; grid-template-columns:2fr 1fr 1fr; gap:10px;">
-                <input type="text" id="cust-street" placeholder="الشارع" required style="padding:12px; border-radius:8px; border:1px solid #ddd;">
-                <input type="text" id="cust-building" placeholder="العمارة" required style="padding:12px; border-radius:8px; border:1px solid #ddd;">
-                <input type="text" id="cust-floor" placeholder="الشقة/الدور" required style="padding:12px; border-radius:8px; border:1px solid #ddd;">
+                <input type="text" id="cust-street" placeholder="الشارع" class="form-input" required>
+                <input type="text" id="cust-building" placeholder="العمارة" class="form-input" required>
+                <input type="text" id="cust-floor" placeholder="رقم الشقة" class="form-input" required>
             </div>
-            <button type="button" class="btn" style="background:#e60000; color:#fff;" onclick="sendOrder()">تأكيد الشراء عبر فودافون كاش (01065859268)</button>
+            <button type="button" class="btn" style="background:#128c7e; border-color:#128c7e;" onclick="sendOrder()">تأكيد الطلب عبر WhatsApp 💬</button>
         </form>
     </section>
 
-    <!-- نافذة تسجيل الدخول للمستخدمين والمديرين -->
+    <!-- نافذة تسجيل الدخول المزدوجة (عملاء / إدارة آمنة) -->
     <div id="login-modal" class="modal">
         <div class="modal-content">
-            <h2 style="text-align:center; color:var(--logo-gold);">انضم إلى عائلة لونا</h2>
-            <p style="text-align:center; font-size:13px; color:#666;">سجل دخولك لتجربة تسوق مخصصة</p>
+            <h2 style="text-align:center; color:var(--luxury-gold); margin-bottom:10px;">تسجيل الدخول الآمن</h2>
             
+            <!-- بوابات الدخول السريع للعملاء -->
             <div class="auth-providers">
                 <button class="provider-btn" onclick="mockLogin('Google')">
-                    <img src="https://cdn-icons-png.flaticon.com/512/300/300221.png" class="provider-icon" alt="Google">
-                    جوجل
+                    <img src="https://cdn-icons-png.flaticon.com/512/300/300221.png" class="provider-icon" alt="Google"> جوجل
                 </button>
                 <button class="provider-btn" onclick="mockLogin('Apple')">
-                    <img src="https://cdn-icons-png.flaticon.com/512/0/747.png" class="provider-icon" alt="Apple">
-                    آبل
-                </button>
-                <button class="provider-btn" onclick="mockLogin('Phone')">
-                    <img src="https://cdn-icons-png.flaticon.com/512/15/15874.png" class="provider-icon" alt="Phone">
-                    الهاتف
-                </button>
-                <button class="provider-btn" onclick="mockLogin('Guest')">
-                    <img src="https://cdn-icons-png.flaticon.com/512/1077/1077114.png" class="provider-icon" alt="Guest">
-                    حساب ضيف
+                    <img src="https://cdn-icons-png.flaticon.com/512/0/747.png" class="provider-icon" alt="Apple"> آبل
                 </button>
             </div>
 
-            <div style="margin-top:20px; text-align:center;">
-                <a href="admin.html" style="color:var(--logo-dark-gold); text-decoration:none; font-weight:700; font-size:14px;">دخول كإدارة متجر لونا 🔑</a>
+            <hr style="border:none; border-top:1px solid var(--border-color); margin:25px 0;">
+
+            <!-- بوابة المسؤولين الحصرية لـ فيراس -->
+            <h4 style="margin-bottom:12px; font-size:14px; text-align:center; color:var(--text-muted);">تسجيل دخول الإدارة (خاص بـ Luna Jewellery)</h4>
+            <div style="display:grid; gap:10px;">
+                <input type="email" id="admin-email" placeholder="البريد الإلكتروني للإدارة" class="form-input">
+                <input type="password" id="admin-pass" placeholder="كلمة المرور" class="form-input">
+                <button class="btn" onclick="tryAdminLogin()" style="background-color:var(--luxury-gold); border-color:var(--luxury-gold);">دخول لوحة التحكم</button>
             </div>
-            <button class="btn" onclick="closeLoginModal()" style="width:100%; margin-top:15px;">إغلاق</button>
+
+            <button class="btn btn-secondary" onclick="closeLoginModal()" style="width:100%; margin-top:20px;">إغلاق</button>
         </div>
     </div>
 
@@ -90,4 +85,3 @@
     <script src="js/store.js"></script>
 </body>
 </html>
-
