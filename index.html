@@ -35,8 +35,12 @@
     </header>
 
     <!-- البار العلوي المنزلق للمنتجات (Product Slider) -->
-    <section class="slider-container" id="home">
-        <div class="slider">
+<!-- زر الشريحة السابقة (اليسار) -->
+<button class="slide-btn prev" onclick="prevSlide()">‹</button>
+
+<!-- زر الشريحة التالية (اليمين) -->
+<button class="slide-btn next" onclick="nextSlide()">›</button>
+
             <!-- الشريحة الأولى -->
             <div class="slide active" style="background-image: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('https://images.unsplash.com/photo-1599643478518-a784e5dc4c8f?auto=format&fit=crop&w=1200&q=80');">
                 <div class="slide-content">
@@ -64,8 +68,9 @@
         <button class="slide-btn next" onclick="nextSlide()">&#10095;</button>
     </section>
 
-    <!-- مسافة فاصلة منسقة قبل بدء صف العروض -->
-    <div class="section-divider"></div>
+   <div id="products-container" class="offers-grid">
+    <!-- اتركه فارغاً هنا، ملف store.js سيقوم بملئه تلقائياً بالـ 70 قطعة الفاخرة! -->
+</div>
 
     <!-- قسم العروض والمنتجات الأكثر تنسيقاً واحترافية -->
     <section id="offers" class="offers-section">
