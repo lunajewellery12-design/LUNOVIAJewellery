@@ -1,26 +1,28 @@
-/* الألوان والهوية البصرية الفخمة (أسود مخملي وذهبي ملكي) */
+/* استيراد الخطوط الفخمة */
 @import url('https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700&family=Cinzel:wght@500;700&display=swap');
 
 :root {
     --gold-primary: #d4af37; /* ذهبي لامع */
     --gold-hover: #f3e5ab;   /* ذهبي فاتح */
     --dark-bg: #0d0d0d;      /* أسود غامق */
-    --card-bg: #141414;      /* أسود مخملي للكروت */
+    --card-bg: #141414;      /* أسود مخملي */
     --text-white: #ffffff;
     --text-muted: #a6a6a6;
     --border-gold: rgba(212, 175, 55, 0.3);
 }
 
+/* إعادة تهيئة وإصلاح التداخل العام */
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
     font-family: 'Cairo', sans-serif;
-    scroll-behavior: smooth;
+    text-decoration: none;
+    list-style: none;
 }
 
 body {
-    background-color: var(--dark-bg);
+    background-color: var(--dark-bg) !important; /* إجبار الخلفية السوداء الفخمة */
     color: var(--text-white);
     overflow-x: hidden;
 }
@@ -29,29 +31,33 @@ body {
 .domain-bar {
     background: linear-gradient(90deg, #1a1a1a, #2c2512, #1a1a1a);
     text-align: center;
-    padding: 8px 10px;
+    padding: 10px;
     font-size: 0.85rem;
     border-bottom: 1px solid var(--gold-primary);
 }
 
 .domain-bar a {
     color: var(--gold-primary);
-    text-decoration: none;
     font-weight: bold;
-    letter-spacing: 0.5px;
 }
 
-/* الترويسة الرئيسية */
+/* الترويسة واستجابتها للهواتف (حل مشكلة القائمة النقطية الزرقاء) */
 header {
-    background-color: rgba(13, 13, 13, 0.95);
+    background-color: #0d0d0d;
     display: flex;
-    justify-content: space-between;
+    flex-direction: column; /* الترتيب الرأسي الذكي للهواتف */
     align-items: center;
-    padding: 15px 8%;
+    padding: 20px 10px;
     border-bottom: 1px solid var(--border-gold);
-    position: sticky;
-    top: 0;
-    z-index: 999;
+    gap: 15px;
+}
+
+@media (min-width: 768px) {
+    header {
+        flex-direction: row; /* ترتيب أفقي للشاشات الكبيرة */
+        justify-content: space-between;
+        padding: 15px 8%;
+    }
 }
 
 .logo {
@@ -61,101 +67,127 @@ header {
 .logo-text {
     font-family: 'Cinzel', serif;
     color: var(--gold-primary);
-    font-size: 1.8rem;
+    font-size: 2rem;
     letter-spacing: 2px;
     line-height: 1;
 }
 
 .logo-sub {
     font-family: 'Cinzel', serif;
-    font-size: 0.65rem;
+    font-size: 0.7rem;
     color: var(--text-white);
-    letter-spacing: 6px;
-    margin-top: 4px;
+    letter-spacing: 5px;
+    margin-top: 5px;
 }
 
+/* إزالة النقط الزرقاء وتنسيق الروابط للهواتف */
 .nav-links {
     display: flex;
-    list-style: none;
-    align-items: center;
+    gap: 15px;
+    justify-content: center;
+    flex-wrap: wrap; /* لمنع التداخل على الشاشات الصغيرة جداً */
+    padding: 0;
 }
 
 .nav-links li {
-    margin-right: 25px;
+    list-style: none !important;
 }
 
 .nav-links a {
-    text-decoration: none;
-    color: var(--text-white);
+    color: var(--text-white) !important;
     font-weight: 600;
-    font-size: 0.95rem;
+    font-size: 0.9rem;
+    padding: 5px 10px;
     transition: 0.3s;
 }
 
 .nav-links a:hover, .nav-links a.active {
-    color: var(--gold-primary);
+    color: var(--gold-primary) !important;
+    border-bottom: 2px solid var(--gold-primary);
 }
 
-/* البار العلوي المنزلق المتحرك (Slider) */
+/* --- حل مشكلة السلايدر والتداخل بشكل كامل وجذري --- */
 .slider-container {
     position: relative;
     width: 100%;
-    height: 70vh;
+    height: 300px; /* تحديد طول ثابت ومناسب للهواتف لمنع التراكم */
+    background-color: #000;
     overflow: hidden;
 }
 
+@media (min-width: 768px) {
+    .slider-container {
+        height: 500px; /* طول أكبر للشاشات الكبيرة */
+    }
+}
+
 .slider {
+    position: relative;
     width: 100%;
     height: 100%;
 }
 
 .slide {
     position: absolute;
+    top: 0;
+    left: 0;
     width: 100%;
     height: 100%;
     opacity: 0;
-    transition: opacity 1s ease-in-out;
+    visibility: hidden;
+    transition: opacity 0.8s ease-in-out, visibility 0.8s ease-in-out;
     background-size: cover;
     background-position: center;
     display: flex;
     align-items: center;
     justify-content: center;
+    z-index: 1;
 }
 
+/* الشريحة النشطة فقط هي التي تظهر ويتم إخفاء البقية تماماً */
 .slide.active {
     opacity: 1;
+    visibility: visible;
+    z-index: 2;
 }
 
 .slide-content {
     text-align: center;
-    color: #fff;
-    padding: 20px;
+    background: rgba(0, 0, 0, 0.6); /* طبقة داكنة لضمان وضوح النصوص */
+    padding: 15px 25px;
+    border-radius: 8px;
+    width: 85%;
+    max-width: 500px;
 }
 
 .slide-content h2 {
-    font-size: 2.5rem;
+    font-size: 1.4rem;
     color: var(--gold-primary);
-    margin-bottom: 15px;
-    text-shadow: 2px 2px 4px rgba(0,0,0,0.8);
+    margin-bottom: 8px;
 }
 
 .slide-content p {
-    font-size: 1.2rem;
-    text-shadow: 1px 1px 3px rgba(0,0,0,0.8);
+    font-size: 0.9rem;
+    color: var(--text-white);
 }
 
-/* أزرار التنقل بالبار المنزلق */
+/* أزرار السلايدر لتبدو متناسقة على الهواتف */
 .slide-btn {
     position: absolute;
     top: 50%;
     transform: translateY(-50%);
-    background: rgba(0,0,0,0.5);
-    color: white;
+    background: rgba(13, 13, 13, 0.8);
+    color: var(--gold-primary);
     border: 1px solid var(--gold-primary);
-    padding: 15px;
+    width: 40px;
+    height: 40px;
     cursor: pointer;
-    font-size: 1.2rem;
+    font-size: 1rem;
     border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 10;
     transition: 0.3s;
 }
 
@@ -164,45 +196,42 @@ header {
     color: #000;
 }
 
-.prev { right: 20px; }
-.next { left: 20px; }
+.prev { left: 10px; }
+.next { right: 10px; }
 
-/* مسافة فاصلة منسقة بعناية قبل قسم العروض */
+/* مسافة فاصلة منسقة قبل قسم العروض */
 .section-divider {
-    height: 80px;
-    background: radial-gradient(circle, rgba(212,175,55,0.1) 0%, rgba(13,13,13,0) 70%);
+    height: 40px;
 }
 
 /* قسم العروض والمنتجات */
 .offers-section {
-    padding: 0 8% 80px 8%;
+    padding: 20px 5% 60px 5%;
 }
 
 .section-title {
     text-align: center;
-    margin-bottom: 50px;
+    margin-bottom: 35px;
 }
 
 .section-title h2 {
-    font-size: 2.2rem;
-    font-family: 'Cairo', sans-serif;
+    font-size: 1.8rem;
     color: var(--gold-primary);
-    letter-spacing: 1px;
 }
 
 .tagline {
     font-family: 'Cinzel', serif;
-    font-size: 0.8rem;
-    letter-spacing: 4px;
-    color: var(--text-white);
+    font-size: 0.75rem;
+    letter-spacing: 3px;
+    color: var(--text-muted);
     margin-top: 5px;
 }
 
-/* شبكة كروت العروض المنسقة */
+/* كروت العروض المنسقة */
 .offers-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-    gap: 40px;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 30px;
 }
 
 .offer-card {
@@ -210,247 +239,60 @@ header {
     border: 1px solid var(--border-gold);
     border-radius: 12px;
     overflow: hidden;
-    transition: 0.4s ease;
-}
-
-.offer-card:hover {
-    transform: translateY(-10px);
-    box-shadow: 0 10px 20px rgba(212, 175, 55, 0.15);
 }
 
 .offer-img {
-    height: 280px;
+    height: 240px;
     background-size: cover;
     background-position: center;
-    position: relative;
-}
-
-.badge {
-    position: absolute;
-    top: 15px;
-    right: 15px;
-    background-color: var(--gold-primary);
-    color: #000;
-    padding: 5px 12px;
-    font-size: 0.75rem;
-    font-weight: bold;
-    border-radius: 4px;
 }
 
 .offer-details {
-    padding: 25px;
+    padding: 20px;
 }
 
 .offer-details h3 {
     color: var(--gold-primary);
-    font-size: 1.3rem;
-    margin-bottom: 12px;
+    font-size: 1.2rem;
+    margin-bottom: 10px;
 }
 
 .offer-desc {
     color: var(--text-muted);
-    font-size: 0.9rem;
-    line-height: 1.6;
-    height: 70px;
-    overflow: hidden;
+    font-size: 0.85rem;
+    line-height: 1.5;
+    margin-bottom: 15px;
 }
 
 .price-row {
     display: flex;
     align-items: center;
     gap: 15px;
-    margin: 20px 0;
+    margin-bottom: 15px;
 }
 
 .old-price {
     color: #e74c3c;
     text-decoration: line-through;
-    font-size: 1rem;
+    font-size: 0.95rem;
 }
 
 .new-price {
     color: #2ecc71;
     font-weight: bold;
-    font-size: 1.4rem;
+    font-size: 1.3rem;
 }
 
-/* الأزرار العامة */
+/* الأزرار الفخمة */
 .btn {
-    display: inline-block;
-    background: linear-gradient(135deg, #d4af37, #aa7c11);
-    color: #000;
-    border: none;
-    padding: 12px 25px;
-    border-radius: 6px;
-    font-weight: bold;
-    cursor: pointer;
-    transition: 0.3s;
-    width: 100%;
-    text-align: center;
-}
-
-.btn:hover {
-    background: linear-gradient(135deg, #f3e5ab, #d4af37);
-    transform: scale(1.02);
-}
-
-/* نافذة تسجيل الدخول المنبثقة (Modal) */
-.modal {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(0,0,0,0.85);
-    display: none;
-    align-items: center;
-    justify-content: center;
-    z-index: 1000;
-}
-
-.modal-content {
-    background-color: var(--card-bg);
-    border: 2px solid var(--gold-primary);
-    padding: 40px;
-    border-radius: 15px;
-    width: 100%;
-    max-width: 420px;
-    position: relative;
-    text-align: center;
-}
-
-.close-btn {
-    position: absolute;
-    top: 15px;
-    left: 20px;
-    font-size: 2rem;
-    color: var(--gold-primary);
-    cursor: pointer;
-}
-
-.modal-logo h2 {
-    font-family: 'Cinzel', serif;
-    color: var(--gold-primary);
-    letter-spacing: 2px;
-}
-
-.modal-logo p {
-    font-size: 0.8rem;
-    color: var(--text-muted);
-    margin-bottom: 30px;
-}
-
-.input-group {
-    text-align: right;
-    margin-bottom: 20px;
-}
-
-.input-group label {
     display: block;
-    font-size: 0.85rem;
-    color: var(--text-muted);
-    margin-bottom: 5px;
-}
-
-.input-group input {
     width: 100%;
-    padding: 12px;
-    background-color: #222;
-    border: 1px solid var(--border-gold);
-    border-radius: 6px;
-    color: white;
-}
-
-.input-group input:focus {
-    outline: 2px solid var(--gold-primary);
-}
-
-.submit-btn {
-    margin-top: 10px;
-}
-
-.divider-text {
-    margin: 25px 0 15px 0;
-    font-size: 0.8rem;
-    color: var(--text-muted);
-    position: relative;
-}
-
-/* توازن وتناسق أزرار البريد و iCloud بدقة تامة */
-.social-login-container {
-    display: flex;
-    justify-content: center;
-    gap: 15px;
-}
-
-.social-btn {
-    background: #222;
-    border: 1px solid var(--border-gold);
-    width: 45px;          /* تم تحجيم الأيقونة بشكل رائع */
-    height: 45px;         /* حجم دائري موحد ومتناسق جداً */
-    border-radius: 50%;
-    color: white;
-    font-size: 1.1rem;    /* حجم الأيقونة الداخلية مناسب */
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    cursor: pointer;
-    transition: 0.3s;
-}
-
-.social-btn:hover {
-    background-color: var(--gold-primary);
-    color: #000;
-}
-
-.error-msg {
-    color: #e74c3c;
-    font-size: 0.85rem;
-    margin-top: 15px;
-    display: none;
-}
-
-/* التذييل */
-footer {
-    background-color: #050505;
-    padding: 30px;
+    background: linear-gradient(135deg, #d4af37, #aa7c11);
+    color: #000 !important;
     text-align: center;
-    border-top: 1px solid var(--border-gold);
+    padding: 12px;
+    font-weight: bold;
+    border-radius: 6px;
+    border: none;
+    cursor: pointer;
 }
-
-.footer-content h3 {
-    font-family: 'Cinzel', serif;
-    color: var(--gold-primary);
-    font-size: 1.4rem;
-}
-
-.footer-content p {
-    font-size: 0.85rem;
-    color: var(--text-muted);
-    margin-top: 5px;
-}
-
-.footer-domain {
-    margin-top: 15px;
-    font-size: 0.75rem;
-}
-
-/* الاستجابة للهواتف المحمولة */
-@media (max-width: 768px) {
-    header {
-        flex-direction: column;
-        padding: 15px;
-    }
-    .nav-links {
-        margin-top: 15px;
-    }
-    .nav-links li {
-        margin: 0 10px;
-    }
-    .slider-container {
-        height: 50vh;
-    }
-    .slide-content h2 {
-        font-size: 1.8rem;
-    }
-    }
