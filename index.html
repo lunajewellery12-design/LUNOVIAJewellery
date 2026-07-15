@@ -4,10 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>LUNOVIA Jewellery | Shine like the moon</title>
-    <!-- في ملف index.html و admin.html -->
-<link rel="stylesheet" href="css/style.css?v=1.2">
-
-
+    <!-- استدعاء ملف الـ CSS مع ميز كسر الكاش لضمان تحميل التصميم الجديد -->
+    <link rel="stylesheet" href="css/style.css?v=2.0">
     <!-- FontAwesome الأيقونات الفخمة -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
@@ -21,117 +19,90 @@
     <!-- الترويسة الرئيسية (Header) -->
     <header>
         <div class="logo">
-            <h1 class="logo-text">LUNOVIA</h1>
-            <p class="logo-sub">JEWELLERY</p>
+            <a href="index.html">
+                <img src="logo.png" alt="LUNOVIA" class="logo-img">
+            </a>
         </div>
         <nav>
             <ul class="nav-links">
-                <li><a href="#home" class="active">الرئيسية</a></li>
-                <li><a href="#offers">العروض الخاصة</a></li>
-                <li><a href="#about">قصتنا</a></li>
+                <li><a href="#" class="active" onclick="showSection('store-section')">الرئيسية</a></li>
+                <li><a href="#" onclick="showSection('cart-section')">الحقيبة الفاخرة <span id="cart-count">0</span></a></li>
                 <li><a href="#" id="adminBtn"><i class="fas fa-user-shield"></i> لوحة الإدارة</a></li>
             </ul>
         </nav>
     </header>
 
-    <!-- البار العلوي المنزلق للمنتجات (Product Slider) -->
-<!-- زر الشريحة السابقة (اليسار) -->
-<button class="slide-btn prev" onclick="prevSlide()">‹</button>
-
-<!-- زر الشريحة التالية (اليمين) -->
-<button class="slide-btn next" onclick="nextSlide()">›</button>
-
-            <!-- الشريحة الأولى -->
-            <div class="slide active" style="background-image: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('https://images.unsplash.com/photo-1599643478518-a784e5dc4c8f?auto=format&fit=crop&w=1200&q=80');">
-                <div class="slide-content">
-                    <h2>مجموعتنا الذهبية اللامعة</h2>
-                    <p>بريقٌ مستوحى من سحر القمر ونقاء الذهب</p>
+    <!-- قسم المتجر الرئيسي والديناميكي -->
+    <main id="store-section">
+        
+        <!-- قسم السلايدر (عرض الصور المتحركة) المصلح هيكلياً بالكامل -->
+        <section class="slider-container">
+            <div class="slider">
+                <!-- الشريحة الأولى -->
+                <div class="slide active" style="background-image: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('https://images.unsplash.com/photo-1599643478518-a784e5dc4c8f?auto=format&fit=crop&w=1200&q=80');">
+                    <div class="slide-content">
+                        <h2>مجموعتنا الذهبية اللامعة</h2>
+                        <p>بريقٌ مستوحى من سحر القمر ونقاء الذهب</p>
+                    </div>
+                </div>
+                <!-- الشريحة الثانية -->
+                <div class="slide" style="background-image: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('https://images.unsplash.com/photo-1535632066927-ab7c9ab60908?auto=format&fit=crop&w=1200&q=80');">
+                    <div class="slide-content">
+                        <h2>قلائد اللؤلؤ الفاخرة</h2>
+                        <p>قطع فنية صُممت لتمنحك إطلالة ملكية ساحرة</p>
+                    </div>
+                </div>
+                <!-- الشريحة الثالثة -->
+                <div class="slide" style="background-image: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('https://images.unsplash.com/photo-1601121141461-9d6647bca1ed?auto=format&fit=crop&w=1200&q=80');">
+                    <div class="slide-content">
+                        <h2>خواتم الألماس النقية</h2>
+                        <p>صياغة دقيقة تخلّد أجمل لحظات العمر</p>
+                    </div>
                 </div>
             </div>
-            <!-- الشريحة الثانية -->
-            <div class="slide" style="background-image: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('https://images.unsplash.com/photo-1535632066927-ab7c9ab60908?auto=format&fit=crop&w=1200&q=80');">
-                <div class="slide-content">
-                    <h2>قلائد اللؤلؤ الفاخرة</h2>
-                    <p>قطع فنية صُممت لتمنحك إطلالة ملكية ساحرة</p>
-                </div>
-            </div>
-            <!-- الشريحة الثالثة -->
-            <div class="slide" style="background-image: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('https://images.unsplash.com/photo-1601121141461-9d6647bca1ed?auto=format&fit=crop&w=1200&q=80');">
-                <div class="slide-content">
-                    <h2>خواتم الألماس النقية</h2>
-                    <p>صياغة دقيقة تخلّد أجمل لحظات العمر</p>
-                </div>
-            </div>
-        </div>
-        <!-- أزرار التنقل -->
-        <button class="slide-btn prev" onclick="prevSlide()">&#10094;</button>
-        <button class="slide-btn next" onclick="nextSlide()">&#10095;</button>
-    </section>
+            <!-- أزرار التنقل البرمجية المصلحة داخل الحاوية -->
+            <button class="slide-btn prev" onclick="prevSlide()">‹</button>
+            <button class="slide-btn next" onclick="nextSlide()">›</button>
+        </section>
 
-   <div id="products-container" class="offers-grid">
-    <!-- اتركه فارغاً هنا، ملف store.js سيقوم بملئه تلقائياً بالـ 70 قطعة الفاخرة! -->
-</div>
-
-    <!-- قسم العروض والمنتجات الأكثر تنسيقاً واحترافية -->
-    <section id="offers" class="offers-section">
-        <div id="products-container" class="offers-grid">
-    <!-- اتركه فارغاً هنا، ملف store.js سيقوم بملئه تلقائياً بالـ 70 قطعة الفاخرة! -->
-</div>
-
-            <h2>العروض والقطع المختارة</h2>
-            <p class="tagline">SHINE LIKE THE MOON</p>
+        <!-- قسم تصنيفات المنتجات (البار المنزلق الأنيق) -->
+        <div id="category-bar-container">
+            <!-- سيقوم ملف store.js بإنشاء أزرار التصنيفات هنا ديناميكياً وبشكل منسق -->
         </div>
 
-        <div class="offers-grid">
-            <!-- العرض الأول: عقد اللؤلؤ الاستثنائي -->
-            <div class="offer-card">
-                <div class="offer-img" style="background-image: url('https://images.unsplash.com/photo-1515562141207-7a88fb7ce338?auto=format&fit=crop&w=600&q=80');">
-                    <span class="badge">الأكثر طلباً</span>
-                </div>
-                <div class="offer-details">
-                    <h3>عقد اللؤلؤ "مونلايت" الفخم</h3>
-                    <p class="offer-desc">سلسلة من الذهب الخالص عيار 18 تزدان بلؤلؤة طبيعية مستديرة مستوحاة من هلال Lunovia الساحر.</p>
-                    <div class="price-row">
-                        <span class="old-price">450$</span>
-                        <span class="new-price">390$</span>
-                    </div>
-                    <button class="btn buy-btn" onclick="openOrder('عقد اللؤلؤ مونلايت - 390$')">اطلب الآن</button>
-                </div>
+        <!-- قسم العروض والمنتجات الأكثر تنسيقاً واحترافية -->
+        <section id="offers" class="offers-section">
+            <div class="section-title">
+                <h2>العروض والقطع المختارة</h2>
+                <p class="tagline">SHINE LIKE THE MOON</p>
             </div>
 
-            <!-- العرض الثاني: خاتم السوليتير الملكي -->
-            <div class="offer-card">
-                <div class="offer-img" style="background-image: url('https://images.unsplash.com/photo-1605100804763-247f67b3557e?auto=format&fit=crop&w=600&q=80');">
-                    <span class="badge">خصم خاص</span>
-                </div>
-                <div class="offer-details">
-                    <h3>خاتم السوليتير "أورورا"</h3>
-                    <p class="offer-desc">صياغة دقيقة من البلاتين اللامع يتوسطها حجر ألماس نقي صمم ليعكس النجوم والبريق الأبدي.</p>
-                    <div class="price-row">
-                        <span class="old-price">550$</span>
-                        <span class="new-price">450$</span>
-                    </div>
-                    <button class="btn buy-btn" onclick="openOrder('خاتم السوليتير أورورا - 450$')">اطلب الآن</button>
-                </div>
-            </div>
+            <!-- حاوية المنتجات الوحيدة والأساسية (سيتم تفريغ الـ 70 منتجاً بالجنيه المصري هنا تلقائياً) -->
+            <div id="products-container" class="offers-grid"></div>
+        </section>
 
-            <!-- العرض الثالث: طقم النجمة الذهبية -->
-            <div class="offer-card">
-                <div class="offer-img" style="background-image: url('https://images.unsplash.com/photo-1535632066927-ab7c9ab60908?auto=format&fit=crop&w=600&q=80');">
-                    <span class="badge">إصدار محدود</span>
-                </div>
-                <div class="offer-details">
-                    <h3>طقم "ستيلار" الكامل</h3>
-                    <p class="offer-desc">طقم متناسق يتألف من عقد وأقراط دائرية تجسد النجمة الثمانية المتوهجة مع بريق لا يضاهى.</p>
-                    <div class="price-row">
-                        <span class="old-price">790$</span>
-                        <span class="new-price">620$</span>
-                    </div>
-                    <button class="btn buy-btn" onclick="openOrder('طقم ستيلار الكامل - 620$')">اطلب الآن</button>
-                </div>
-            </div>
+    </main>
+
+    <!-- قسم سلة المشتريات (يظهر عند الضغط على الحقيبة الفاخرة) -->
+    <main id="cart-section" style="display: none; padding: 40px 20px; max-width: 1200px; margin: auto;">
+        <div class="section-title">
+            <h2>حقيبة المقتنيات الفاخرة</h2>
+            <p class="tagline">مشترياتك الراقية من LUNOVIA</p>
         </div>
-    </section>
+        
+        <div style="background: #111; border: 1px solid var(--border-gold); padding: 30px; border-radius: 8px; box-shadow: 0 10px 30px rgba(0,0,0,0.5);">
+            <div id="cart-items">
+                <!-- هنا تنزل السلة برمجياً -->
+            </div>
+            <div style="display:flex; justify-content:space-between; align-items:center; margin-top:25px; padding-top:20px; border-top: 1px solid var(--border-gold);">
+                <h3 style="color:var(--text-white);">💵 الإجمالي العام:</h3>
+                <h3 style="color:var(--gold-primary);" id="cart-total">0 ج.م</h3>
+            </div>
+            <button class="btn buy-btn" style="width:100%; margin-top:20px; padding:15px; font-size:18px;" onclick="checkoutWhatsApp()">
+                <i class="fab fa-whatsapp"></i> إرسال الطلب عبر الواتساب لتأكيد الشراء
+            </button>
+        </div>
+    </main>
 
     <!-- نافذة تسجيل دخول الإدارة المنبثقة (Admin Login Modal) -->
     <div class="modal" id="loginModal">
@@ -156,7 +127,6 @@
                 
                 <div class="divider-text">أو تسجيل الدخول السريع</div>
                 
-                <!-- الأيقونات بعد إعادة تنسيق أحجامها بدقة واحترافية مطلقة -->
                 <div class="social-login-container">
                     <button type="button" class="social-btn email-btn" title="سجل بالبريد الإلكتروني">
                         <i class="fas fa-envelope"></i>
@@ -179,9 +149,10 @@
         </div>
     </footer>
 
+    <!-- استدعاء ملفات الجافا سكريبت المحدثة والمنظمة -->
     <script src="js/auth.js"></script>
-<script src="js/script.js"></script>
-<script src="js/store.js"></script>
+    <script src="js/script.js"></script>
+    <script src="js/store.js?v=2.0"></script>
 
 </body>
 </html>
