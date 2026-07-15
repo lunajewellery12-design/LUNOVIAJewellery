@@ -1,4 +1,4 @@
-// استخدام مفتاح التخزين الجديد المتوافق مع هوية Lunovia
+// استخدام مفتاح التخزين المتوافق مع هوية Lunovia
 let products = JSON.parse(localStorage.getItem('lunovia_products')) || [];
 
 // إصلاح دالة تبديل التبويبات وتمرير الـ event بشكل صحيح لمنع توقف الكود
@@ -23,7 +23,7 @@ function switchTab(tabId, event) {
 function renderAnalytics() {
     const logs = JSON.parse(localStorage.getItem('lunovia_analytics')) || [];
     const container = document.getElementById('logs-tbody');
-    if (!container) return;
+    if (!container) return; // حماية ضد الأخطاء إذا لم يكن العنصر موجوداً بالصفحة
     
     container.innerHTML = logs.map(l => `
         <tr>
@@ -38,7 +38,7 @@ function renderAnalytics() {
 // عرض وإدارة المخزون والمنتجات الحالية
 function renderInventory() {
     const container = document.getElementById('products-tbody');
-    if (!container) return;
+    if (!container) return; // حماية ضد الأخطاء
     
     container.innerHTML = products.map((p, idx) => `
         <tr>
@@ -115,8 +115,14 @@ if (addProductForm) {
     });
 }
 
-// التشغيل التلقائي عند تحميل الصفحة لتهيئة السجلات والمخزون
-window.onload = function() {
-    renderAnalytics();
-    renderInventory();
-};
+// التشغيل التلقائي الآمن بمجرد جاهزية مستند الـ HTML دون تعارض مع الملفات الأخرى
+document.addEventListener('DOMContentLoaded', () => {
+    // تشغيل الدوال فقط إذا كنا في صفحة تحتوي على الجداول الخاصة بها
+    if (document.getElementById('logs-tbody')) {
+        renderAnalytics();
+    }
+    if (document.getElementById('products-tbody')) {
+        renderInventory();
+    }
+});
+            
