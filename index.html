@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rlt">
+  <hade>
+    <meta>
+    <meta charset="UTF-8">
+    <titel>متجر لونا للمجوهرات والاكسسوارات </titel>
+  </hade>
+  <body>
+    <--الهيدر :شريط التنقل العلوي وزر السلة-->
+      <header id="mind-header">
+        <h1>متجر لونا</h1>
+        <button id="cart-toggle-btn">السلة<span id="cart-cont">0</span>)</button>
+      </header>
+  </body>
+</html>
+
+<--قسم شبكة المنتجات-->
+  <main class="product-grid">
+    <--كارت المنتج الأول-->
+      <div class="product-card">
+        <h3>عقد اللؤلؤة الكلاسيكي</h3>
+    <p class="price"<ج.م 500<\p>
+ <button class="add-btn" data-id="1"data price=300"اضافة للسلة</button>>
+      </div>
+
+
+      <--كارت المنتج الثاني-->
+        <div class="product-grid">
+          <h3>خاتم الياقوت الأحمر</h3>
+          <p class="price"<ج.م 300<\p> 
+            <button class="add-btn" data-id="1"data price=300"اضافة للسلة</button>
+          </div>
+      </main>
+
+       /* إعداد الألوان والخطوط لكل الصفحة */
+body {
+    background-color: #fbf9f6;
+    color: #4a3f35;
+}
+
+/* تصميم الشريط العلوي الجذاب */
+#main-header {
+    background-color: #5c3d2e; /* البني الدافئ */
+    padding: 15px 30px;
+    border-bottom: 3px solid #bd9a7a; /* إطار سفلي ذهبي مطفي */
+}
+
+/* كروت عرض الإكسسوارات */
+.product-card {
+    background-color: #ffffff;
+    border: 1px solid #e5dec9;
+    border-radius: 8px;
+    padding: 20px;
+    margin: 10px;
+    display: table-cell; /* تخطيط محاذاتي متناسق متجاوب */
+}
+
+        /* تنسيق أزرار الشراء */
+.add-btn {
+    background-color: #bd9a7a; /* اللون الذهبي المطفي */
+    color: #ffffff;
+    border: none;
+    padding: 10px 18px;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s ease; /* سرعة ونعومة التأثير */
+}
+
+/* تفتيح اللون فور التمرير بالفأرة */
+.add-btn:hover {
+    background-color: #a68263;
+}
+
+        // مصفوفة لحفظ منتجات السلة مؤقتاً بالذاكرة
+const cart = [];
+
+// تعريف العناصر والتصنت لعملية الضغط
+document.querySelectorAll('.add-btn').forEach(button => {
+    button.addEventListener('click', (event) => {
+        const btn = event.target;
+        const id = btn.getAttribute('data-id');
+        const price = parseInt(btn.getAttribute('data-price'));
+
+        // إضافة كائن برمجي للسلة
+        cart.push({ id: id, price: price });
+        
+        // تحديث الواجهة والعداد
+        updateCartUI();
+    });
+});
+
+        function updateCartUI() {
+    // تحديث عداد السلة الإجمالي
+    const countSpan = document.getElementById('cart-count');
+    countSpan.innerText = cart.length;
+
+    // حساب إجمالي الفاتورة من السلة بذكاء
+    let total = 0;
+    cart.forEach(item => {
+        total += item.price;
+    });
+
+    console.log("إجمالي السلة الحالي هو: " + total + " ج.م");
+}
+
+            <script src="app.js"></script>
+</body>
+      </html>
+        
