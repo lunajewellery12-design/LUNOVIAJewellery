@@ -1,3 +1,4 @@
+alert("الملف يعمل!");
 document.addEventListener('DOMContentLoaded', () => {
     // نربط العملية بالزر الذي أرسلت الـ ID الخاص به
     const submitBtn = document.getElementById('auth-submit-btn');
