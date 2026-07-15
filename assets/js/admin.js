@@ -867,4 +867,556 @@ resetProductForm();
 );
 
 }
+/*==================================================
+CUSTOMERS MANAGEMENT
+Version 1.3
+==================================================*/
+
+/*=========================================
+RENDER CUSTOMERS
+=========================================*/
+
+function renderCustomers(){
+
+const table=
+
+document.querySelector("#customersTableBody");
+
+if(!table)return;
+
+table.innerHTML="";
+
+adminUsers.forEach(user=>{
+
+const orders=
+
+user.orders ? user.orders.length : 0;
+
+const wishlist=
+
+user.wishlist ? user.wishlist.length : 0;
+
+const cart=
+
+user.cart ? user.cart.length : 0;
+
+table.innerHTML+=`
+
+<tr>
+
+<td>${user.id}</td>
+
+<td>${user.name}</td>
+
+<td>${user.email}</td>
+
+<td>${user.phone||"-"}</td>
+
+<td>${user.role}</td>
+
+<td>${orders}</td>
+
+<td>${wishlist}</td>
+
+<td>${cart}</td>
+
+<td>
+
+<span class="status-badge">
+
+${user.status}
+
+</span>
+
+</td>
+
+<td>
+
+<button
+class="btn-view-user"
+data-id="${user.id}">
+
+<i class="fa-solid fa-eye"></i>
+
+</button>
+
+<button
+class="btn-user-status"
+data-id="${user.id}">
+
+<i class="fa-solid fa-user-lock"></i>
+
+</button>
+
+<button
+class="btn-delete-user"
+data-id="${user.id}">
+
+<i class="fa-solid fa-trash"></i>
+
+</button>
+
+</td>
+
+</tr>
+
+`;
+
+});
+
+}
+
+/*=========================================
+VIEW CUSTOMER
+=========================================*/
+
+function viewCustomer(id){
+
+const user=
+
+adminUsers.find(
+
+item=>item.id==id
+
+);
+
+if(!user)return;
+
+const details=
+
+document.querySelector("#customerDetails");
+
+if(!details)return;
+
+details.innerHTML=`
+
+<h2>${user.name}</h2>
+
+<p><strong>Email:</strong> ${user.email}</p>
+
+<p><strong>Phone:</strong> ${user.phone||"-"}</p>
+
+<p><strong>Role:</strong> ${user.role}</p>
+
+<p><strong>Status:</strong> ${user.status}</p>
+
+<p><strong>Orders:</strong> ${(user.orders||[]).length}</p>
+
+<p><strong>Wishlist:</strong> ${(user.wishlist||[]).length}</p>
+
+<p><strong>Cart:</strong> ${(user.cart||[]).length}</p>
+
+<p><strong>Joined:</strong> ${user.createdAt}</p>
+
+<p><strong>Last Login:</strong> ${user.lastLogin||"Never"}</p>
+
+`;
+
+}
+
+/*=========================================
+CHANGE STATUS
+=========================================*/
+
+function toggleUserStatus(id){
+
+const user=
+
+adminUsers.find(
+
+item=>item.id==id
+
+);
+
+if(!user)return;
+
+user.status=
+
+user.status==="active"
+
+?
+
+"blocked"
+
+:
+
+"active";
+
+localStorage.setItem(
+
+USERS_KEY,
+
+JSON.stringify(adminUsers)
+
+);
+
+renderCustomers();
+
+showToast(
+
+"Customer status updated",
+
+"success"
+
+);
+
+}
+
+/*=========================================
+DELETE CUSTOMER
+=========================================*/
+
+function deleteCustomer(id){
+
+if(!confirm("Delete this customer?")){
+
+return;
+
+}
+
+adminUsers=
+
+adminUsers.filter(
+
+item=>item.id!=id
+
+);
+
+localStorage.setItem(
+
+USERS_KEY,
+
+JSON.stringify(adminUsers)
+
+);
+
+calculateStatistics();
+
+renderDashboard();
+
+renderCustomers();
+
+showToast(
+
+"Customer deleted",
+
+"warning"
+
+);
+
+}
+
+/*=========================================
+CUSTOMER EVENTS
+=========================================*/
+
+document.addEventListener(
+
+"click",
+
+function(event){
+
+const view=
+
+event.target.closest(".btn-view-user");
+
+if(view){
+
+viewCustomer(
+
+Number(view.dataset.id)
+
+);
+
+}
+
+const status=
+
+event.target.closest(".btn-user-status");
+
+if(status){
+
+toggleUserStatus(
+
+Number(status.dataset.id)
+
+);
+
+}
+
+const del=
+
+event.target.closest(".btn-delete-user");
+
+if(del){
+
+deleteCustomer(
+
+Number(del.dataset.id)
+
+);
+
+}
+
+});
+
+/*=========================================
+INITIALIZE
+=========================================*/
+
+document.addEventListener(
+
+"DOMContentLoaded",
+
+function(){
+
+renderCustomers();
+
+});
+/*==================================================
+CUSTOMER ACTIVITY TRACKING
+Version 1.4
+==================================================*/
+
+/*=========================================
+LOAD ACTIVITIES
+=========================================*/
+
+let customerActivities = JSON.parse(
+
+localStorage.getItem("lunovia_activity")
+
+) || [];
+
+/*=========================================
+SAVE ACTIVITIES
+=========================================*/
+
+function saveActivities(){
+
+localStorage.setItem(
+
+"lunovia_activity",
+
+JSON.stringify(customerActivities)
+
+);
+
+}
+
+/*=========================================
+REGISTER ACTIVITY
+=========================================*/
+
+function registerActivity(
+
+userId,
+
+type,
+
+details
+
+){
+
+const activity={
+
+id:Date.now(),
+
+userId:userId,
+
+type:type,
+
+details:details,
+
+date:new Date().toLocaleString(),
+
+timestamp:Date.now()
+
+};
+
+customerActivities.push(activity);
+
+saveActivities();
+
+}
+
+/*=========================================
+GET USER ACTIVITIES
+=========================================*/
+
+function getUserActivities(userId){
+
+return customerActivities.filter(
+
+item=>item.userId==userId
+
+);
+
+}
+
+/*=========================================
+RENDER ACTIVITIES
+=========================================*/
+
+function renderCustomerActivities(userId){
+
+const container=
+
+document.querySelector(
+
+"#customerActivityBody"
+
+);
+
+if(!container)return;
+
+const activities=
+
+getUserActivities(userId)
+
+.sort(
+
+(a,b)=>b.timestamp-a.timestamp
+
+);
+
+container.innerHTML="";
+
+if(activities.length===0){
+
+container.innerHTML=`
+
+<tr>
+
+<td colspan="4">
+
+No activity found.
+
+</td>
+
+</tr>
+
+`;
+
+return;
+
+}
+
+activities.forEach(activity=>{
+
+container.innerHTML+=`
+
+<tr>
+
+<td>${activity.date}</td>
+
+<td>${activity.type}</td>
+
+<td>${activity.details}</td>
+
+<td>${activity.userId}</td>
+
+</tr>
+
+`;
+
+});
+
+}
+
+/*=========================================
+CUSTOMER INTERESTS
+=========================================*/
+
+function renderCustomerInterests(userId){
+
+const container=
+
+document.querySelector(
+
+"#customerInterests"
+
+);
+
+if(!container)return;
+
+const history=
+
+getUserActivities(userId);
+
+const interests={};
+
+history.forEach(item=>{
+
+if(!interests[item.type]){
+
+interests[item.type]=0;
+
+}
+
+interests[item.type]++;
+
+});
+
+container.innerHTML="";
+
+Object.keys(interests).forEach(key=>{
+
+container.innerHTML+=`
+
+<div class="interest-card">
+
+<h4>${key}</h4>
+
+<span>${interests[key]} Times</span>
+
+</div>
+
+`;
+
+});
+
+}
+
+/*=========================================
+VIEW FULL PROFILE
+=========================================*/
+
+function openCustomerProfile(userId){
+
+viewCustomer(userId);
+
+renderCustomerActivities(userId);
+
+renderCustomerInterests(userId);
+
+}
+
+/*=========================================
+CUSTOMER EVENTS
+=========================================*/
+
+document.addEventListener(
+
+"click",
+
+function(event){
+
+const view=
+
+event.target.closest(
+
+".btn-view-user"
+
+);
+
+if(!view)return;
+
+openCustomerProfile(
+
+Number(view.dataset.id)
+
+);
+
+});
 
