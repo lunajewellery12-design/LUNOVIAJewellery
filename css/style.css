@@ -372,3 +372,218 @@ footer {
     margin-top: 10px;
     }
     
+/* ==========================================================================
+   تنسيق نافذة تسجيل الدخول الفخمة والمصلحة برمجياً (LUNOVIA MODAL)
+   ========================================================================== */
+
+/* الحاوية الخلفية المغطية للشاشة بأكملها عند فتح النافذة */
+.modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.85); /* تعتيم فخم للخلفية */
+    backdrop-filter: blur(8px);       /* تأثير زجاجي ضبابي احترافي */
+    display: none;                    /* مخفية تماماً بشكل افتراضي لمنع تشويه الصفحة */
+    justify-content: center;
+    align-items: center;
+    z-index: 2000;                    /* أعلى من جميع عناصر الصفحة */
+    opacity: 0;
+    transition: opacity 0.4s ease;
+}
+
+/* حالة النشاط عند تفعيل الـ Modal بواسطة الـ JS */
+.modal-overlay.active {
+    display: flex;
+    opacity: 1;
+}
+
+/* جسم نافذة تسجيل الدخول الفخمة */
+.lunovia-modal {
+    background: #111111;              /* أسود داكن ملكي متناسق مع الموقع */
+    border: 1px solid #d4af37;        /* إطار رفيع باللون الذهبي الراقي */
+    padding: 35px 30px;
+    width: 90%;
+    max-width: 420px;                 /* حجم متناسق ومريح للعين على الموبايل والكمبيوتر */
+    border-radius: 15px;
+    position: relative;
+    box-shadow: 0 10px 40px rgba(212, 175, 55, 0.15); /* هالة ذهبية خفيفة حول الصندوق */
+    animation: zoomIn 0.3s ease-out forwards;
+    direction: rtl;                   /* توجيه احترافي للنصوص العربية */
+}
+
+/* تأثير حركة ناعم لظهور النافذة */
+@keyframes zoomIn {
+    from {
+        transform: scale(0.9);
+        opacity: 0;
+    }
+    to {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+
+/* زر الإغلاق (X) */
+.close-modal {
+    position: absolute;
+    top: 15px;
+    left: 20px;
+    font-size: 26px;
+    color: #a0a0a0;
+    cursor: pointer;
+    transition: color 0.3s ease;
+    background: none;
+    border: none;
+}
+
+.close-modal:hover {
+    color: #d4af37; /* يتحول للذهبي عند تمرير الماوس */
+}
+
+/* ترويسة اللوجو داخل النافذة */
+.modal-header {
+    text-align: center;
+    margin-bottom: 25px;
+}
+
+.brand-title {
+    font-size: 1.8rem;
+    color: #d4af37;
+    letter-spacing: 3px;
+    font-weight: 700;
+}
+
+.brand-subtitle {
+    font-size: 13px;
+    color: #a0a0a0;
+    margin-top: 5px;
+}
+
+/* تبويبات التبديل (الإدارة / العميل) */
+.modal-tabs {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 25px;
+}
+
+.tab-btn {
+    flex: 1;
+    padding: 12px;
+    background: #1a1a1a;
+    border: 1px solid rgba(212, 175, 55, 0.2);
+    color: #ffffff;
+    cursor: pointer;
+    font-weight: 600;
+    border-radius: 8px;
+    transition: all 0.3s ease;
+    font-size: 14px;
+}
+
+.tab-btn.active {
+    background: #d4af37;
+    color: #000000;
+    border-color: #d4af37;
+}
+
+.tab-btn:hover:not(.active) {
+    background: rgba(212, 175, 55, 0.1);
+    border-color: #d4af37;
+}
+
+/* حقول الإدخال الاحترافية */
+.input-group {
+    margin-bottom: 20px;
+    text-align: right;
+}
+
+.input-group label {
+    display: block;
+    margin-bottom: 8px;
+    color: #a0a0a0;
+    font-size: 14px;
+}
+
+.input-group input {
+    width: 100%;
+    padding: 12px 15px;
+    background: #181818;
+    border: 1px solid rgba(212, 175, 55, 0.2);
+    color: #ffffff;
+    border-radius: 8px;
+    font-size: 15px;
+    transition: all 0.3s ease;
+}
+
+.input-group input:focus {
+    outline: none;
+    border-color: #d4af37;
+    box-shadow: 0 0 8px rgba(212, 175, 55, 0.2);
+}
+
+/* زر تسجيل الدخول الأساسي */
+.auth-submit-btn {
+    width: 100%;
+    padding: 14px;
+    background: #d4af37;
+    color: #000000;
+    border: none;
+    font-weight: 700;
+    font-size: 16px;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background 0.3s ease, transform 0.1s ease;
+}
+
+.auth-submit-btn:hover {
+    background: #aa841a;
+}
+
+.auth-submit-btn:active {
+    transform: scale(0.98);
+}
+
+/* أزرار الدخول السريع التنافسية الفخمة */
+.quick-login-area {
+    margin-top: 25px;
+    text-align: center;
+    border-top: 1px solid rgba(212, 175, 55, 0.1);
+    padding-top: 20px;
+}
+
+.quick-login-title {
+    font-size: 12px;
+    color: #a0a0a0;
+    display: block;
+    margin-bottom: 15px;
+}
+
+.quick-login-buttons {
+    display: flex;
+    gap: 12px;
+}
+
+.quick-btn {
+    flex: 1;
+    padding: 10px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 8px;
+    background: #1a1a1a;
+    color: #ffffff;
+    font-size: 13px;
+    font-weight: 600;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    transition: all 0.3s ease;
+}
+
+.quick-btn:hover {
+    background: #ffffff;
+    color: #000000;
+    border-color: #ffffff;
+   }
+           
