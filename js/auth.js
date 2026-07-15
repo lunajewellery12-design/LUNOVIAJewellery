@@ -1,91 +1,95 @@
-// تشفير البيانات الحساسة على مستوى الكود المحلي وتوثيقها لهوية LUNOVIA
-const ADMIN_EMAIL = "LunaJewellery12@gmail.com";
-const ADMIN_PASS = "Firas33$";
-
-// دالة تسجيل دخول الإدارة المعتمدة
-function tryAdminLogin() {
-    const emailField = document.getElementById('admin-email') || document.getElementById('adminEmail');
-    const passField = document.getElementById('admin-pass') || document.getElementById('adminPassword');
+// تشغيل منطق تسجيل الدخول الفاخر لـ LUNOVIA
+document.addEventListener('DOMContentLoaded', () => {
+    const loginModal = document.getElementById('loginModal');
+    const adminBtn = document.getElementById('adminBtn');
+    const closeModal = document.getElementById('closeModal');
+    const adminLoginForm = document.getElementById('adminLoginForm');
     const loginError = document.getElementById('loginError');
 
-    if (!emailField || !passField) {
-        console.error("خطأ: لم يتم العثور على حقول إدخال البريد أو كلمة المرور في الـ HTML.");
-        return;
+    // 1. فتح وإغلاق النافذة المنبثقة
+    if (adminBtn && loginModal) {
+        adminBtn.addEventListener('click', (e) => {
+            e.preventDefault();
+            loginModal.style.display = 'flex';
+        });
     }
 
-    const emailInput = emailField.value.trim();
-    const passInput = passField.value;
+    if (closeModal && loginModal) {
+        closeModal.addEventListener('click', () => {
+            loginModal.style.display = 'none';
+            if (loginError) loginError.style.display = 'none';
+        });
+    }
 
-    if (emailInput === ADMIN_EMAIL && passInput === ADMIN_PASS) {
-        // توحيد مفاتيح التخزين لتتوافق مع بقية ملفات المشروع
-        localStorage.setItem('lunovia_admin_auth', 'authenticated');
-        
-        // حفظ بيانات المستخدم كمدير عام لتسجيلها في التحليلات
-        const adminUser = { 
-            name: "فيراس مصطفى (المدير العام)", 
-            provider: "لوحة الإدارة الرسمية" 
-        };
-        localStorage.setItem('lunovia_user', JSON.stringify(adminUser));
-
-        if (loginError) loginError.style.display = 'none';
-        
-        alert('أهلاً بك يا فيراس! تم التحقق بنجاح. جاري تحويلك للوحة الإدارة الفاخرة لـ LUNOVIA...');
-        window.location.href = 'admin.html';
-    } else {
-        if (loginError) {
-            loginError.style.display = 'block';
-        } else {
-            alert('⚠️ خطأ في البريد الإلكتروني أو كلمة المرور! تم رفض الوصول.');
+    // إغلاق النافذة عند الضغط خارجها
+    window.addEventListener('click', (e) => {
+        if (e.target === loginModal) {
+            loginModal.style.display = 'none';
+            if (loginError) loginError.style.display = 'none';
         }
-    }
-}
+    });
 
-// دالة تسجيل الخروج الآمنة للإدارة
-function logoutAdmin() {
-    localStorage.removeItem('lunovia_admin_auth');
-    alert('تم تسجيل الخروج بأمان من نظام LUNOVIA.');
-    window.location.href = 'index.html';
-}
+    // 2. التحقق من بيانات دخول الإدارة والتحويل لصفحة لوحة التحكم
+    if (adminLoginForm) {
+        adminLoginForm.addEventListener('submit', (e) => {
+            e.preventDefault();
+            
+            const email = document.getElementById('adminEmail').value.trim();
+            const password = document.getElementById('adminPassword').value.trim();
 
-// التحكم بالنافذة المنبثقة لتسجيل الدخول بأمان
-function openLoginModal() {
-    const modal = document.getElementById('login-modal') || document.getElementById('loginModal');
-    if (modal) {
-        modal.style.display = 'flex';
-    }
-}
-
-function closeLoginModal() {
-    const modal = document.getElementById('login-modal') || document.getElementById('loginModal');
-    if (modal) {
-        modal.style.display = 'none';
-    }
-    const loginError = document.getElementById('loginError');
-    if (loginError) loginError.style.display = 'none';
-}
-
-// محاكاة الدخول السريع كعميل متميز (iCloud / Email) المتناسق مع الأيقونات الفخمة
-function mockLogin(provider) {
-    const user = { name: `عميل متميز (${provider})`, provider: provider };
-    localStorage.setItem('lunovia_user', JSON.stringify(user));
-    
-    // تغيير اسم الزر في الترويسة العلوية ليظهر ترحيباً بالعميل الفاخر
-    const navBtn = document.getElementById('login-nav-btn') || document.getElementById('adminBtn');
-    if (navBtn) {
-        navBtn.innerHTML = `<i class="fas fa-user-circle"></i> ${user.name}`;
-    }
-    
-    closeLoginModal();
-    alert(`أهلاً بك في عالم LUNOVIA الفاخر! تم تسجيل دخولك عبر ${provider}.`);
-}
-
-// تهيئة وعرض حالة الدخول الحالية فور تحميل الصفحة دون حدوث تداخلات
-window.addEventListener('DOMContentLoaded', () => {
-    const savedUser = JSON.parse(localStorage.getItem('lunovia_user'));
-    if (savedUser) {
-        const navBtn = document.getElementById('login-nav-btn') || document.getElementById('adminBtn');
-        if (navBtn) {
-            navBtn.innerHTML = `<i class="fas fa-user-circle"></i> ${savedUser.name}`;
-        }
+            // البريد الإلكتروني المعتمد لكلمة سر الإدارة (تستطيع تعديلها بحرية)
+            if (email === "jewellery12@gmail.com" && password === "12345678") {
+                // حفظ جلسة الإدارة في المتصفح للتعرف عليه في لوحة التحكم
+                localStorage.setItem('lunovia_user', JSON.stringify({
+                    name: "المدير العام",
+                    role: "admin",
+                    provider: "لوحة التحكم الرئيسية"
+                }));
+                
+                if (loginError) loginError.style.display = 'none';
+                alert("✨ تم التحقق من هويتك بنجاح! جاري الانتقال للوحة الإدارة الفاخرة...");
+                window.location.href = "admin.html"; // التوجيه لصفحة الإدارة
+            } else {
+                if (loginError) loginError.style.display = 'block';
+            }
+        });
     }
 });
+
+// 3. التبديل الفخم بين تبويبات الإدارة والعملاء في واجهة تسجيل الدخول
+function switchLoginTab(type) {
+    const adminForm = document.getElementById('adminLoginForm');
+    const clientSection = document.getElementById('clientLoginSection');
+    const tabs = document.querySelectorAll('.tab-btn');
+
+    tabs.forEach(btn => btn.classList.remove('active'));
+
+    if (type === 'admin') {
+        tabs[0].classList.add('active');
+        if (adminForm) adminForm.style.display = 'block';
+        if (clientSection) clientSection.style.display = 'none';
+    } else {
+        tabs[1].classList.add('active');
+        if (adminForm) adminForm.style.display = 'none';
+        if (clientSection) clientSection.style.display = 'block';
+    }
+}
+
+// 4. دالة تسجيل دخول العميل الفورية وتنشيط حسابه
+function loginAsClient(platform) {
+    const randomID = Math.floor(1000 + Math.random() * 9000);
+    const clientName = `عميل متميز #${randomID}`;
+    
+    // حفظ بيانات العميل في الذاكرة لتخصيص عمليات الشراء والتحليلات
+    localStorage.setItem('lunovia_user', JSON.stringify({
+        name: clientName,
+        role: "client",
+        provider: platform
+    }));
+
+    alert(`✨ أهلاً بك! تم تسجيل دخولك بنجاح عبر منصة [ ${platform} ]. مقتنياتك الفاخرة باتت محفوظة الآن.`);
+    
+    // إغلاق المودال تلقائياً
+    const loginModal = document.getElementById('loginModal');
+    if (loginModal) loginModal.style.display = 'none';
+}
