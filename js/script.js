@@ -59,34 +59,26 @@ window.addEventListener('click', (e) => {
     }
 });
 
+// --- 3. حل مشكلة تسجيل دخول الإدارة البرمجي المتوافق مع index.html ---
+const authForm = document.getElementById('auth-form'); // تطابق الـ ID في صورتك
 
-// --- 3. حل مشكلة تسجيل دخول الإدارة البرمجي وربطها بالهوية الجديدة ---
-const adminLoginForm = document.getElementById('adminLoginForm');
-const loginError = document.getElementById('loginError');
-
-if (adminLoginForm) {
-    adminLoginForm.addEventListener('submit', function(e) {
-        e.preventDefault(); // إيقاف إعادة تحميل الصفحة فوراً
+if (authForm) {
+    authForm.addEventListener('submit', function(e) {
+        e.preventDefault(); 
         
-        const email = document.getElementById('adminEmail').value.trim();
-        const password = document.getElementById('adminPassword').value;
+        const email = document.getElementById('auth-email').value.trim();
+        const password = document.getElementById('auth-password').value;
 
-        // بيانات التحقق الخاصة بإدارة LUNOVIA
-        const correctEmail = "admin@lunovia.com";
-        const correctPassword = "123"; 
-
-        if (email === correctEmail && password === correctPassword) {
-            // حفظ بيانات المسؤول في الذاكرة
-            const adminUser = {
-                name: "المدير العام لـ LUNOVIA",
-                provider: "لوحة تحكم الإدارة"
-            };
-            localStorage.setItem('lunovia_user', JSON.stringify(adminUser));
-
-            alert("✨ تم التحقق بنجاح! جاري تهيئة لوحة التحكم الفاخرة لـ LUNOVIA...");
-            
-            if (loginError) loginError.style.display = 'none';
-            if (loginModal) loginModal.classList.remove('active'); // تم الإصلاح هنا أيضاً ليتناسب مع الإغلاق التدريجي
+        if (email === "admin@lunovia.com" && password === "123") {
+            localStorage.setItem('lunovia_user', JSON.stringify({name: "المدير العام", provider: "الإدارة"}));
+            alert("✨ تم التحقق بنجاح! جاري التوجيه...");
+            window.location.href = "admin.html"; 
+        } else {
+            alert("⚠️ بيانات الدخول غير صحيحة");
+        }
+    });
+}
+dal.classList.remove('active'); // تم الإصلاح هنا أيضاً ليتناسب مع الإغلاق التدريجي
             
             // للتوجيه التلقائي لصفحة الإدارة فوراً:
             window.location.href = "admin.html"; 
