@@ -70,7 +70,7 @@ function filterCategory(category) {
     renderStore();
 }
 
-// عرض المنتجات في المتجر بدقة واحترافية وبدون أي تداخل كلمات وبسعر الجنيه المصري
+// عرض المنتجات في المتجر متوافق بالكامل مع كلاسات الـ CSS الفخمة المحدثة
 function renderStore() {
     const container = document.getElementById('products-container');
     if (!container) return;
@@ -85,19 +85,18 @@ function renderStore() {
         return;
     }
 
+    // هنا تكمن قوة الإصلاح: استخدام .product-card ووسم img الفعلي بدلاً من الـ div الخلفي القديم لضمان تفعيل الـ CSS الفخم
     container.innerHTML = filteredProducts.map(p => `
-        <div class="offer-card">
-            <div class="offer-img" style="background-image: url('${p.img}');">
-                <span class="badge">LUNOVIA</span>
-            </div>
-            <div class="offer-details">
-                <h3>${p.name}</h3>
-                <p class="offer-desc">${p.slogan}</p>
-                <div class="price-row">
-                    <span class="old-price">${Math.round(p.price * 1.2)} ج.م</span>
-                    <span class="new-price">${p.price} ج.م</span>
+        <div class="product-card">
+            <img src="${p.img}" alt="${p.name}" loading="lazy">
+            <div class="offer-details" style="display: flex; flex-direction: column; flex-grow: 1;">
+                <h3 class="product-title" style="margin-bottom: 5px;">${p.name}</h3>
+                <p class="product-desc" style="flex-grow: 1;">${p.slogan}</p>
+                <div class="price-row" style="padding: 0 12px 10px 12px; display: flex; justify-content: space-between; align-items: center;">
+                    <span class="old-price" style="text-decoration: line-through; color: var(--text-muted); font-size: 12px;">${Math.round(p.price * 1.2)} ج.م</span>
+                    <span class="product-price" style="color: var(--gold-primary); font-weight: bold; font-size: 14px;">${p.price} ج.م</span>
                 </div>
-                <button class="btn buy-btn" onclick="addToCart(${p.id})">إضافة للحقيبة الفاخرة ✨</button>
+                <button class="add-to-cart-btn" onclick="addToCart(${p.id})">إضافة للحقيبة الفاخرة ✨</button>
             </div>
         </div>
     `).join('');
@@ -177,7 +176,7 @@ function renderCart() {
     }).join('');
     
     if (cartTotalEl) {
-        cartTotalEl.innerText = `${total} ج.م`;
+        cartTotalEl.innerText = `${total} ج.m`;
     }
 }
 
