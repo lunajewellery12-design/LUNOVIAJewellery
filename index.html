@@ -1,110 +1,131 @@
 <!DOCTYPE html>
-<html lang="ar" dir="rtl">
+<html lang="en" dir="ltr">
 
 <head>
+
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>LUNOVIA Jewellery | Luxury Accessories & Fine Jewelry</title>
+<meta
+name="viewport"
+content="width=device-width, initial-scale=1.0">
 
-<meta name="description"
-content="اكتشفي مجموعة LUNOVIA الفاخرة من الساعات والخواتم والأساور والأقراط والنظارات والإكسسوارات النسائية الراقية.">
+<meta
+name="description"
+content="LUNOVIA - Elegant Jewelry Store">
 
-<meta name="keywords"
-content="مجوهرات, اكسسوارات نسائية, ساعات نسائية, خواتم, اقراط, نظارات فاخرة">
+<meta
+name="keywords"
+content="Jewelry,Rings,Necklaces,Earrings,Luxury">
 
-<meta name="author" content="LUNOVIA">
+<meta
+name="author"
+content="LUNOVIA">
 
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<meta
+name="theme-color"
+content="#ffffff">
 
-<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<title data-title="home.title">
+LUNOVIA
+</title>
 
-<link rel="stylesheet"
-href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+<link
+rel="icon"
+href="assets/images/favicon.ico">
 
-<link rel="stylesheet" href="assets/css/style.css">
+<link
+rel="preconnect"
+href="https://fonts.googleapis.com">
+
+<link
+rel="preconnect"
+href="https://fonts.gstatic.com"
+crossorigin>
+
+<link
+href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+rel="stylesheet">
+
+<link
+rel="stylesheet"
+href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+
+<link
+rel="stylesheet"
+href="assets/css/style.css">
 
 </head>
 
 <body>
 
-<!-- ========================= -->
-<!-- Announcement Bar -->
-<!-- ========================= -->
+<div id="app">
+  <!--=========================================
+HEADER
+==========================================-->
 
-<div class="announcement-bar">
-
-<div class="announcement-track">
-
-<span>
-🔥 خصم حتى 50% على المنتجات المختارة
-</span>
-
-<span>
-🚚 شحن مجاني للطلبات فوق 150$
-</span>
-
-<span>
-💎 منتجات أصلية بضمان الجودة
-</span>
-
-<span>
-🎁 هدية مجانية مع الطلبات الخاصة
-</span>
-
-</div>
-
-</div>
-
-<!-- ========================= -->
-<!-- Header -->
-<!-- ========================= -->
-
-<header class="main-header">
+<header class="header">
 
 <div class="container">
 
-<div class="logo">
+<a
+href="index.html"
+class="logo">
 
-<img src="assets/images/logo.png" alt="LUNOVIA">
+LUNOVIA
 
-</div>
+</a>
 
-<nav class="main-nav">
+<nav class="navbar">
 
-<ul>
+<ul class="nav-list">
 
 <li>
-<a href="index.html">الرئيسية</a>
+
+<a
+href="index.html"
+class="active"
+data-i18n="nav.home">
+
+Home
+
+</a>
+
 </li>
 
 <li>
-<a href="category.html?cat=watches">الساعات</a>
+
+<a
+href="shop.html"
+data-i18n="nav.shop">
+
+Shop
+
+</a>
+
 </li>
 
 <li>
-<a href="category.html?cat=rings">الخواتم</a>
+
+<a
+href="about.html"
+data-i18n="nav.about">
+
+About
+
+</a>
+
 </li>
 
 <li>
-<a href="category.html?cat=bracelets">الأساور</a>
-</li>
 
-<li>
-<a href="category.html?cat=earrings">الأقراط</a>
-</li>
+<a
+href="contact.html"
+data-i18n="nav.contact">
 
-<li>
-<a href="category.html?cat=anklets">الخلخال</a>
-</li>
+Contact
 
-<li>
-<a href="category.html?cat=sunglasses">النظارات</a>
-</li>
+</a>
 
-<li>
-<a href="shop.html">جميع المنتجات</a>
 </li>
 
 </ul>
@@ -113,25 +134,83 @@ href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
 
 <div class="header-actions">
 
-<button class="search-btn">
-<i class="fa-solid fa-magnifying-glass"></i>
+<button
+
+class="icon-button theme-toggle"
+
+type="button"
+
+aria-label="Theme">
+
+<i class="fa-solid fa-moon"></i>
+
 </button>
 
-<a href="wishlist.html">
+<button
+
+class="icon-button"
+
+type="button"
+
+id="searchButton"
+
+aria-label="Search">
+
+<i class="fa-solid fa-magnifying-glass"></i>
+
+</button>
+
+<a
+
+href="wishlist.html"
+
+class="icon-button"
+
+aria-label="Wishlist">
+
 <i class="fa-regular fa-heart"></i>
-</a>
 
-<a href="cart.html" class="cart-icon">
+<span
 
-<i class="fa-solid fa-bag-shopping"></i>
+class="badge"
 
-<span class="cart-count">
+id="wishlistCount">
+
 0
+
 </span>
 
 </a>
 
-<a href="login.html" class="login-btn">
+<a
+
+href="cart.html"
+
+class="icon-button"
+
+aria-label="Cart">
+
+<i class="fa-solid fa-bag-shopping"></i>
+
+<span
+
+class="badge"
+
+id="cartCount">
+
+0
+
+</span>
+
+</a>
+
+<a
+
+href="login.html"
+
+class="icon-button"
+
+aria-label="Account">
 
 <i class="fa-regular fa-user"></i>
 
@@ -142,127 +221,57 @@ href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
 </div>
 
 </header>
-
-<!-- ========================= -->
-<!-- Hero Section -->
-<!-- ========================= -->
+<!--=========================================
+HERO
+==========================================-->
 
 <section class="hero">
 
-<div class="hero-overlay"></div>
+<div class="container hero-content">
 
-<div class="hero-content">
+<div class="hero-text">
 
-<span class="hero-tag">
-Luxury Collection 2025
+<span data-i18n="hero.tag">
+
+New Collection
+
 </span>
 
-<h1>
-اكتشفي أناقة تتجاوز الزمن
+<h1 data-i18n="hero.title">
+
+Elegant Jewelry For Every Moment
+
 </h1>
 
-<p>
+<p data-i18n="hero.description">
 
-تشكيلة فاخرة من المجوهرات والإكسسوارات المصممة
-لإبراز جمالك بأسلوب راقٍ يعكس شخصيتك الفريدة.
+Discover timeless jewelry designed to celebrate your style.
 
 </p>
 
 <div class="hero-buttons">
 
-<a href="shop.html" class="btn btn-gold">
+<a
 
-تسوقي الآن
+href="shop.html"
 
-</a>
+class="btn btn-primary"
 
-<a href="#collections" class="btn btn-outline">
+data-i18n="hero.shop">
 
-استكشاف المجموعات
-
-</a>
-
-</div>
-
-</div>
-
-</section>
-
-<!-- ========================= -->
-<!-- Featured Categories -->
-<!-- ========================= -->
-
-<section id="collections" class="featured-categories">
-
-<div class="container">
-
-<div class="section-title">
-
-<span>
-LUNOVIA COLLECTIONS
-</span>
-
-<h2>
-تسوقي حسب الفئة
-</h2>
-
-</div>
-
-<div class="category-grid">
-
-<a href="#" class="category-card">
-
-<img src="assets/images/categories/watch.jpg">
-
-<div class="category-info">
-
-<h3>الساعات</h3>
-
-<p>Luxury Watches</p>
-
-</div>
+Shop Now
 
 </a>
 
-<a href="#" class="category-card">
+<a
 
-<img src="assets/images/categories/ring.jpg">
+href="about.html"
 
-<div class="category-info">
+class="btn btn-outline"
 
-<h3>الخواتم</h3>
+data-i18n="hero.about">
 
-<p>Elegant Rings</p>
-
-</div>
-
-</a>
-
-<a href="#" class="category-card">
-
-<img src="assets/images/categories/bracelet.jpg">
-
-<div class="category-info">
-
-<h3>الأساور</h3>
-
-<p>Premium Bracelets</p>
-
-</div>
-
-</a>
-
-<a href="#" class="category-card">
-
-<img src="assets/images/categories/earring.jpg">
-
-<div class="category-info">
-
-<h3>الأقراط</h3>
-
-<p>Luxury Earrings</p>
-
-</div>
+Learn More
 
 </a>
 
@@ -270,383 +279,88 @@ LUNOVIA COLLECTIONS
 
 </div>
 
-</section>
-
-  <!-- ========================= -->
-<!-- Best Sellers -->
-<!-- ========================= -->
-
-<section class="products-section">
-
-    <div class="container">
-
-        <div class="section-title">
-            <span>BEST SELLERS</span>
-            <h2>الأكثر مبيعاً</h2>
-        </div>
-
-        <div id="bestSellerProducts" class="products-grid">
-            <!-- يتم تعبئة المنتجات بواسطة JavaScript -->
-        </div>
-
-    </div>
-
-</section>
-
-<!-- ========================= -->
-<!-- New Arrivals -->
-<!-- ========================= -->
-
-<section class="products-section light-bg">
-
-    <div class="container">
-
-        <div class="section-title">
-            <span>NEW ARRIVALS</span>
-            <h2>وصل حديثاً</h2>
-        </div>
-
-        <div id="newArrivalProducts" class="products-grid">
-            <!-- JavaScript -->
-        </div>
-
-    </div>
-
-</section>
-
-<!-- ========================= -->
-<!-- Flash Sale -->
-<!-- ========================= -->
-
-<section class="flash-sale">
-
-    <div class="container">
-
-        <div class="flash-content">
-
-            <h2>⚡ عروض اليوم</h2>
-
-            <p>
-                استمتعي بخصومات حصرية لفترة محدودة.
-            </p>
-
-            <div id="countdown" class="countdown">
-
-                <div>
-                    <span id="days">00</span>
-                    <small>يوم</small>
-                </div>
-
-                <div>
-                    <span id="hours">00</span>
-                    <small>ساعة</small>
-                </div>
-
-                <div>
-                    <span id="minutes">00</span>
-                    <small>دقيقة</small>
-                </div>
-
-                <div>
-                    <span id="seconds">00</span>
-                    <small>ثانية</small>
-                </div>
-
-            </div>
-
-            <a href="shop.html" class="btn btn-gold">
-                تسوقي الآن
-            </a>
-
-        </div>
-
-    </div>
-
-</section>
-
-<!-- ========================= -->
-<!-- Testimonials -->
-<!-- ========================= -->
-
-<section class="testimonials">
-
-<div class="container">
-
-<div class="section-title">
-
-<span>OUR CLIENTS</span>
-
-<h2>آراء عملائنا</h2>
-
-</div>
-
-<div class="testimonial-slider">
-
-<div class="testimonial">
-
-<p>
-
-★★★★★
-
-<br><br>
-
-"الخامة فاخرة جداً والتغليف راقٍ، التجربة كانت ممتازة."
-
-</p>
-
-<h4>سارة أحمد</h4>
-
-</div>
-
-<div class="testimonial">
-
-<p>
-
-★★★★★
-
-<br><br>
-
-"وصل الطلب بسرعة وكانت الساعة أجمل من الصور."
-
-</p>
-
-<h4>نور محمد</h4>
-
-</div>
-
-<div class="testimonial">
-
-<p>
-
-★★★★★
-
-<br><br>
-
-"أفضل متجر تعاملت معه من ناحية الجودة وخدمة العملاء."
-
-</p>
-
-<h4>ريم خالد</h4>
-
-</div>
-
-</div>
-
-</div>
-
-</section>
-
-<!-- ========================= -->
-<!-- Newsletter -->
-<!-- ========================= -->
-
-<section class="newsletter">
-
-<div class="container">
-
-<h2>
-
-اشتركي بالنشرة البريدية
-
-</h2>
-
-<p>
-
-واحصلي على أحدث العروض والإصدارات الجديدة.
-
-</p>
-
-<form id="newsletterForm">
-
-<input
-
-type="email"
-
-placeholder="أدخلي بريدك الإلكتروني"
-
-required
-
->
-
-<button>
-
-اشترك الآن
-
-</button>
-
-</form>
-
-</div>
-
-</section>
-
-<!-- ========================= -->
-<!-- Instagram -->
-<!-- ========================= -->
-
-<section class="instagram">
-
-<div class="container">
-
-<div class="section-title">
-
-<span>INSTAGRAM</span>
-
-<h2>@LUNOVIA</h2>
-
-</div>
-
-<div class="instagram-grid">
-
-<img src="assets/images/instagram/1.jpg">
-
-<img src="assets/images/instagram/2.jpg">
-
-<img src="assets/images/instagram/3.jpg">
-
-<img src="assets/images/instagram/4.jpg">
-
-<img src="assets/images/instagram/5.jpg">
-
-<img src="assets/images/instagram/6.jpg">
-
-</div>
-
-</div>
-
-</section>
-
-<!-- ========================= -->
-<!-- Footer -->
-<!-- ========================= -->
-
-<footer>
-
-<div class="container footer-grid">
-
-<div>
+<div class="hero-image">
 
 <img
 
-src="assets/images/logo.png"
+src="assets/images/hero.webp"
 
-class="footer-logo"
+alt="LUNOVIA Jewelry"
 
-alt="LUNOVIA">
+loading="eager">
 
-<p>
+</div>
 
-LUNOVIA Luxury Jewellery
+</div>
 
-<br>
+</section>
+<!--=========================================
+FEATURED PRODUCTS
+==========================================-->
 
-Luxury Beyond Imagination.
+<section class="featured-products">
+
+<div class="container">
+
+<div class="section-header">
+
+<h2 data-i18n="home.featured">
+
+Featured Products
+
+</h2>
+
+<p data-i18n="home.featuredDescription">
+
+Handpicked jewelry you'll love.
 
 </p>
 
 </div>
 
-<div>
+<div
 
-<h3>التسوق</h3>
+class="products-grid"
 
-<ul>
-
-<li><a href="shop.html">جميع المنتجات</a></li>
-
-<li><a href="wishlist.html">المفضلة</a></li>
-
-<li><a href="cart.html">السلة</a></li>
-
-<li><a href="orders.html">طلباتي</a></li>
-
-</ul>
+id="featuredProducts">
 
 </div>
 
-<div>
+<div class="section-footer">
 
-<h3>خدمة العملاء</h3>
+<a
 
-<ul>
+href="shop.html"
 
-<li><a href="#">سياسة الإرجاع</a></li>
+class="btn btn-primary"
 
-<li><a href="#">الشحن</a></li>
+data-i18n="home.viewAll">
 
-<li><a href="#">سياسة الخصوصية</a></li>
+View All Products
 
-<li><a href="#">تواصل معنا</a></li>
-
-</ul>
-
-</div>
-
-<div>
-
-<h3>تابعنا</h3>
-
-<div class="social-links">
-
-<a href="#"><i class="fab fa-facebook-f"></i></a>
-
-<a href="#"><i class="fab fa-instagram"></i></a>
-
-<a href="#"><i class="fab fa-x-twitter"></i></a>
-
-<a href="#"><i class="fab fa-tiktok"></i></a>
+</a>
 
 </div>
 
 </div>
 
-</div>
+</section>
+<script src="assets/js/app.js"></script>
 
-<div class="copyright">
+<script src="assets/js/products.js"></script>
 
-© 2025 LUNOVIA Jewellery
+<script src="assets/js/cart.js"></script>
 
-All Rights Reserved.
+<script src="assets/js/wishlist.js"></script>
 
-</div>
+<script src="assets/js/search.js"></script>
 
-</footer>
+<script src="assets/js/theme.js"></script>
 
-<!-- ========================= -->
-<!-- Search Modal -->
-<!-- ========================= -->
-
-<div id="searchModal" class="search-modal">
-
-<div class="search-box">
-
-<input
-type="text"
-placeholder="ابحثي عن منتج..."
-id="searchInput">
-
-<button id="closeSearch">
-
-<i class="fa-solid fa-xmark"></i>
-
-</button>
+<script src="assets/js/language.js"></script>
 
 </div>
-
-<div id="searchResults"></div>
-
-</div>
-
-<!-- ========================= -->
-<!-- Scripts -->
-<!-- ========================= -->
-
-<script src="assets/js/store.js"></script>
-
-<script src="assets/js/auth.js"></script>
-
-<script src="assets/js/script.js"></script>
 
 </body>
 
-                    </html>  
+</html>
