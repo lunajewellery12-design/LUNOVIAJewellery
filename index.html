@@ -1,27 +1,47 @@
 <!DOCTYPE html>
-<html lang="en" dir="ltr">
+<html lang="en">
 
 <head>
+
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <meta name="viewport"
-          content="width=device-width, initial-scale=1.0">
-
-    <title>LUNOVIA Jewellery | Luxury Jewelry Collection</title>
+    <title>LUNOVIA Jewellery | Timeless Luxury Jewellery</title>
 
     <meta name="description"
-          content="Discover handcrafted luxury jewellery by LUNOVIA. Elegant rings, necklaces, earrings and bracelets designed with timeless beauty.">
+          content="Luxury handcrafted jewellery including rings, necklaces, bracelets and earrings by LUNOVIA.">
 
     <meta name="keywords"
-          content="LUNOVIA, Jewellery, Jewelry, Rings, Necklaces, Earrings, Bracelets, Luxury">
+          content="LUNOVIA, Luxury Jewellery, Gold, Diamond, Rings, Earrings, Bracelets">
+
+    <meta name="author"
+          content="LUNOVIA Jewellery">
 
     <meta name="theme-color"
-          content="#b48a4a">
+          content="#B9925A">
+
+    <!-- Open Graph -->
+
+    <meta property="og:title"
+          content="LUNOVIA Jewellery">
+
+    <meta property="og:description"
+          content="Luxury handcrafted jewellery designed for timeless elegance.">
+
+    <meta property="og:type"
+          content="website">
+
+    <meta property="og:image"
+          content="assets/images/og-image.jpg">
+
+    <meta property="og:url"
+          content="/">
+
+    <!-- Favicon -->
 
     <link rel="icon"
-          type="image/png"
-          href="assets/images/favicon.png">
+          href="assets/images/favicon.ico">
 
     <!-- Google Fonts -->
 
@@ -35,12 +55,12 @@
     <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap"
           rel="stylesheet">
 
-    <!-- Icons -->
+    <!-- Font Awesome -->
 
     <link rel="stylesheet"
           href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
 
-    <!-- Main Styles -->
+    <!-- Main CSS -->
 
     <link rel="stylesheet"
           href="assets/css/style.css">
@@ -49,23 +69,50 @@
 
 <body>
 
-<div id="page-loader">
-    <div class="loader-logo">
-        <span>LUNOVIA</span>
+<!-- ===========================
+     PRELOADER
+=========================== -->
+
+<div id="preloader">
+
+    <div class="loader">
+
+        <span class="loader-logo">
+            LUNOVIA
+        </span>
+
     </div>
+
 </div>
 
-<a href="#main"
-   class="skip-link">
-    Skip to Content
-</a>
+<!-- ===========================
+     ANNOUNCEMENT BAR
+=========================== -->
 
-<header class="header"
-        id="header">
+<div class="announcement-bar">
 
     <div class="container">
 
-        <div class="header-wrapper">
+        <p>
+
+            ✨ Free Worldwide Shipping On Orders Over $250
+
+        </p>
+
+    </div>
+
+</div>
+
+<!-- ===========================
+     HEADER
+=========================== -->
+
+<header id="header"
+        class="header">
+
+    <div class="container">
+
+        <div class="header-inner">
 
             <a href="index.html"
                class="logo">
@@ -74,51 +121,284 @@
                      alt="LUNOVIA Jewellery">
 
             </a>
+                        <!-- =========================
+                 DESKTOP NAVIGATION
+            ========================== -->
 
-            <nav class="navbar"
-                 id="navbar">
+            <nav class="main-nav"
+                 id="mainNav">
 
                 <ul class="nav-list">
 
-                    <li>
+                    <li class="nav-item">
+
                         <a href="index.html"
-                           class="active">
+                           class="nav-link active">
+
                             Home
+
                         </a>
+
                     </li>
 
-                    <li>
-                        <a href="shop.html">
+                    <li class="nav-item mega-parent">
+
+                        <a href="shop.html"
+                           class="nav-link">
+
                             Shop
+
+                            <i class="fa-solid fa-chevron-down"></i>
+
                         </a>
+
+                        <div class="mega-menu">
+
+                            <div class="mega-grid">
+
+                                <div class="mega-column">
+
+                                    <h4>
+
+                                        Categories
+
+                                    </h4>
+
+                                    <ul>
+
+                                        <li>
+
+                                            <a href="shop.html?category=rings">
+
+                                                Rings
+
+                                            </a>
+
+                                        </li>
+
+                                        <li>
+
+                                            <a href="shop.html?category=necklaces">
+
+                                                Necklaces
+
+                                            </a>
+
+                                        </li>
+
+                                        <li>
+
+                                            <a href="shop.html?category=bracelets">
+
+                                                Bracelets
+
+                                            </a>
+
+                                        </li>
+
+                                        <li>
+
+                                            <a href="shop.html?category=earrings">
+
+                                                Earrings
+
+                                            </a>
+
+                                        </li>
+
+                                    </ul>
+
+                                </div>
+
+                                <div class="mega-column">
+
+                                    <h4>
+
+                                        Collections
+
+                                    </h4>
+
+                                    <ul>
+
+                                        <li>
+
+                                            <a href="collections.html">
+
+                                                Luxury Collection
+
+                                            </a>
+
+                                        </li>
+
+                                        <li>
+
+                                            <a href="collections.html">
+
+                                                Wedding Collection
+
+                                            </a>
+
+                                        </li>
+
+                                        <li>
+
+                                            <a href="collections.html">
+
+                                                Diamond Collection
+
+                                            </a>
+
+                                        </li>
+
+                                        <li>
+
+                                            <a href="collections.html">
+
+                                                New Arrivals
+
+                                            </a>
+
+                                        </li>
+
+                                    </ul>
+
+                                </div>
+
+                                <div class="mega-column">
+
+                                    <h4>
+
+                                        Customer
+
+                                    </h4>
+
+                                    <ul>
+
+                                        <li>
+
+                                            <a href="wishlist.html">
+
+                                                Wishlist
+
+                                            </a>
+
+                                        </li>
+
+                                        <li>
+
+                                            <a href="cart.html">
+
+                                                Shopping Cart
+
+                                            </a>
+
+                                        </li>
+
+                                        <li>
+
+                                            <a href="account.html">
+
+                                                My Account
+
+                                            </a>
+
+                                        </li>
+
+                                        <li>
+
+                                            <a href="contact.html">
+
+                                                Support
+
+                                            </a>
+
+                                        </li>
+
+                                    </ul>
+
+                                </div>
+
+                                <div class="mega-banner">
+
+                                    <img src="assets/images/menu/menu-banner.webp"
+                                         alt="Luxury Jewellery">
+
+                                    <div class="mega-banner-content">
+
+                                        <span>
+
+                                            Exclusive
+
+                                        </span>
+
+                                        <h3>
+
+                                            Luxury Collection
+
+                                        </h3>
+
+                                        <a href="shop.html"
+                                           class="btn btn-primary">
+
+                                            Shop Now
+
+                                        </a>
+
+                                    </div>
+
+                                </div>
+
+                            </div>
+
+                        </div>
+
                     </li>
 
-                    <li>
-                        <a href="collections.html">
+                    <li class="nav-item">
+
+                        <a href="collections.html"
+                           class="nav-link">
+
                             Collections
+
                         </a>
+
                     </li>
 
-                    <li>
-                        <a href="about.html">
+                    <li class="nav-item">
+
+                        <a href="about.html"
+                           class="nav-link">
+
                             About
+
                         </a>
+
                     </li>
 
-                    <li>
-                        <a href="contact.html">
+                    <li class="nav-item">
+
+                        <a href="contact.html"
+                           class="nav-link">
+
                             Contact
+
                         </a>
+
                     </li>
 
                 </ul>
 
             </nav>
 
+            <!-- =========================
+                 HEADER ACTIONS
+            ========================== -->
+
             <div class="header-actions">
 
-                <button id="searchBtn"
-                        class="icon-btn"
+                <button class="icon-btn"
+                        id="searchBtn"
                         aria-label="Search">
 
                     <i class="fa-solid fa-magnifying-glass"></i>
@@ -126,25 +406,34 @@
                 </button>
 
                 <a href="wishlist.html"
-                   class="icon-btn">
+                   class="icon-btn wishlist-btn">
 
                     <i class="fa-regular fa-heart"></i>
 
-                    <span id="wishlistCount">0</span>
+                    <span id="wishlistCount">
+
+                        0
+
+                    </span>
 
                 </a>
 
                 <a href="cart.html"
-                   class="icon-btn">
+                   class="icon-btn cart-btn">
 
                     <i class="fa-solid fa-bag-shopping"></i>
 
-                    <span id="cartCount">0</span>
+                    <span id="cartCount">
+
+                        0
+
+                    </span>
 
                 </a>
 
-                <button class="menu-toggle"
-                        id="menuToggle">
+                <button class="icon-btn mobile-menu-btn"
+                        id="mobileMenuBtn"
+                        aria-label="Open Menu">
 
                     <i class="fa-solid fa-bars"></i>
 
@@ -158,53 +447,210 @@
 
 </header>
 
+<!-- =========================
+     MOBILE MENU
+========================== -->
+
+<div class="mobile-menu"
+     id="mobileMenu">
+
+    <div class="mobile-menu-overlay"></div>
+
+    <aside class="mobile-menu-content">
+
+        <button class="close-mobile-menu"
+                id="closeMobileMenu">
+
+            <i class="fa-solid fa-xmark"></i>
+
+        </button>
+
+        <div class="mobile-logo">
+
+            <img src="assets/images/logo.svg"
+                 alt="LUNOVIA">
+
+        </div>
+
+        <nav>
+
+            <ul>
+
+                <li><a href="index.html">Home</a></li>
+
+                <li><a href="shop.html">Shop</a></li>
+
+                <li><a href="collections.html">Collections</a></li>
+
+                <li><a href="about.html">About</a></li>
+
+                <li><a href="contact.html">Contact</a></li>
+
+                <li><a href="wishlist.html">Wishlist</a></li>
+
+                <li><a href="cart.html">Cart</a></li>
+
+            </ul>
+
+        </nav>
+
+    </aside>
+
+</div>
+
 <main id="main">
-      <!-- HERO SECTION -->
+        <!-- =========================
+         HERO SECTION
+    ========================== -->
 
-    <section class="hero" id="hero">
+    <section class="hero"
+             id="hero">
 
-        <div class="container">
+        <div class="hero-slider"
+             id="heroSlider">
 
-            <div class="hero-wrapper">
+            <!-- Slide 01 -->
 
-                <div class="hero-content">
+            <article class="hero-slide active">
 
-                    <span class="hero-subtitle">
-                        Timeless Luxury Jewellery
-                    </span>
+                <div class="container">
 
-                    <h1 class="hero-title">
-                        Elegance Crafted For Every Moment
-                    </h1>
+                    <div class="hero-grid">
 
-                    <p class="hero-text">
-                        Discover handcrafted rings, necklaces, bracelets,
-                        and earrings designed to celebrate beauty,
-                        confidence, and unforgettable memories.
-                    </p>
+                        <div class="hero-content">
 
-                    <div class="hero-buttons">
+                            <span class="hero-subtitle">
 
-                        <a href="shop.html" class="btn btn-primary">
-                            Shop Collection
-                        </a>
+                                LUNOVIA SIGNATURE
 
-                        <a href="collections.html" class="btn btn-outline">
-                            Explore Collections
-                        </a>
+                            </span>
+
+                            <h1 class="hero-title">
+
+                                Timeless Jewellery
+                                Crafted For
+                                Extraordinary Moments
+
+                            </h1>
+
+                            <p class="hero-description">
+
+                                Discover handcrafted jewellery designed
+                                with exceptional elegance, premium
+                                materials and timeless luxury for every
+                                special occasion.
+
+                            </p>
+
+                            <div class="hero-buttons">
+
+                                <a href="shop.html"
+                                   class="btn btn-primary">
+
+                                    Shop Collection
+
+                                </a>
+
+                                <a href="collections.html"
+                                   class="btn btn-outline">
+
+                                    View Collections
+
+                                </a>
+
+                            </div>
+
+                        </div>
+
+                        <div class="hero-image">
+
+                            <img src="assets/images/hero/hero-1.webp"
+                                 alt="Luxury Jewellery">
+
+                        </div>
 
                     </div>
 
                 </div>
 
-                <div class="hero-image">
+            </article>
 
-                    <img
-                        src="assets/images/hero/hero-main.webp"
-                        alt="Luxury Jewellery Collection"
-                        loading="eager">
+            <!-- Slide 02 -->
+
+            <article class="hero-slide">
+
+                <div class="container">
+
+                    <div class="hero-grid">
+
+                        <div class="hero-content">
+
+                            <span class="hero-subtitle">
+
+                                NEW COLLECTION
+
+                            </span>
+
+                            <h2 class="hero-title">
+
+                                Shine Beyond
+                                Every Expectation
+
+                            </h2>
+
+                            <p class="hero-description">
+
+                                Exclusive rings, necklaces, bracelets
+                                and earrings inspired by modern elegance.
+
+                            </p>
+
+                            <div class="hero-buttons">
+
+                                <a href="shop.html"
+                                   class="btn btn-primary">
+
+                                    Explore Now
+
+                                </a>
+
+                            </div>
+
+                        </div>
+
+                        <div class="hero-image">
+
+                            <img src="assets/images/hero/hero-2.webp"
+                                 alt="Luxury Necklace">
+
+                        </div>
+
+                    </div>
 
                 </div>
+
+            </article>
+
+            <!-- Controls -->
+
+            <button class="hero-prev"
+                    id="heroPrev">
+
+                <i class="fa-solid fa-chevron-left"></i>
+
+            </button>
+
+            <button class="hero-next"
+                    id="heroNext">
+
+                <i class="fa-solid fa-chevron-right"></i>
+
+            </button>
+
+            <div class="hero-pagination">
+
+                <span class="active"></span>
+                <span></span>
 
             </div>
 
@@ -212,8 +658,9 @@
 
     </section>
 
-
-    <!-- FEATURES -->
+    <!-- =========================
+         FEATURES
+    ========================== -->
 
     <section class="features">
 
@@ -225,10 +672,34 @@
 
                     <i class="fa-solid fa-gem"></i>
 
-                    <h3>Premium Quality</h3>
+                    <h3>
+
+                        Premium Materials
+
+                    </h3>
 
                     <p>
-                        Carefully selected materials with exceptional craftsmanship.
+
+                        Carefully selected gold, silver and gemstones.
+
+                    </p>
+
+                </article>
+
+                <article class="feature-card">
+
+                    <i class="fa-solid fa-award"></i>
+
+                    <h3>
+
+                        Certified Quality
+
+                    </h3>
+
+                    <p>
+
+                        Every product is inspected before shipping.
+
                     </p>
 
                 </article>
@@ -237,34 +708,34 @@
 
                     <i class="fa-solid fa-truck-fast"></i>
 
-                    <h3>Worldwide Shipping</h3>
+                    <h3>
+
+                        Worldwide Shipping
+
+                    </h3>
 
                     <p>
-                        Fast and secure delivery to customers around the globe.
+
+                        Secure international delivery with tracking.
+
                     </p>
 
                 </article>
 
                 <article class="feature-card">
 
-                    <i class="fa-solid fa-shield-heart"></i>
+                    <i class="fa-solid fa-headset"></i>
 
-                    <h3>Lifetime Warranty</h3>
+                    <h3>
 
-                    <p>
-                        Confidence backed by our quality guarantee.
-                    </p>
+                        Premium Support
 
-                </article>
-
-                <article class="feature-card">
-
-                    <i class="fa-solid fa-gift"></i>
-
-                    <h3>Luxury Packaging</h3>
+                    </h3>
 
                     <p>
-                        Beautiful gift-ready packaging with every order.
+
+                        Dedicated customer service whenever you need us.
+
                     </p>
 
                 </article>
@@ -275,55 +746,212 @@
 
     </section>
 
+    <!-- =========================
+         FEATURED PRODUCTS
+    ========================== -->
 
-    <!-- FEATURED COLLECTION -->
-
-    <section class="section featured-collection">
+    <section class="products-section"
+             id="featuredProductsSection">
 
         <div class="container">
 
-            <div class="section-header">
+            <div class="section-heading">
 
-                <span class="section-subtitle">
-                    Featured Collection
+                <span>
+
+                    Featured Products
+
                 </span>
 
-                <h2 class="section-title">
-                    Our Signature Jewellery
+                <h2>
+
+                    Best Selling Jewellery
+
                 </h2>
 
-                <p class="section-text">
-                    Explore our exclusive handcrafted collection inspired by elegance and timeless beauty.
+                <p>
+
+                    Explore our most loved handcrafted jewellery pieces.
+
                 </p>
 
             </div>
 
-            <div
-                id="featuredProducts"
-                class="products-grid">
+            <div id="featuredProducts"
+                 class="products-grid">
 
-                <!-- يتم تعبئة المنتجات تلقائياً من products.json -->
+                <!-- المنتجات سيتم تحميلها تلقائياً من products.json -->
+
+            </div>
+
+        </div>
+
+                </section>
+                    <!-- =========================
+         SHOP CATEGORIES
+    ========================== -->
+
+    <section class="categories-section"
+             id="categories">
+
+        <div class="container">
+
+            <div class="section-heading">
+
+                <span>
+
+                    Browse Categories
+
+                </span>
+
+                <h2>
+
+                    Find Your Perfect Jewellery
+
+                </h2>
+
+                <p>
+
+                    Discover elegant collections designed for every
+                    occasion and personal style.
+
+                </p>
+
+            </div>
+
+            <div class="categories-grid">
+
+                <a href="shop.html?category=rings"
+                   class="category-card">
+
+                    <img src="assets/images/categories/rings.webp"
+                         alt="Rings">
+
+                    <div class="category-content">
+
+                        <h3>
+
+                            Rings
+
+                        </h3>
+
+                        <span>
+
+                            Shop Now
+
+                        </span>
+
+                    </div>
+
+                </a>
+
+                <a href="shop.html?category=necklaces"
+                   class="category-card">
+
+                    <img src="assets/images/categories/necklaces.webp"
+                         alt="Necklaces">
+
+                    <div class="category-content">
+
+                        <h3>
+
+                            Necklaces
+
+                        </h3>
+
+                        <span>
+
+                            Shop Now
+
+                        </span>
+
+                    </div>
+
+                </a>
+
+                <a href="shop.html?category=bracelets"
+                   class="category-card">
+
+                    <img src="assets/images/categories/bracelets.webp"
+                         alt="Bracelets">
+
+                    <div class="category-content">
+
+                        <h3>
+
+                            Bracelets
+
+                        </h3>
+
+                        <span>
+
+                            Shop Now
+
+                        </span>
+
+                    </div>
+
+                </a>
+
+                <a href="shop.html?category=earrings"
+                   class="category-card">
+
+                    <img src="assets/images/categories/earrings.webp"
+                         alt="Earrings">
+
+                    <div class="category-content">
+
+                        <h3>
+
+                            Earrings
+
+                        </h3>
+
+                        <span>
+
+                            Shop Now
+
+                        </span>
+
+                    </div>
+
+                </a>
 
             </div>
 
         </div>
 
     </section>
-        <!-- NEW ARRIVALS -->
 
-    <section class="section new-arrivals">
+    <!-- =========================
+         NEW ARRIVALS
+    ========================== -->
+
+    <section class="products-section"
+             id="newArrivalsSection">
 
         <div class="container">
 
-            <div class="section-header">
+            <div class="section-heading">
 
-                <span class="section-subtitle">
+                <span>
+
                     New Arrivals
+
                 </span>
 
-                <h2 class="section-title">
-                    Latest Luxury Pieces
+                <h2>
+
+                    Just Added
+
                 </h2>
+
+                <p>
+
+                    Fresh jewellery pieces recently added to our luxury
+                    collection.
+
+                </p>
 
             </div>
 
@@ -338,30 +966,382 @@
 
     </section>
 
-
-    <!-- PROMOTIONAL BANNER -->
+    <!-- =========================
+         PROMOTIONAL BANNER
+    ========================== -->
 
     <section class="promo-banner">
 
         <div class="container">
 
-            <div class="promo-content">
+            <div class="promo-wrapper">
 
-                <span class="promo-subtitle">
-                    Limited Edition
+                <div class="promo-content">
+
+                    <span>
+
+                        Limited Edition
+
+                    </span>
+
+                    <h2>
+
+                        Celebrate Every Special Moment
+
+                    </h2>
+
+                    <p>
+
+                        Discover handcrafted luxury jewellery created
+                        with timeless elegance and exceptional
+                        craftsmanship.
+
+                    </p>
+
+                    <a href="shop.html"
+                       class="btn btn-primary">
+
+                        Explore Collection
+
+                    </a>
+
+                </div>
+
+                <div class="promo-image">
+
+                    <img src="assets/images/banner/banner.webp"
+                         alt="Luxury Jewellery Banner">
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+    <!-- =========================
+         BEST SELLERS
+    ========================== -->
+
+    <section class="products-section"
+             id="bestSellerSection">
+
+        <div class="container">
+
+            <div class="section-heading">
+
+                <span>
+
+                    Customer Favorites
+
                 </span>
 
                 <h2>
-                    Celebrate Every Moment With Timeless Jewellery
+
+                    Best Sellers
+
                 </h2>
 
                 <p>
-                    Exclusive handcrafted designs created for those who appreciate elegance and exceptional quality.
+
+                    Discover our most loved jewellery selected by
+                    customers around the world.
+
                 </p>
 
-                <a href="shop.html"
-                   class="btn btn-primary">
-                    Shop Now
+            </div>
+
+            <div id="bestSellerProducts"
+                 class="products-grid">
+
+                <!-- يتم تعبئة المنتجات من products.json -->
+
+            </div>
+
+        </div>
+
+    </section>
+
+    <!-- =========================
+         ABOUT LUNOVIA
+    ========================== -->
+
+    <section class="about-home">
+
+        <div class="container">
+
+            <div class="about-grid">
+
+                <div class="about-image">
+
+                    <img src="assets/images/about/about-home.webp"
+                         alt="LUNOVIA Jewellery">
+
+                </div>
+
+                <div class="about-content">
+
+                    <span>
+
+                        About LUNOVIA
+
+                    </span>
+
+                    <h2>
+
+                        Luxury Crafted With Passion
+
+                    </h2>
+
+                    <p>
+
+                        At LUNOVIA we believe jewellery is more than an
+                        accessory—it is a timeless expression of
+                        elegance, love and unforgettable memories.
+
+                    </p>
+
+                    <p>
+
+                        Every collection is carefully designed using
+                        premium materials and exceptional craftsmanship
+                        to create pieces that last for generations.
+
+                    </p>
+
+                    <a href="about.html"
+                       class="btn btn-outline">
+
+                        Learn More
+
+                    </a>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+        <!-- =========================
+         TESTIMONIALS
+    ========================== -->
+
+    <section class="testimonials-section"
+             id="testimonials">
+
+        <div class="container">
+
+            <div class="section-heading">
+
+                <span>
+
+                    Testimonials
+
+                </span>
+
+                <h2>
+
+                    What Our Customers Say
+
+                </h2>
+
+                <p>
+
+                    Trusted by customers who appreciate timeless
+                    elegance and premium craftsmanship.
+
+                </p>
+
+            </div>
+
+            <div class="testimonials-slider">
+
+                <article class="testimonial-card">
+
+                    <div class="testimonial-rating">
+
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+
+                    </div>
+
+                    <p>
+
+                        The quality exceeded every expectation.
+                        Beautiful packaging and an absolutely stunning
+                        necklace.
+
+                    </p>
+
+                    <div class="testimonial-author">
+
+                        <strong>
+
+                            Emily Johnson
+
+                        </strong>
+
+                        <span>
+
+                            Verified Customer
+
+                        </span>
+
+                    </div>
+
+                </article>
+
+                <article class="testimonial-card">
+
+                    <div class="testimonial-rating">
+
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+
+                    </div>
+
+                    <p>
+
+                        Fast delivery, exceptional craftsmanship
+                        and luxurious presentation.
+
+                    </p>
+
+                    <div class="testimonial-author">
+
+                        <strong>
+
+                            Olivia Brown
+
+                        </strong>
+
+                        <span>
+
+                            Verified Customer
+
+                        </span>
+
+                    </div>
+
+                </article>
+
+                <article class="testimonial-card">
+
+                    <div class="testimonial-rating">
+
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+
+                    </div>
+
+                    <p>
+
+                        Elegant designs and premium quality.
+                        Highly recommended.
+
+                    </p>
+
+                    <div class="testimonial-author">
+
+                        <strong>
+
+                            Sophia Williams
+
+                        </strong>
+
+                        <span>
+
+                            Verified Customer
+
+                        </span>
+
+                    </div>
+
+                </article>
+
+            </div>
+
+        </div>
+
+    </section>
+
+    <!-- =========================
+         INSTAGRAM
+    ========================== -->
+
+    <section class="instagram-section">
+
+        <div class="container">
+
+            <div class="section-heading">
+
+                <span>
+
+                    Instagram
+
+                </span>
+
+                <h2>
+
+                    @LUNOVIAJewellery
+
+                </h2>
+
+            </div>
+
+            <div class="instagram-grid">
+
+                <a href="#">
+
+                    <img src="assets/images/instagram/1.webp"
+                         alt="Instagram 1">
+
+                </a>
+
+                <a href="#">
+
+                    <img src="assets/images/instagram/2.webp"
+                         alt="Instagram 2">
+
+                </a>
+
+                <a href="#">
+
+                    <img src="assets/images/instagram/3.webp"
+                         alt="Instagram 3">
+
+                </a>
+
+                <a href="#">
+
+                    <img src="assets/images/instagram/4.webp"
+                         alt="Instagram 4">
+
+                </a>
+
+                <a href="#">
+
+                    <img src="assets/images/instagram/5.webp"
+                         alt="Instagram 5">
+
+                </a>
+
+                <a href="#">
+
+                    <img src="assets/images/instagram/6.webp"
+                         alt="Instagram 6">
+
                 </a>
 
             </div>
@@ -370,40 +1350,11 @@
 
     </section>
 
+    <!-- =========================
+         NEWSLETTER
+    ========================== -->
 
-    <!-- BEST SELLERS -->
-
-    <section class="section best-sellers">
-
-        <div class="container">
-
-            <div class="section-header">
-
-                <span class="section-subtitle">
-                    Best Sellers
-                </span>
-
-                <h2 class="section-title">
-                    Customer Favorites
-                </h2>
-
-            </div>
-
-            <div id="bestSellerProducts"
-                 class="products-grid">
-
-                <!-- Dynamic Products -->
-
-            </div>
-
-        </div>
-
-    </section>
-
-
-    <!-- NEWSLETTER -->
-
-    <section class="newsletter">
+    <section class="newsletter-section">
 
         <div class="container">
 
@@ -411,16 +1362,24 @@
 
                 <div class="newsletter-content">
 
-                    <span class="section-subtitle">
-                        Stay Connected
+                    <span>
+
+                        Newsletter
+
                     </span>
 
                     <h2>
+
                         Join The LUNOVIA Community
+
                     </h2>
 
                     <p>
-                        Subscribe to receive exclusive offers, early access to new collections and luxury inspiration.
+
+                        Subscribe to receive exclusive offers,
+                        early access to new collections,
+                        and luxury inspiration.
+
                     </p>
 
                 </div>
@@ -431,7 +1390,7 @@
                     <input
                         type="email"
                         id="newsletterEmail"
-                        placeholder="Enter your email"
+                        placeholder="Enter your email address"
                         required>
 
                     <button
@@ -449,125 +1408,237 @@
         </div>
 
     </section>
-        <!-- FOOTER -->
 
-    <footer class="footer">
+                    </main>
+                    <!-- =========================
+     FOOTER
+========================= -->
 
-        <div class="container">
+<footer class="footer">
 
-            <div class="footer-grid">
+    <div class="container">
 
-                <div class="footer-column">
+        <div class="footer-grid">
 
-                    <a href="index.html" class="footer-logo">
-                        LUNOVIA
+            <div class="footer-column">
+
+                <a href="index.html" class="footer-logo">
+
+                    LUNOVIA
+
+                </a>
+
+                <p>
+
+                    Luxury jewellery designed with timeless elegance,
+                    premium craftsmanship and exceptional quality.
+
+                </p>
+
+                <div class="footer-social">
+
+                    <a href="#" aria-label="Facebook">
+                        <i class="fa-brands fa-facebook-f"></i>
                     </a>
 
-                    <p>
-                        Luxury jewellery crafted with elegance,
-                        timeless design and exceptional quality.
-                    </p>
+                    <a href="#" aria-label="Instagram">
+                        <i class="fa-brands fa-instagram"></i>
+                    </a>
 
-                    <div class="social-links">
+                    <a href="#" aria-label="Pinterest">
+                        <i class="fa-brands fa-pinterest-p"></i>
+                    </a>
 
-                        <a href="#" aria-label="Facebook">
-                            <i class="fa-brands fa-facebook-f"></i>
-                        </a>
-
-                        <a href="#" aria-label="Instagram">
-                            <i class="fa-brands fa-instagram"></i>
-                        </a>
-
-                        <a href="#" aria-label="Pinterest">
-                            <i class="fa-brands fa-pinterest-p"></i>
-                        </a>
-
-                        <a href="#" aria-label="TikTok">
-                            <i class="fa-brands fa-tiktok"></i>
-                        </a>
-
-                    </div>
-
-                </div>
-
-                <div class="footer-column">
-
-                    <h4>Shop</h4>
-
-                    <ul>
-
-                        <li><a href="shop.html">All Products</a></li>
-                        <li><a href="collections.html">Collections</a></li>
-                        <li><a href="wishlist.html">Wishlist</a></li>
-                        <li><a href="cart.html">Shopping Cart</a></li>
-
-                    </ul>
-
-                </div>
-
-                <div class="footer-column">
-
-                    <h4>Company</h4>
-
-                    <ul>
-
-                        <li><a href="about.html">About Us</a></li>
-                        <li><a href="contact.html">Contact</a></li>
-                        <li><a href="privacy.html">Privacy Policy</a></li>
-                        <li><a href="terms.html">Terms & Conditions</a></li>
-
-                    </ul>
-
-                </div>
-
-                <div class="footer-column">
-
-                    <h4>Contact</h4>
-
-                    <ul>
-
-                        <li>Email: hello@lunovia.com</li>
-                        <li>Worldwide Shipping</li>
-                        <li>Premium Customer Support</li>
-
-                    </ul>
+                    <a href="#" aria-label="TikTok">
+                        <i class="fa-brands fa-tiktok"></i>
+                    </a>
 
                 </div>
 
             </div>
 
-            <div class="footer-bottom">
+            <div class="footer-column">
 
-                <p>
-                    © 2026 LUNOVIA Jewellery. All Rights Reserved.
-                </p>
+                <h3>
+
+                    Shop
+
+                </h3>
+
+                <ul>
+
+                    <li><a href="shop.html">All Products</a></li>
+
+                    <li><a href="collections.html">Collections</a></li>
+
+                    <li><a href="wishlist.html">Wishlist</a></li>
+
+                    <li><a href="cart.html">Shopping Cart</a></li>
+
+                </ul>
+
+            </div>
+
+            <div class="footer-column">
+
+                <h3>
+
+                    Company
+
+                </h3>
+
+                <ul>
+
+                    <li><a href="about.html">About Us</a></li>
+
+                    <li><a href="contact.html">Contact</a></li>
+
+                    <li><a href="privacy.html">Privacy Policy</a></li>
+
+                    <li><a href="terms.html">Terms & Conditions</a></li>
+
+                </ul>
+
+            </div>
+
+            <div class="footer-column">
+
+                <h3>
+
+                    Contact
+
+                </h3>
+
+                <ul>
+
+                    <li>
+
+                        hello@lunovia.com
+
+                    </li>
+
+                    <li>
+
+                        Worldwide Shipping
+
+                    </li>
+
+                    <li>
+
+                        Premium Customer Support
+
+                    </li>
+
+                </ul>
 
             </div>
 
         </div>
 
-    </footer>
+        <div class="footer-bottom">
 
-</main>
+            <p>
 
-<!-- Search Overlay -->
-<div id="searchOverlay"></div>
+                © 2026 LUNOVIA Jewellery.
+                All Rights Reserved.
 
-<!-- Back To Top -->
-<button id="backToTop" class="back-to-top" aria-label="Back to top">
+            </p>
+
+        </div>
+
+    </div>
+
+</footer>
+
+<!-- =========================
+     SEARCH OVERLAY
+========================= -->
+
+<div class="search-overlay"
+     id="searchOverlay">
+
+    <div class="search-box">
+
+        <button id="closeSearch">
+
+            <i class="fa-solid fa-xmark"></i>
+
+        </button>
+
+        <input
+            type="search"
+            id="searchInput"
+            placeholder="Search jewellery...">
+
+        <div id="searchResults"></div>
+
+    </div>
+
+</div>
+
+<!-- =========================
+     QUICK VIEW MODAL
+========================= -->
+
+<div class="modal quick-view-modal"
+     id="quickViewModal">
+
+    <div class="modal-content">
+
+        <button
+            class="close-modal"
+            id="closeQuickView">
+
+            <i class="fa-solid fa-xmark"></i>
+
+        </button>
+
+        <div id="quickViewContent">
+
+            <!-- Dynamic -->
+
+        </div>
+
+    </div>
+
+</div>
+
+<!-- =========================
+     TOAST NOTIFICATION
+========================= -->
+
+<div id="toastContainer"></div>
+
+<!-- =========================
+     BACK TO TOP
+========================= -->
+
+<button id="backToTop"
+        class="back-to-top"
+        aria-label="Back To Top">
+
     <i class="fa-solid fa-arrow-up"></i>
+
 </button>
 
-<!-- JavaScript -->
+<!-- =========================
+     JAVASCRIPT
+========================= -->
 
-<script src="assets/js/utils.js"></script>
 <script src="assets/js/storage.js"></script>
+
 <script src="assets/js/products.js"></script>
+
 <script src="assets/js/cart.js"></script>
+
 <script src="assets/js/wishlist.js"></script>
+
 <script src="assets/js/search.js"></script>
+
 <script src="assets/js/ui.js"></script>
+
 <script src="assets/js/main.js"></script>
 
 </body>
+
 </html>
