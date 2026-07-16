@@ -1,231 +1,995 @@
 <!DOCTYPE html>
-<html lang="en" dir="ltr">
+<html lang="en">
 
 <head>
 
-<meta charset="UTF-8">
+    <meta charset="UTF-8">
 
-<meta
-name="viewport"
-content="width=device-width,initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible"
+          content="IE=edge">
 
-<meta
-name="description"
-content="Browse all jewelry products at LUNOVIA">
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
 
-<title data-title="shop.title">
+    <title>
 
-LUNOVIA | Shop
+        Shop | LUNOVIA Jewellery
 
-</title>
+    </title>
 
-<link
-rel="stylesheet"
-href="assets/css/style.css">
+    <meta name="description"
+          content="Browse our luxury jewellery collection.">
 
-<link
-rel="stylesheet"
-href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+    <meta name="theme-color"
+          content="#B9925A">
+
+    <link rel="icon"
+          href="assets/images/favicon.ico">
+
+    <link rel="preconnect"
+          href="https://fonts.googleapis.com">
+
+    <link rel="preconnect"
+          href="https://fonts.gstatic.com"
+          crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap"
+          rel="stylesheet">
+
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+
+    <link rel="stylesheet"
+          href="assets/css/style.css">
 
 </head>
 
 <body>
 
-<div id="app">
-<header class="header">
+<!-- PRELOADER -->
 
-<div class="container">
+<div id="preloader">
 
-<a
-href="index.html"
-class="logo">
+    <div class="loader">
 
-LUNOVIA
+        <span>
 
-</a>
+            LUNOVIA
 
-<nav class="navbar">
+        </span>
 
-<ul class="nav-list">
-
-<li>
-
-<a href="index.html">
-
-Home
-
-</a>
-
-</li>
-
-<li>
-
-<a
-href="shop.html"
-class="active">
-
-Shop
-
-</a>
-
-</li>
-
-<li>
-
-<a href="about.html">
-
-About
-
-</a>
-
-</li>
-
-<li>
-
-<a href="contact.html">
-
-Contact
-
-</a>
-
-</li>
-
-</ul>
-
-</nav>
-
-<div class="header-actions">
-
-<a
-href="wishlist.html"
-class="icon-button">
-
-<i class="fa-regular fa-heart"></i>
-
-<span
-class="badge"
-id="wishlistCount">
-
-0
-
-</span>
-
-</a>
-
-<a
-href="cart.html"
-class="icon-button">
-
-<i class="fa-solid fa-bag-shopping"></i>
-
-<span
-class="badge"
-id="cartCount">
-
-0
-
-</span>
-
-</a>
+    </div>
 
 </div>
 
-</div>
+<!-- HEADER -->
+
+<header id="header"
+        class="header">
+
+    <div class="container">
+
+        <div class="header-inner">
+
+            <a href="index.html"
+               class="logo">
+
+                <img src="assets/images/logo.svg"
+                     alt="LUNOVIA">
+
+            </a>
+
+            <nav class="main-nav">
+
+                <ul class="nav-list">
+
+                    <li>
+
+                        <a href="index.html">
+
+                            Home
+
+                        </a>
+
+                    </li>
+
+                    <li>
+
+                        <a href="shop.html"
+                           class="active">
+
+                            Shop
+
+                        </a>
+
+                    </li>
+
+                    <li>
+
+                        <a href="collections.html">
+
+                            Collections
+
+                        </a>
+
+                    </li>
+
+                    <li>
+
+                        <a href="about.html">
+
+                            About
+
+                        </a>
+
+                    </li>
+
+                    <li>
+
+                        <a href="contact.html">
+
+                            Contact
+
+                        </a>
+
+                    </li>
+
+                </ul>
+
+            </nav>
+
+            <div class="header-actions">
+
+                <button id="searchBtn"
+                        class="icon-btn">
+
+                    <i class="fa-solid fa-magnifying-glass"></i>
+
+                </button>
+
+                <a href="wishlist.html"
+                   class="icon-btn">
+
+                    <i class="fa-regular fa-heart"></i>
+
+                    <span id="wishlistCount">
+
+                        0
+
+                    </span>
+
+                </a>
+
+                <a href="cart.html"
+                   class="icon-btn">
+
+                    <i class="fa-solid fa-bag-shopping"></i>
+
+                    <span id="cartCount">
+
+                        0
+
+                    </span>
+
+                </a>
+
+            </div>
+
+        </div>
+
+    </div>
 
 </header>
+
 <main>
 
-<section class="featured-products">
+<!-- PAGE HEADER -->
 
-<div class="container">
+<section class="page-header">
 
-<div class="section-header">
+    <div class="container">
 
-<h1 data-i18n="shop.title">
+        <div class="page-header-content">
 
-Shop
+            <h1>
 
-</h1>
+                Shop
 
-<p data-i18n="shop.description">
+            </h1>
 
-Discover all available jewelry.
+            <nav class="breadcrumb">
 
-</p>
+                <a href="index.html">
 
-</div>
+                    Home
 
-<div
+                </a>
 
-class="products-grid"
+                <span>
 
-id="productsGrid">
+                    /
 
-</div>
+                </span>
 
-<div class="pagination"
+                <span>
 
-id="pagination">
+                    Shop
 
-</div>
+                </span>
 
-</div>
+            </nav>
+
+        </div>
+
+    </div>
 
 </section>
 
+<!-- SHOP -->
+
+<section class="shop-page">
+
+    <div class="container">
+
+        <div class="shop-layout">
+
+            <!-- SIDEBAR -->
+
+            <aside class="shop-sidebar">
+
+                <div class="filter-box">
+
+                    <h3>
+
+                        Categories
+
+                    </h3>
+
+                    <ul>
+
+                        <li>
+
+                            <label>
+
+                                <input
+                                    type="checkbox"
+                                    value="rings">
+
+                                Rings
+
+                            </label>
+
+                        </li>
+
+                        <li>
+
+                            <label>
+
+                                <input
+                                    type="checkbox"
+                                    value="necklaces">
+
+                                Necklaces
+
+                            </label>
+
+                        </li>
+
+                        <li>
+
+                            <label>
+
+                                <input
+                                    type="checkbox"
+                                    value="bracelets">
+
+                                Bracelets
+
+                            </label>
+
+                        </li>
+
+                        <li>
+
+                            <label>
+
+                                <input
+                                    type="checkbox"
+                                    value="earrings">
+
+                                Earrings
+
+                            </label>
+
+                        </li>
+
+                    </ul>
+
+                </div>
+
+                <div class="filter-box">
+
+                    <h3>
+
+                        Price
+
+                    </h3>
+
+                    <input
+                        type="range"
+                        id="priceRange"
+                        min="0"
+                        max="5000">
+
+                    <span id="priceValue">
+
+                        $5000
+
+                    </span>
+
+                </div>
+              
+                <!-- MATERIAL FILTER -->
+
+                <div class="filter-box">
+
+                    <h3>
+
+                        Material
+
+                    </h3>
+
+                    <ul>
+
+                        <li>
+
+                            <label>
+
+                                <input type="checkbox"
+                                       value="gold"
+                                       class="material-filter">
+
+                                Gold
+
+                            </label>
+
+                        </li>
+
+                        <li>
+
+                            <label>
+
+                                <input type="checkbox"
+                                       value="silver"
+                                       class="material-filter">
+
+                                Silver
+
+                            </label>
+
+                        </li>
+
+                        <li>
+
+                            <label>
+
+                                <input type="checkbox"
+                                       value="diamond"
+                                       class="material-filter">
+
+                                Diamond
+
+                            </label>
+
+                        </li>
+
+                        <li>
+
+                            <label>
+
+                                <input type="checkbox"
+                                       value="platinum"
+                                       class="material-filter">
+
+                                Platinum
+
+                            </label>
+
+                        </li>
+
+                    </ul>
+
+                </div>
+
+                <!-- COLLECTION FILTER -->
+
+                <div class="filter-box">
+
+                    <h3>
+
+                        Collection
+
+                    </h3>
+
+                    <ul>
+
+                        <li>
+
+                            <label>
+
+                                <input type="checkbox"
+                                       value="new">
+
+                                New Arrivals
+
+                            </label>
+
+                        </li>
+
+                        <li>
+
+                            <label>
+
+                                <input type="checkbox"
+                                       value="best">
+
+                                Best Sellers
+
+                            </label>
+
+                        </li>
+
+                        <li>
+
+                            <label>
+
+                                <input type="checkbox"
+                                       value="luxury">
+
+                                Luxury Collection
+
+                            </label>
+
+                        </li>
+
+                        <li>
+
+                            <label>
+
+                                <input type="checkbox"
+                                       value="wedding">
+
+                                Wedding Collection
+
+                            </label>
+
+                        </li>
+
+                    </ul>
+
+                </div>
+
+                <!-- RATING FILTER -->
+
+                <div class="filter-box">
+
+                    <h3>
+
+                        Rating
+
+                    </h3>
+
+                    <label>
+
+                        <input type="radio"
+                               name="rating"
+                               value="5">
+
+                        ★★★★★
+
+                    </label>
+
+                    <label>
+
+                        <input type="radio"
+                               name="rating"
+                               value="4">
+
+                        ★★★★☆
+
+                    </label>
+
+                    <label>
+
+                        <input type="radio"
+                               name="rating"
+                               value="3">
+
+                        ★★★☆☆
+
+                    </label>
+
+                </div>
+
+                <button class="btn btn-primary"
+                        id="clearFilters">
+
+                    Clear Filters
+
+                </button>
+
+            </aside>
+
+            <!-- SHOP CONTENT -->
+
+            <div class="shop-content">
+
+                <!-- TOOLBAR -->
+
+                <div class="shop-toolbar">
+
+                    <div class="results-count">
+
+                        <span id="resultsCount">
+
+                            0 Products
+
+                        </span>
+
+                    </div>
+
+                    <div class="toolbar-actions">
+
+                        <select id="sortProducts">
+
+                            <option value="featured">
+
+                                Featured
+
+                            </option>
+
+                            <option value="latest">
+
+                                Latest
+
+                            </option>
+
+                            <option value="price-low">
+
+                                Price: Low to High
+
+                            </option>
+
+                            <option value="price-high">
+
+                                Price: High to Low
+
+                            </option>
+
+                            <option value="name">
+
+                                Name
+
+                            </option>
+
+                        </select>
+
+                        <div class="view-buttons">
+
+                            <button id="gridView"
+                                    class="active">
+
+                                <i class="fa-solid fa-table-cells"></i>
+
+                            </button>
+
+                            <button id="listView">
+
+                                <i class="fa-solid fa-list"></i>
+
+                            </button>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+                <!-- PRODUCTS -->
+
+                <div id="shopProducts"
+                     class="products-grid">
+
+                    <!-- يتم تحميل المنتجات من products.json -->
+
+                </div>
+
+                <!-- LOADING -->
+
+                <div id="productsLoader"
+                     class="products-loader hidden">
+
+                    <span class="spinner"></span>
+
+                </div>
+
+                <!-- EMPTY STATE -->
+
+                <div id="emptyProducts"
+                     class="empty-products hidden">
+
+                    <i class="fa-solid fa-gem"></i>
+
+                    <h3>
+
+                        No Products Found
+
+                    </h3>
+
+                    <p>
+
+                        Try changing the selected filters.
+
+                    </p>
+
+                </div>
+
+                <!-- PAGINATION -->
+
+                <nav class="pagination"
+                     id="pagination">
+
+                    <button
+                        class="page-btn"
+                        id="prevPage">
+
+                        <i class="fa-solid fa-chevron-left"></i>
+
+                    </button>
+
+                    <div id="paginationNumbers">
+
+                    </div>
+
+                    <button
+                        class="page-btn"
+                        id="nextPage">
+
+                        <i class="fa-solid fa-chevron-right"></i>
+
+                    </button>
+
+                </nav>
+
+            </div>
+
+        </div>
+
+    </div>
+
+  </section>
+      <!-- =========================
+         RECENTLY VIEWED
+    ========================== -->
+
+    <section class="recently-viewed">
+
+        <div class="container">
+
+            <div class="section-heading">
+
+                <span>
+
+                    Recently Viewed
+
+                </span>
+
+                <h2>
+
+                    Continue Shopping
+
+                </h2>
+
+            </div>
+
+            <div id="recentProducts"
+                 class="products-grid">
+
+                <!-- يتم تعبئته بواسطة JavaScript -->
+
+            </div>
+
+        </div>
+
+    </section>
+
+    <!-- =========================
+         RECOMMENDED PRODUCTS
+    ========================== -->
+
+    <section class="recommended-products">
+
+        <div class="container">
+
+            <div class="section-heading">
+
+                <span>
+
+                    Recommended
+
+                </span>
+
+                <h2>
+
+                    You May Also Like
+
+                </h2>
+
+                <p>
+
+                    Carefully selected jewellery based on your interests.
+
+                </p>
+
+            </div>
+
+            <div id="recommendedProducts"
+                 class="products-grid">
+
+                <!-- Dynamic -->
+
+            </div>
+
+        </div>
+
+    </section>
+
+    <!-- =========================
+         NEWSLETTER
+    ========================== -->
+
+    <section class="newsletter-section">
+
+        <div class="container">
+
+            <div class="newsletter-wrapper">
+
+                <div class="newsletter-content">
+
+                    <span>
+
+                        Newsletter
+
+                    </span>
+
+                    <h2>
+
+                        Stay Updated
+
+                    </h2>
+
+                    <p>
+
+                        Receive exclusive offers and be the first to
+                        discover our latest luxury collections.
+
+                    </p>
+
+                </div>
+
+                <form id="newsletterForm"
+                      class="newsletter-form">
+
+                    <input
+                        type="email"
+                        id="newsletterEmail"
+                        placeholder="Enter your email"
+                        required>
+
+                    <button
+                        type="submit"
+                        class="btn btn-primary">
+
+                        Subscribe
+
+                    </button>
+
+                </form>
+
+            </div>
+
+        </div>
+
+    </section>
+
 </main>
-<!--=========================================
-PRODUCT TEMPLATE
-==========================================-->
 
-<template id="productCardTemplate">
+<!-- =========================
+     FOOTER
+========================= -->
 
-<article class="product-card">
+<footer class="footer">
 
-<img
+    <div class="container">
 
-class="product-image"
+        <div class="footer-grid">
 
-src=""
+            <div>
 
-alt="">
+                <h3>
 
-<div class="product-content">
+                    LUNOVIA
 
-<h3 class="product-title">
+                </h3>
 
-</h3>
+                <p>
 
-<p class="product-price">
+                    Luxury handcrafted jewellery created with timeless
+                    elegance and premium craftsmanship.
 
-</p>
+                </p>
 
-<div class="product-actions">
+            </div>
 
-<button
+            <div>
 
-type="button"
+                <h4>
 
-class="btn btn-primary add-cart">
+                    Shop
 
-Add To Cart
+                </h4>
 
-</button>
+                <ul>
 
-<button
+                    <li><a href="shop.html">Shop</a></li>
 
-type="button"
+                    <li><a href="collections.html">Collections</a></li>
 
-class="btn btn-outline add-wishlist">
+                    <li><a href="wishlist.html">Wishlist</a></li>
 
-<i class="fa-regular fa-heart"></i>
+                    <li><a href="cart.html">Cart</a></li>
 
-</button>
+                </ul>
+
+            </div>
+
+            <div>
+
+                <h4>
+
+                    Company
+
+                </h4>
+
+                <ul>
+
+                    <li><a href="about.html">About</a></li>
+
+                    <li><a href="contact.html">Contact</a></li>
+
+                    <li><a href="privacy.html">Privacy Policy</a></li>
+
+                    <li><a href="terms.html">Terms</a></li>
+
+                </ul>
+
+            </div>
+
+            <div>
+
+                <h4>
+
+                    Follow Us
+
+                </h4>
+
+                <div class="footer-social">
+
+                    <a href="#"><i class="fa-brands fa-facebook-f"></i></a>
+
+                    <a href="#"><i class="fa-brands fa-instagram"></i></a>
+
+                    <a href="#"><i class="fa-brands fa-pinterest-p"></i></a>
+
+                    <a href="#"><i class="fa-brands fa-tiktok"></i></a>
+
+                </div>
+
+            </div>
+
+        </div>
+
+        <div class="footer-bottom">
+
+            <p>
+
+                © 2026 LUNOVIA Jewellery. All rights reserved.
+
+            </p>
+
+        </div>
+
+    </div>
+
+</footer>
+
+<!-- SEARCH OVERLAY -->
+
+<div id="searchOverlay"
+     class="search-overlay">
+
+    <div class="search-box">
+
+        <button id="closeSearch">
+
+            <i class="fa-solid fa-xmark"></i>
+
+        </button>
+
+        <input
+            id="searchInput"
+            type="search"
+            placeholder="Search products...">
+
+        <div id="searchResults"></div>
+
+    </div>
 
 </div>
 
+<!-- QUICK VIEW -->
+
+<div id="quickViewModal"
+     class="modal">
+
+    <div class="modal-content">
+
+        <button id="closeQuickView"
+                class="close-modal">
+
+            <i class="fa-solid fa-xmark"></i>
+
+        </button>
+
+        <div id="quickViewContent">
+
+        </div>
+
+    </div>
+
 </div>
 
-</article>
+<!-- TOAST -->
 
-</template>
+<div id="toastContainer"></div>
+
+<!-- BACK TO TOP -->
+
+<button id="backToTop"
+        class="back-to-top">
+
+    <i class="fa-solid fa-arrow-up"></i>
+
+</button>
+
+<!-- JAVASCRIPT -->
+
+<script src="assets/js/storage.js"></script>
+
+<script src="assets/js/products.js"></script>
+
+<script src="assets/js/cart.js"></script>
+
+<script src="assets/js/wishlist.js"></script>
+
+<script src="assets/js/search.js"></script>
+
+<script src="assets/js/ui.js"></script>
+
+<script src="assets/js/main.js"></script>
+
+<script src="assets/js/shop.js"></script>
+
+</body>
+
+  </html>
