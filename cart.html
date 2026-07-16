@@ -1,0 +1,443 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+
+<meta name="viewport"
+      content="width=device-width,initial-scale=1.0">
+
+<title>
+
+Shopping Cart | LUNOVIA Jewellery
+
+</title>
+
+<link rel="stylesheet"
+      href="assets/css/style.css">
+
+<link rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+
+</head>
+
+<body>
+
+<header class="header">
+
+<div class="container">
+
+<div class="header-inner">
+
+<a href="index.html"
+   class="logo">
+
+<img src="assets/images/logo.svg"
+     alt="LUNOVIA">
+
+</a>
+
+<nav class="main-nav">
+
+<ul>
+
+<li>
+
+<a href="index.html">
+
+Home
+
+</a>
+
+</li>
+
+<li>
+
+<a href="shop.html">
+
+Shop
+
+</a>
+
+</li>
+
+<li>
+
+<a href="cart.html"
+   class="active">
+
+Cart
+
+</a>
+
+</li>
+
+</ul>
+
+</nav>
+
+<div class="header-actions">
+
+<a href="wishlist.html"
+   class="icon-btn">
+
+<i class="fa-regular fa-heart"></i>
+
+</a>
+
+<a href="cart.html"
+   class="icon-btn">
+
+<i class="fa-solid fa-bag-shopping"></i>
+
+<span class="cart-count">
+
+0
+
+</span>
+
+</a>
+
+</div>
+
+</div>
+
+</div>
+
+</header>
+
+<main>
+
+<section class="page-header">
+
+<div class="container">
+
+<h1>
+
+Shopping Cart
+
+</h1>
+
+<p>
+
+Review your selected jewellery before checkout.
+
+</p>
+
+</div>
+
+</section>
+
+<section class="cart-page">
+
+<div class="container">
+
+<div class="cart-layout">
+
+<div class="cart-products">
+
+<h2>
+
+Your Cart
+
+</h2>
+
+<div id="cartItems">
+
+<!-- يتم ملؤها بواسطة cart.js -->
+
+</div>
+
+</div>
+
+<aside class="cart-summary">
+
+<h2>
+
+Order Summary
+
+</h2>
+
+<div class="summary-row">
+
+<span>
+
+Subtotal
+
+</span>
+
+<strong id="cartSubtotal">
+
+$0.00
+
+</strong>
+
+</div>
+
+<div class="summary-row">
+
+<span>
+
+Shipping
+
+</span>
+
+<strong id="cartShipping">
+
+FREE
+
+</strong>
+
+</div>
+
+<div class="summary-row">
+
+<span>
+
+Tax
+
+</span>
+
+<strong id="cartTax">
+
+$0.00
+
+</strong>
+
+</div>
+
+<div class="summary-row">
+
+<span>
+
+Discount
+
+</span>
+
+<strong id="cartDiscount">
+
+$0.00
+
+</strong>
+
+</div>
+                  <div class="coupon-box">
+
+                    <label for="couponCode">
+
+                        Coupon Code
+
+                    </label>
+
+                    <div class="coupon-input">
+
+                        <input
+                            type="text"
+                            id="couponCode"
+                            placeholder="Enter coupon">
+
+                        <button
+                            id="applyCoupon"
+                            class="btn btn-outline">
+
+                            Apply
+
+                        </button>
+
+                    </div>
+
+                </div>
+
+                <hr>
+
+                <div class="summary-row total">
+
+                    <span>
+
+                        Grand Total
+
+                    </span>
+
+                    <strong id="cartGrandTotal">
+
+                        $0.00
+
+                    </strong>
+
+                </div>
+
+                <button
+                    id="checkoutButton"
+                    class="btn btn-primary btn-block">
+
+                    <i class="fa-solid fa-lock"></i>
+
+                    Proceed To Checkout
+
+                </button>
+
+                <a href="shop.html"
+                   class="btn btn-secondary btn-block">
+
+                    Continue Shopping
+
+                </a>
+
+            </aside>
+
+        </div>
+
+    </div>
+
+</section>
+
+<!-- =========================
+     RECOMMENDED PRODUCTS
+========================= -->
+
+<section class="recommended-products">
+
+    <div class="container">
+
+        <div class="section-heading">
+
+            <span>
+
+                You May Also Like
+
+            </span>
+
+            <h2>
+
+                Recommended For You
+
+            </h2>
+
+        </div>
+
+        <div id="recommendedProducts"
+             class="products-grid">
+
+            <!-- Dynamic -->
+
+        </div>
+
+    </div>
+
+</section>
+
+</main>
+
+<!-- =========================
+     FOOTER
+========================= -->
+
+<footer class="footer">
+
+    <div class="container">
+
+        <div class="footer-grid">
+
+            <div class="footer-column">
+
+                <h3>
+
+                    LUNOVIA
+
+                </h3>
+
+                <p>
+
+                    Luxury handcrafted jewellery designed for timeless elegance.
+
+                </p>
+
+            </div>
+
+            <div class="footer-column">
+
+                <h4>
+
+                    Shop
+
+                </h4>
+
+                <ul>
+
+                    <li><a href="shop.html">Shop</a></li>
+
+                    <li><a href="collections.html">Collections</a></li>
+
+                    <li><a href="wishlist.html">Wishlist</a></li>
+
+                </ul>
+
+            </div>
+
+            <div class="footer-column">
+
+                <h4>
+
+                    Support
+
+                </h4>
+
+                <ul>
+
+                    <li><a href="contact.html">Contact</a></li>
+
+                    <li><a href="privacy.html">Privacy Policy</a></li>
+
+                    <li><a href="terms.html">Terms & Conditions</a></li>
+
+                </ul>
+
+            </div>
+
+        </div>
+
+        <div class="footer-bottom">
+
+            <p>
+
+                © 2026 LUNOVIA Jewellery. All Rights Reserved.
+
+            </p>
+
+        </div>
+
+    </div>
+
+</footer>
+
+<!-- TOAST -->
+
+<div id="toastContainer"></div>
+
+<!-- BACK TO TOP -->
+
+<button
+    id="backToTop"
+    class="back-to-top">
+
+    <i class="fa-solid fa-arrow-up"></i>
+
+</button>
+
+<!-- JAVASCRIPT -->
+
+<script src="assets/js/storage.js"></script>
+
+<script src="assets/js/products.js"></script>
+
+<script src="assets/js/cart.js"></script>
+
+<script src="assets/js/ui.js"></script>
+
+<script src="assets/js/main.js"></script>
+
+</body>
+
+  </html>
