@@ -1,0 +1,17 @@
+assets/
+└── images/
+    ├── logo.png
+    ├── favicon.png
+    ├── apple-touch-icon.png
+    ├── hero/
+    ├── banners/
+    ├── categories/
+    ├── collections/
+    ├── products/
+    │   ├── rings/
+    │   ├── necklaces/
+    │   ├── bracelets/
+    │   └── earrings/
+    ├── placeholders/
+    ├── avatars/
+    └── icons/
