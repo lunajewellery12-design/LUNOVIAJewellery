@@ -1,0 +1,18 @@
+{
+  "home.title": "LUNOVIA",
+
+  "nav.home": "Home",
+  "nav.shop": "Shop",
+  "nav.about": "About",
+  "nav.contact": "Contact",
+
+  "hero.tag": "New Collection",
+  "hero.title": "Elegant Jewelry For Every Moment",
+  "hero.description": "Discover timeless jewelry designed to celebrate your style.",
+  "hero.shop": "Shop Now",
+  "hero.about": "Learn More",
+
+  "home.featured": "Featured Products",
+  "home.featuredDescription": "Handpicked jewelry you'll love.",
+  "home.viewAll": "View All Products"
+}
