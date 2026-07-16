@@ -332,17 +332,13 @@ letter-spacing:2px;
 color:var(--primary);
 
 white-space:nowrap;
-
-}
-
 .logo img{
 
-height:48px;
+    width:220px;
 
-width:auto;
+    height:auto;
 
 }
-
 .logo span{
 
 color:var(--dark);
