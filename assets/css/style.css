@@ -34,11 +34,41 @@ body{
 
 font-family:"Poppins",sans-serif;
 
-background:#ffffff;
+background:var(--light);
 
-color:#222;
+color:var(--text);
 
-line-height:1.6;
+line-height:1.7;
+
+font-size:16px;
+
+font-weight:400;
+
+overflow-x:hidden;
+
+-webkit-font-smoothing:antialiased;
+
+}
+
+.container{
+
+width:min(100% - 40px,var(--container));
+
+margin-inline:auto;
+
+}
+
+section{
+
+padding:80px 0;
+
+}
+
+::selection{
+
+background:var(--primary);
+
+color:#fff;
 
 }
 
@@ -48,13 +78,28 @@ display:block;
 
 max-width:100%;
 
+height:auto;
+
+}
+
+button,
+input,
+select,
+textarea{
+
+font:inherit;
+
+}
+
+button{
+
+transition:var(--transition);
+
 }
 
 a{
 
-text-decoration:none;
-
-color:inherit;
+transition:var(--transition);
 
 }
 
@@ -76,37 +121,47 @@ list-style:none;
 
 }
 
-/*==============================
-VARIABLES
-==============================*/
+/*==================================================
+LUNOVIA DESIGN SYSTEM v2
+Luxury Jewellery Theme
+==================================================*/
 
 :root{
 
+/* Brand */
 --primary:#C8A96A;
-
 --primary-dark:#A88746;
+--primary-light:#E9D2A3;
 
+/* Neutral */
+--black:#111111;
 --dark:#1F1F1F;
-
 --light:#FFFFFF;
+--surface:#FAFAFA;
+--surface-2:#F5F5F5;
 
---gray:#777777;
+--text:#222222;
+--text-light:#666666;
+--border:#EAEAEA;
 
---border:#ECECEC;
+/* Radius */
+--radius-xs:8px;
+--radius-sm:12px;
+--radius:16px;
+--radius-lg:22px;
 
---radius:14px;
+/* Shadow */
+--shadow-sm:0 4px 12px rgba(0,0,0,.05);
+--shadow:0 10px 25px rgba(0,0,0,.08);
+--shadow-lg:0 20px 45px rgba(0,0,0,.12);
 
---shadow:0 10px 30px rgba(0,0,0,.08);
+/* Transition */
+--transition:.35s ease;
 
---transition:.3s ease;
-
---container:1200px;
+/* Layout */
+--container:1320px;
 
 }
-
-/*==============================
-LAYOUT
-==============================*/
 
 .container{
 
