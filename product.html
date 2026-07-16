@@ -1,0 +1,1001 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta http-equiv="X-UA-Compatible"
+          content="IE=edge">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>
+
+        Product | LUNOVIA Jewellery
+
+    </title>
+
+    <meta name="description"
+          content="Luxury handcrafted jewellery.">
+
+    <meta name="theme-color"
+          content="#B9925A">
+
+    <link rel="icon"
+          href="assets/images/favicon.ico">
+
+    <link rel="preconnect"
+          href="https://fonts.googleapis.com">
+
+    <link rel="preconnect"
+          href="https://fonts.gstatic.com"
+          crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap"
+          rel="stylesheet">
+
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+
+    <link rel="stylesheet"
+          href="assets/css/style.css">
+
+</head>
+
+<body>
+
+<!-- PRELOADER -->
+
+<div id="preloader">
+
+    <div class="loader">
+
+        <span>
+
+            LUNOVIA
+
+        </span>
+
+    </div>
+
+</div>
+
+<!-- HEADER -->
+
+<header class="header"
+        id="header">
+
+    <div class="container">
+
+        <div class="header-inner">
+
+            <a href="index.html"
+               class="logo">
+
+                <img src="assets/images/logo.svg"
+                     alt="LUNOVIA">
+
+            </a>
+
+            <nav class="main-nav">
+
+                <ul class="nav-list">
+
+                    <li>
+
+                        <a href="index.html">
+
+                            Home
+
+                        </a>
+
+                    </li>
+
+                    <li>
+
+                        <a href="shop.html">
+
+                            Shop
+
+                        </a>
+
+                    </li>
+
+                    <li>
+
+                        <a href="collections.html">
+
+                            Collections
+
+                        </a>
+
+                    </li>
+
+                    <li>
+
+                        <a href="about.html">
+
+                            About
+
+                        </a>
+
+                    </li>
+
+                    <li>
+
+                        <a href="contact.html">
+
+                            Contact
+
+                        </a>
+
+                    </li>
+
+                </ul>
+
+            </nav>
+
+            <div class="header-actions">
+
+                <button id="searchBtn"
+                        class="icon-btn">
+
+                    <i class="fa-solid fa-magnifying-glass"></i>
+
+                </button>
+
+                <a href="wishlist.html"
+                   class="icon-btn">
+
+                    <i class="fa-regular fa-heart"></i>
+
+                    <span id="wishlistCount">
+
+                        0
+
+                    </span>
+
+                </a>
+
+                <a href="cart.html"
+                   class="icon-btn">
+
+                    <i class="fa-solid fa-bag-shopping"></i>
+
+                    <span id="cartCount">
+
+                        0
+
+                    </span>
+
+                </a>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</header>
+
+<main>
+
+<!-- PAGE HEADER -->
+
+<section class="page-header">
+
+    <div class="container">
+
+        <h1>
+
+            Product Details
+
+        </h1>
+
+        <nav class="breadcrumb">
+
+            <a href="index.html">
+
+                Home
+
+            </a>
+
+            <span>/</span>
+
+            <a href="shop.html">
+
+                Shop
+
+            </a>
+
+            <span>/</span>
+
+            <span id="breadcrumbProduct">
+
+                Product
+
+            </span>
+
+        </nav>
+
+    </div>
+
+</section>
+
+<!-- PRODUCT -->
+
+<section class="product-page">
+
+    <div class="container">
+
+        <div class="product-layout">
+
+            <!-- GALLERY -->
+
+            <div class="product-gallery">
+
+                <div class="main-image">
+
+                    <img id="mainProductImage"
+                         src="assets/images/placeholders/product.webp"
+                         alt="Product">
+
+                </div>
+
+                <div id="productThumbnails"
+                     class="product-thumbnails">
+
+                </div>
+
+            </div>
+
+            <!-- PRODUCT INFO -->
+
+            <div class="product-info">
+
+                <span id="productCategory"
+                      class="product-category">
+
+                    Luxury Collection
+
+                </span>
+
+                <h2 id="productTitle">
+
+                    Product Name
+
+                </h2>
+
+                <div class="product-rating">
+
+                    <div id="ratingStars">
+
+                        ★★★★★
+
+                    </div>
+
+                    <span id="reviewCount">
+
+                        (0 Reviews)
+
+                    </span>
+
+                </div>
+
+                <div class="product-price">
+
+                    <span id="productPrice">
+
+                        $0.00
+
+                    </span>
+
+                    <span id="oldPrice">
+
+                    </span>
+
+                </div>
+
+                <p id="productDescription">
+
+                    Product description loaded from
+                    products.json.
+
+      </p>
+                              <!-- PRODUCT OPTIONS -->
+
+                <div class="product-options">
+
+                    <!-- SIZE -->
+
+                    <div class="option-group">
+
+                        <label>
+
+                            Size
+
+                        </label>
+
+                        <div class="size-options">
+
+                            <button
+                                class="size-btn active"
+                                data-size="48">
+
+                                48
+
+                            </button>
+
+                            <button
+                                class="size-btn"
+                                data-size="50">
+
+                                50
+
+                            </button>
+
+                            <button
+                                class="size-btn"
+                                data-size="52">
+
+                                52
+
+                            </button>
+
+                            <button
+                                class="size-btn"
+                                data-size="54">
+
+                                54
+
+                            </button>
+
+                            <button
+                                class="size-btn"
+                                data-size="56">
+
+                                56
+
+                            </button>
+
+                        </div>
+
+                    </div>
+
+                    <!-- COLOR -->
+
+                    <div class="option-group">
+
+                        <label>
+
+                            Color
+
+                        </label>
+
+                        <div class="color-options">
+
+                            <button
+                                class="color-btn active gold"
+                                data-color="gold">
+
+                            </button>
+
+                            <button
+                                class="color-btn silver"
+                                data-color="silver">
+
+                            </button>
+
+                            <button
+                                class="color-btn rose-gold"
+                                data-color="rose-gold">
+
+                            </button>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+                <!-- QUANTITY -->
+
+                <div class="quantity-wrapper">
+
+                    <label>
+
+                        Quantity
+
+                    </label>
+
+                    <div class="quantity-selector">
+
+                        <button
+                            id="decreaseQty">
+
+                            −
+
+                        </button>
+
+                        <input
+                            type="number"
+                            id="productQuantity"
+                            value="1"
+                            min="1">
+
+                        <button
+                            id="increaseQty">
+
+                            +
+
+                        </button>
+
+                    </div>
+
+                </div>
+
+                <!-- ACTION BUTTONS -->
+
+                <div class="product-actions">
+
+                    <button
+                        id="addToCart"
+                        class="btn btn-primary">
+
+                        <i class="fa-solid fa-bag-shopping"></i>
+
+                        Add To Cart
+
+                    </button>
+
+                    <button
+                        id="buyNow"
+                        class="btn btn-secondary">
+
+                        Buy Now
+
+                    </button>
+
+                    <button
+                        id="addToWishlist"
+                        class="icon-btn">
+
+                        <i class="fa-regular fa-heart"></i>
+
+                    </button>
+
+                </div>
+
+                <!-- PRODUCT META -->
+
+                <div class="product-meta">
+
+                    <div>
+
+                        <strong>
+
+                            SKU
+
+                        </strong>
+
+                        <span id="productSKU">
+
+                            LNV-0000
+
+                        </span>
+
+                    </div>
+
+                    <div>
+
+                        <strong>
+
+                            Availability
+
+                        </strong>
+
+                        <span id="stockStatus"
+                              class="in-stock">
+
+                            In Stock
+
+                        </span>
+
+                    </div>
+
+                    <div>
+
+                        <strong>
+
+                            Category
+
+                        </strong>
+
+                        <span id="productCategoryName">
+
+                            Jewellery
+
+                        </span>
+
+                    </div>
+
+                </div>
+
+                <!-- SHARE -->
+
+                <div class="product-share">
+
+                    <span>
+
+                        Share
+
+                    </span>
+
+                    <a href="#">
+
+                        <i class="fa-brands fa-facebook-f"></i>
+
+                    </a>
+
+                    <a href="#">
+
+                        <i class="fa-brands fa-x-twitter"></i>
+
+                    </a>
+
+                    <a href="#">
+
+                        <i class="fa-brands fa-pinterest-p"></i>
+
+                    </a>
+
+                    <a href="#">
+
+                        <i class="fa-brands fa-whatsapp"></i>
+
+                    </a>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+<!-- PRODUCT TABS -->
+
+<section class="product-tabs">
+
+    <div class="container">
+
+        <div class="tabs-header">
+
+            <button
+                class="tab-btn active"
+                data-tab="description">
+
+                Description
+
+            </button>
+
+            <button
+                class="tab-btn"
+                data-tab="specifications">
+
+                Specifications
+
+            </button>
+
+            <button
+                class="tab-btn"
+                data-tab="reviews">
+
+                Reviews
+
+            </button>
+
+        </div>
+
+        <div class="tabs-content">
+
+            <div
+                class="tab-panel active"
+                id="description">
+
+                <div id="descriptionContent">
+
+                    Product description will be loaded
+                    dynamically from products.json.
+
+                </div>
+
+            </div>
+
+            <div
+                class="tab-panel"
+                id="specifications">
+
+                <table class="specifications-table">
+
+                    <tbody id="specificationsTable">
+
+                    </tbody>
+
+                </table>
+
+            </div>
+
+            <div
+                class="tab-panel"
+                id="reviews">
+
+                <div id="reviewsContainer">
+
+                    Reviews will appear here.
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+  </section>
+  
+<!-- =========================
+     RELATED PRODUCTS
+========================= -->
+
+<section class="related-products">
+
+    <div class="container">
+
+        <div class="section-heading">
+
+            <span>
+
+                You May Also Like
+
+            </span>
+
+            <h2>
+
+                Related Products
+
+            </h2>
+
+        </div>
+
+        <div id="relatedProducts"
+             class="products-grid">
+
+            <!-- Dynamic Products -->
+
+        </div>
+
+    </div>
+
+</section>
+
+<!-- =========================
+     RECENTLY VIEWED
+========================= -->
+
+<section class="recently-viewed">
+
+    <div class="container">
+
+        <div class="section-heading">
+
+            <span>
+
+                Recently Viewed
+
+            </span>
+
+            <h2>
+
+                Continue Shopping
+
+            </h2>
+
+        </div>
+
+        <div id="recentProducts"
+             class="products-grid">
+
+        </div>
+
+    </div>
+
+</section>
+
+<!-- =========================
+     NEWSLETTER
+========================= -->
+
+<section class="newsletter-section">
+
+    <div class="container">
+
+        <div class="newsletter-wrapper">
+
+            <div class="newsletter-content">
+
+                <span>
+
+                    Newsletter
+
+                </span>
+
+                <h2>
+
+                    Join LUNOVIA
+
+                </h2>
+
+                <p>
+
+                    Receive exclusive offers and early access
+                    to every new collection.
+
+                </p>
+
+            </div>
+
+            <form id="newsletterForm"
+                  class="newsletter-form">
+
+                <input
+                    type="email"
+                    placeholder="Your email"
+                    required>
+
+                <button
+                    type="submit"
+                    class="btn btn-primary">
+
+                    Subscribe
+
+                </button>
+
+            </form>
+
+        </div>
+
+    </div>
+
+</section>
+
+</main>
+
+<!-- =========================
+     FOOTER
+========================= -->
+
+<footer class="footer">
+
+    <div class="container">
+
+        <div class="footer-grid">
+
+            <div class="footer-column">
+
+                <h3>
+
+                    LUNOVIA
+
+                </h3>
+
+                <p>
+
+                    Timeless handcrafted jewellery inspired
+                    by elegance and luxury.
+
+                </p>
+
+            </div>
+
+            <div class="footer-column">
+
+                <h4>
+
+                    Shop
+
+                </h4>
+
+                <ul>
+
+                    <li>
+
+                        <a href="shop.html">
+
+                            Shop
+
+                        </a>
+
+                    </li>
+
+                    <li>
+
+                        <a href="collections.html">
+
+                            Collections
+
+                        </a>
+
+                    </li>
+
+                    <li>
+
+                        <a href="wishlist.html">
+
+                            Wishlist
+
+                        </a>
+
+                    </li>
+
+                    <li>
+
+                        <a href="cart.html">
+
+                            Cart
+
+                        </a>
+
+                    </li>
+
+                </ul>
+
+            </div>
+
+            <div class="footer-column">
+
+                <h4>
+
+                    Company
+
+                </h4>
+
+                <ul>
+
+                    <li><a href="about.html">About</a></li>
+
+                    <li><a href="contact.html">Contact</a></li>
+
+                    <li><a href="privacy.html">Privacy</a></li>
+
+                    <li><a href="terms.html">Terms</a></li>
+
+                </ul>
+
+            </div>
+
+            <div class="footer-column">
+
+                <h4>
+
+                    Follow
+
+                </h4>
+
+                <div class="footer-social">
+
+                    <a href="#"><i class="fa-brands fa-facebook-f"></i></a>
+
+                    <a href="#"><i class="fa-brands fa-instagram"></i></a>
+
+                    <a href="#"><i class="fa-brands fa-pinterest-p"></i></a>
+
+                    <a href="#"><i class="fa-brands fa-tiktok"></i></a>
+
+                </div>
+
+            </div>
+
+        </div>
+
+        <div class="footer-bottom">
+
+            <p>
+
+                © 2026 LUNOVIA Jewellery.
+                All Rights Reserved.
+
+            </p>
+
+        </div>
+
+    </div>
+
+</footer>
+
+<!-- SEARCH -->
+
+<div id="searchOverlay"
+     class="search-overlay">
+
+    <div class="search-box">
+
+        <button id="closeSearch">
+
+            <i class="fa-solid fa-xmark"></i>
+
+        </button>
+
+        <input
+            id="searchInput"
+            type="search"
+            placeholder="Search...">
+
+        <div id="searchResults"></div>
+
+    </div>
+
+</div>
+
+<!-- QUICK VIEW -->
+
+<div id="quickViewModal"
+     class="modal">
+
+    <div class="modal-content">
+
+        <button id="closeQuickView"
+                class="close-modal">
+
+            <i class="fa-solid fa-xmark"></i>
+
+        </button>
+
+        <div id="quickViewContent">
+
+        </div>
+
+    </div>
+
+</div>
+
+<!-- TOAST -->
+
+<div id="toastContainer">
+
+</div>
+
+<!-- BACK TO TOP -->
+
+<button id="backToTop"
+        class="back-to-top">
+
+    <i class="fa-solid fa-arrow-up"></i>
+
+</button>
+
+<!-- JAVASCRIPT -->
+
+<script src="assets/js/storage.js"></script>
+
+<script src="assets/js/products.js"></script>
+
+<script src="assets/js/cart.js"></script>
+
+<script src="assets/js/wishlist.js"></script>
+
+<script src="assets/js/search.js"></script>
+
+<script src="assets/js/ui.js"></script>
+
+<script src="assets/js/main.js"></script>
+
+<script src="assets/js/product.js"></script>
+
+</body>
+
+                          </html>
