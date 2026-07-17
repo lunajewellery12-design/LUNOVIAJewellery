@@ -302,56 +302,39 @@ transform:translateX(-100%);
 
 }
 
-/*==================================================
+/*==================================
 HEADER
-===================================================*/
+==================================*/
 
 .main-header{
-
-position:sticky;
-
-top:0;
-
-z-index:999;
-
-background:rgba(8,8,8,.94);
-
-backdrop-filter:blur(16px);
-
-border-bottom:1px solid rgba(255,255,255,.05);
-
+    position:sticky;
+    top:0;
+    left:0;
+    width:100%;
+    z-index:9999;
+    background:rgba(8,8,8,.94);
+    backdrop-filter:blur(16px);
+    -webkit-backdrop-filter:blur(16px);
+    border-bottom:1px solid rgba(255,255,255,.08);
 }
 
 .main-header .container{
-
-display:flex;
-
-justify-content:space-between;
-
-align-items:center;
-
-padding:18px 0;
-
+    max-width:1400px;
+    margin:auto;
+    padding:0 20px;
 }
 
 .header-inner{
-
     display:flex;
-
-    justify-content:space-between;
-
     align-items:center;
-
-    width:100%;
-
+    justify-content:space-between;
+    min-height:90px;
 }
 
 .logo img{
-
-height:70px;
-
+    height:70px;
+    width:auto;
 }
-
 /*==================================================
 NAVIGATION
 ===================================================*/
