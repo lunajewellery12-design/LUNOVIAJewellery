@@ -6099,6 +6099,34 @@ filter:brightness(1.08);
 
 }
 
+/*==================================================
+MOBILE HEADER
+==================================================*/
+
+@media (max-width:991px){
+
+    .main-nav{
+        display:none;
+    }
+
+    .mobile-menu-btn{
+        display:flex;
+    }
+
+}
+
+@media (min-width:992px){
+
+    .mobile-menu-btn{
+        display:none;
+    }
+
+    .main-nav{
+        display:block;
+    }
+
+}
+
 /*==================================
 PRINT
 ==================================*/
