@@ -332,6 +332,7 @@ letter-spacing:2px;
 color:var(--primary);
 
 white-space:nowrap;
+}
 .logo img{
 
     width:220px;
