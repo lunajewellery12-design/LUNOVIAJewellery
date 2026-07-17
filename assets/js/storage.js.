@@ -1,0 +1,844 @@
+/*==================================================
+LUNOVIA STORAGE
+Version 1.0
+==================================================*/
+
+"use strict";
+
+/*==================================================
+STORAGE KEYS
+==================================================*/
+
+const STORAGE_KEYS={
+
+    CART:"lunovia_cart",
+
+    WISHLIST:"lunovia_wishlist",
+
+    COMPARE:"lunovia_compare",
+
+    USER:"lunovia_user",
+
+    SETTINGS:"lunovia_settings",
+
+    LANGUAGE:"lunovia_language",
+
+    CURRENCY:"lunovia_currency",
+
+    THEME:"lunovia_theme",
+
+    RECENT:"lunovia_recent",
+
+    ORDERS:"lunovia_orders"
+
+};
+
+/*==================================================
+LOCAL STORAGE
+==================================================*/
+
+const Storage={
+
+    set(key,value){
+
+        try{
+
+            localStorage.setItem(
+
+                key,
+
+                JSON.stringify(value)
+
+            );
+
+            return true;
+
+        }
+
+        catch(error){
+
+            console.error(error);
+
+            return false;
+
+        }
+
+    },
+
+    get(key,defaultValue=null){
+
+        try{
+
+            const value=
+
+            localStorage.getItem(key);
+
+            if(value===null){
+
+                return defaultValue;
+
+            }
+
+            return JSON.parse(value);
+
+        }
+
+        catch(error){
+
+            console.error(error);
+
+            return defaultValue;
+
+        }
+
+    },
+
+    remove(key){
+
+        localStorage.removeItem(key);
+
+    },
+
+    clear(){
+
+        localStorage.clear();
+
+    },
+
+    has(key){
+
+        return localStorage.getItem(key)!==null;
+
+    }
+
+};
+
+/*==================================================
+SESSION STORAGE
+==================================================*/
+
+const Session={
+
+    set(key,value){
+
+        sessionStorage.setItem(
+
+            key,
+
+            JSON.stringify(value)
+
+        );
+
+    },
+
+    get(key,defaultValue=null){
+
+        const value=
+
+        sessionStorage.getItem(key);
+
+        if(value===null){
+
+            return defaultValue;
+
+        }
+
+        return JSON.parse(value);
+
+    },
+
+    remove(key){
+
+        sessionStorage.removeItem(key);
+
+    },
+
+    clear(){
+
+        sessionStorage.clear();
+
+    }
+
+};
+/*==================================================
+CART STORAGE
+==================================================*/
+
+const CartStorage={
+
+    get(){
+
+        return Storage.get(
+
+            STORAGE_KEYS.CART,
+
+            []
+
+        );
+
+    },
+
+    save(cart){
+
+        Storage.set(
+
+            STORAGE_KEYS.CART,
+
+            cart
+
+        );
+
+    },
+
+    clear(){
+
+        Storage.remove(
+
+            STORAGE_KEYS.CART
+
+        );
+
+    },
+
+    count(){
+
+        const cart=this.get();
+
+        return cart.length;
+
+    }
+
+};
+
+/*==================================================
+WISHLIST STORAGE
+==================================================*/
+
+const WishlistStorage={
+
+    get(){
+
+        return Storage.get(
+
+            STORAGE_KEYS.WISHLIST,
+
+            []
+
+        );
+
+    },
+
+    save(items){
+
+        Storage.set(
+
+            STORAGE_KEYS.WISHLIST,
+
+            items
+
+        );
+
+    },
+
+    clear(){
+
+        Storage.remove(
+
+            STORAGE_KEYS.WISHLIST
+
+        );
+
+    },
+
+    contains(id){
+
+        return this.get().includes(id);
+
+    }
+
+};
+
+/*==================================================
+COMPARE STORAGE
+==================================================*/
+
+const CompareStorage={
+
+    get(){
+
+        return Storage.get(
+
+            STORAGE_KEYS.COMPARE,
+
+            []
+
+        );
+
+    },
+
+    save(items){
+
+        Storage.set(
+
+            STORAGE_KEYS.COMPARE,
+
+            items
+
+        );
+
+    },
+
+    clear(){
+
+        Storage.remove(
+
+            STORAGE_KEYS.COMPARE
+
+        );
+
+    }
+
+};
+
+/*==================================================
+USER STORAGE
+==================================================*/
+
+const UserStorage={
+
+    get(){
+
+        return Storage.get(
+
+            STORAGE_KEYS.USER,
+
+            null
+
+        );
+
+    },
+
+    save(user){
+
+        Storage.set(
+
+            STORAGE_KEYS.USER,
+
+            user
+
+        );
+
+    },
+
+    logout(){
+
+        Storage.remove(
+
+            STORAGE_KEYS.USER
+
+        );
+
+    },
+
+    logged(){
+
+        return this.get()!==null;
+
+    }
+
+};
+
+/*==================================================
+SETTINGS STORAGE
+==================================================*/
+
+const SettingsStorage={
+
+    defaults:{
+
+        language:"ar",
+
+        currency:"USD",
+
+        theme:"light"
+
+    },
+
+    get(){
+
+        return Storage.get(
+
+            STORAGE_KEYS.SETTINGS,
+
+            this.defaults
+
+        );
+
+    },
+
+    save(settings){
+
+        Storage.set(
+
+            STORAGE_KEYS.SETTINGS,
+
+            settings
+
+        );
+
+    }
+
+};
+/*==================================================
+LANGUAGE STORAGE
+==================================================*/
+
+const LanguageStorage={
+
+    get(){
+
+        return Storage.get(
+
+            STORAGE_KEYS.LANGUAGE,
+
+            "ar"
+
+        );
+
+    },
+
+    set(language){
+
+        Storage.set(
+
+            STORAGE_KEYS.LANGUAGE,
+
+            language
+
+        );
+
+        document.documentElement.lang=
+        language;
+
+    }
+
+};
+
+/*==================================================
+CURRENCY STORAGE
+==================================================*/
+
+const CurrencyStorage={
+
+    get(){
+
+        return Storage.get(
+
+            STORAGE_KEYS.CURRENCY,
+
+            "USD"
+
+        );
+
+    },
+
+    set(currency){
+
+        Storage.set(
+
+            STORAGE_KEYS.CURRENCY,
+
+            currency
+
+        );
+
+    }
+
+};
+
+/*==================================================
+THEME STORAGE
+==================================================*/
+
+const ThemeStorage={
+
+    get(){
+
+        return Storage.get(
+
+            STORAGE_KEYS.THEME,
+
+            "light"
+
+        );
+
+    },
+
+    Storage.set(
+    STORAGE_KEYS.THEME,
+    theme
+);
+
+        document.documentElement
+        .setAttribute(
+
+            "data-theme",
+
+            theme
+
+        );
+
+    },
+
+    toggle(){
+
+        const current=
+
+        this.get();
+
+        const next=
+
+        current==="light"
+        ?"dark"
+        :"light";
+
+        this.set(next);
+
+    }
+
+};
+
+/*==================================================
+RECENT PRODUCTS
+==================================================*/
+
+const RecentStorage={
+
+    get(){
+
+        return Storage.get(
+
+            STORAGE_KEYS.RECENT,
+
+            []
+
+        );
+
+    },
+
+    add(id){
+
+        let items=this.get();
+
+        items=items.filter(
+
+            item=>item!==id
+
+        );
+
+        items.unshift(id);
+
+        if(items.length>20){
+
+            items.length=20;
+
+        }
+
+        Storage.set(
+
+            STORAGE_KEYS.RECENT,
+
+            items
+
+        );
+
+    },
+
+    clear(){
+
+        Storage.remove(
+
+            STORAGE_KEYS.RECENT
+
+        );
+
+    }
+
+};
+
+/*==================================================
+ORDERS STORAGE
+==================================================*/
+
+const OrdersStorage={
+
+    get(){
+
+        return Storage.get(
+
+            STORAGE_KEYS.ORDERS,
+
+            []
+
+        );
+
+    },
+
+    save(order){
+
+        const orders=this.get();
+
+        orders.unshift(order);
+
+        Storage.set(
+
+            STORAGE_KEYS.ORDERS,
+
+            orders
+
+        );
+
+    },
+
+    clear(){
+
+        Storage.remove(
+
+            STORAGE_KEYS.ORDERS
+
+        );
+
+    }
+
+};
+/*==================================================
+BACKUP
+==================================================*/
+
+function exportStorage(){
+
+    const backup={
+
+        cart:CartStorage.get(),
+
+        wishlist:WishlistStorage.get(),
+
+        compare:CompareStorage.get(),
+
+        user:UserStorage.get(),
+
+        settings:SettingsStorage.get(),
+
+        language:LanguageStorage.get(),
+
+        currency:CurrencyStorage.get(),
+
+        theme:ThemeStorage.get(),
+
+        recent:RecentStorage.get(),
+
+        orders:OrdersStorage.get()
+
+    };
+
+    return JSON.stringify(
+
+        backup,
+
+        null,
+
+        2
+
+    );
+
+}
+
+/*==================================================
+RESTORE
+==================================================*/
+
+function importStorage(json){
+
+    try{
+
+        const data=JSON.parse(json);
+
+        if(data.cart){
+
+            CartStorage.save(data.cart);
+
+        }
+
+        if(data.wishlist){
+
+            WishlistStorage.save(data.wishlist);
+
+        }
+
+        if(data.compare){
+
+            CompareStorage.save(data.compare);
+
+        }
+
+        if(data.user){
+
+            UserStorage.save(data.user);
+
+        }
+
+        if(data.settings){
+
+            SettingsStorage.save(data.settings);
+
+        }
+
+        if(data.language){
+
+            LanguageStorage.set(data.language);
+
+        }
+
+        if(data.currency){
+
+            CurrencyStorage.set(data.currency);
+
+        }
+
+        if(data.theme){
+
+            ThemeStorage.set(data.theme);
+
+        }
+
+        if(data.recent){
+
+            Storage.set(
+
+                STORAGE_KEYS.RECENT,
+
+                data.recent
+
+            );
+
+        }
+
+        if(data.orders){
+
+            Storage.set(
+
+                STORAGE_KEYS.ORDERS,
+
+                data.orders
+
+            );
+
+        }
+
+        return true;
+
+    }
+
+    catch(error){
+
+        console.error(error);
+
+        return false;
+
+    }
+
+}
+
+/*==================================================
+RESET
+==================================================*/
+
+function resetApplicationStorage(){
+
+    Object.values(
+
+        STORAGE_KEYS
+
+    ).forEach(function(key){
+
+        Storage.remove(key);
+
+    });
+
+}
+
+/*==================================================
+SYNC BETWEEN TABS
+==================================================*/
+
+window.addEventListener(
+
+    "storage",
+
+    function(event){
+
+        if(!event.key){
+
+            return;
+
+        }
+
+        console.log(
+
+            "Storage Updated:",
+
+            event.key
+
+        );
+
+    }
+
+);
+
+/*==================================================
+GLOBAL API
+==================================================*/
+
+window.StorageManager={
+
+    Storage,
+
+    Session,
+
+    CartStorage,
+
+    WishlistStorage,
+
+    CompareStorage,
+
+    UserStorage,
+
+    SettingsStorage,
+
+    LanguageStorage,
+
+    CurrencyStorage,
+
+    ThemeStorage,
+
+    RecentStorage,
+
+    OrdersStorage,
+
+    exportStorage,
+
+    importStorage,
+
+    resetApplicationStorage
+
+};
+
+/*==================================================
+END OF FILE
+==================================================*/
+
+console.log(
+
+    "LUNOVIA Storage Loaded Successfully"
+
+);
