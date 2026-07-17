@@ -2662,14 +2662,10 @@ z-index:9999;
 
 }
 
-.has-mega:hover .mega-menu{
-
-opacity:1;
-
-visibility:visible;
-
-transform:translateY(0);
-
+.mega-parent:hover .mega-menu
+    opacity:1;
+    visibility:visible;
+    transform:translateY(0);
 }
 
 .mega-column h4{
