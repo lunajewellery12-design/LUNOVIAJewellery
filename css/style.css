@@ -2626,42 +2626,47 @@ MEGA MENU
 
 .mega-menu{
 
-position:absolute;
+    position:absolute;
 
-top:100%;
+    top:100%;
 
-right:0;
+    right:0;
 
-width:1200px;
+    width:1200px;
 
-max-width:95vw;
+    max-width:95vw;
 
-background:#111;
+    background:#111;
 
-padding:45px;
+    padding:45px;
 
-display:grid;
+    opacity:0;
 
-grid-template-columns:repeat(4,1fr);
+    visibility:hidden;
 
-gap:35px;
+    transform:translateY(20px);
 
-opacity:0;
+    transition:.35s;
 
-visibility:hidden;
+    border-top:1px solid rgba(255,255,255,.08);
 
-transform:translateY(20px);
+    box-shadow:0 20px 50px rgba(0,0,0,.45);
 
-transition:.35s;
-
-border-top:1px solid rgba(255,255,255,.08);
-
-box-shadow:0 20px 50px rgba(0,0,0,.45);
-
-z-index:9999;
+    z-index:9999;
 
 }
 
+.mega-grid{
+
+    display:grid;
+
+    grid-template-columns:repeat(4,1fr);
+
+    gap:35px;
+
+    align-items:start;
+
+}
 .mega-parent:hover .mega-menu
     opacity:1;
     visibility:visible;
