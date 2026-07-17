@@ -216,50 +216,182 @@ function createProductCard(product){
 }
 
 /*==================================================
-RENDER PRODUCTS
+PAGINATION
 ==================================================*/
 
-function renderProducts(products,container){
+function renderPagination(){
 
-    if(!container){
+    if(!pagination){
 
         return;
 
     }
 
-    if(products.length===0){
+    const totalPages=
 
-        container.innerHTML=`
+    Math.ceil(
 
-        <div class="empty-products">
+        filteredProducts.length/
 
-            <h3>
+        productsPerPage
 
-                No products found
+    );
 
-            </h3>
+    if(totalPages<=1){
 
-        </div>
+        pagination.innerHTML="";
+
+        return;
+
+    }
+
+    let html="";
+
+    for(
+
+        let page=1;
+
+        page<=totalPages;
+
+        page++
+
+    ){
+
+        html+=`
+
+        <button
+
+        class="page-btn ${page===currentPage?"active":""}"
+
+        onclick="goToPage(${page})">
+
+            ${page}
+
+        </button>
 
         `;
 
+    }
+
+    pagination.innerHTML=html;
+
+}
+
+function goToPage(page){
+
+    currentPage=page;
+
+    renderShopProducts();
+
+    window.scrollTo({
+
+        top:0,
+
+        behavior:"smooth"
+
+    });
+
+}
+
+/*==================================================
+PRODUCT DETAILS
+==================================================*/
+
+function getProductById(id){
+
+    return allProducts.find(
+
+        product=>
+
+        Number(product.id)===Number(id)
+
+    );
+
+}
+
+function viewProduct(id){
+
+    window.location.href=
+
+    `product.html?id=${id}`;
+
+}
+
+/*==================================================
+ADD TO CART
+==================================================*/
+
+function addToCart(id){
+
+    const product=
+
+    getProductById(id);
+
+    if(!product){
+
         return;
 
     }
 
-    container.innerHTML=
+    let cart=
 
-    products
+    StorageManager
 
-    .map(
+    .CartStorage
 
-        product=>
+    .get();
 
-        createProductCard(product)
+    const existing=
 
-    )
+    cart.find(
 
-    .join("");
+        item=>
+
+        Number(item.id)===
+
+        Number(id)
+
+    );
+
+    if(existing){
+
+        existing.quantity++;
+
+    }else{
+
+        cart.push({
+
+            id:product.id,
+
+            quantity:1
+
+        });
+
+    }
+
+    StorageManager
+
+    .CartStorage
+
+    .save(cart);
+
+    if(
+
+        typeof showToast===
+
+        "function"
+
+    ){
+
+        showToast(
+
+            "Added to cart",
+
+            "success"
+
+        );
+
+    }
 
 }
 /*==================================================
