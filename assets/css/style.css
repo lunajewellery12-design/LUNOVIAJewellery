@@ -259,57 +259,7 @@ background:var(--primary);
 color:#fff;
 
 }
-/*==================================================
-HEADER
-==================================================*/
 
-.main-header{
-
-position:sticky;
-
-top:0;
-
-left:0;
-
-width:100%;
-
-z-index:9999;
-
-background:rgba(255,255,255,.95);
-
-backdrop-filter:blur(18px);
-
--webkit-backdrop-filter:blur(18px);
-
-border-bottom:1px solid rgba(0,0,0,.06);
-
-transition:all .35s ease;
-
-}
-
-.main-header.scrolled{
-
-box-shadow:0 10px 30px rgba(0,0,0,.08);
-
-}
-
-.main-header .container{
-
-display:grid;
-
-grid-template-columns:
-
-auto
-1fr
-auto;
-
-align-items:center;
-
-gap:35px;
-
-height:82px;
-
-}
 
 /*==============================
 LOGO
@@ -420,72 +370,7 @@ align-items:center;
 
 gap:34px;
 
-}
 
-.nav-list li{
-
-position:relative;
-
-}
-
-.nav-list a{
-
-position:relative;
-
-font-size:15px;
-
-font-weight:600;
-
-letter-spacing:.4px;
-
-color:var(--dark);
-
-padding:8px 0;
-
-}
-
-.nav-list a::after{
-
-content:"";
-
-position:absolute;
-
-left:0;
-
-bottom:-6px;
-
-width:0;
-
-height:2px;
-
-background:var(--primary);
-
-transition:.35s;
-
-}
-
-.header-inner{
-    display:flex;
-    align-items:center;
-    justify-content:space-between;
-    gap:40px;
-}
-
-.main-nav{
-    flex:1;
-    display:flex;
-    justify-content:center;
-}
-
-.header-actions{
-    display:flex;
-    align-items:center;
-    gap:16px;
-}
-
-.mega-parent{
-    position:relative;
-}
 
 .mega-menu{
     position:absolute;
@@ -508,44 +393,108 @@ transition:.35s;
     visibility:visible;
     transform:translateX(-50%) translateY(0);
 }
+    
+/*==================================
+HEADER
+==================================*/
 
-.mega-grid{
-    display:grid;
-    grid-template-columns:repeat(4,1fr);
-    gap:35px;
+.main-header{
+    position:sticky;
+    top:0;
+    left:0;
+    width:100%;
+    z-index:9999;
+    background:rgba(255,255,255,.96);
+    backdrop-filter:blur(18px);
+    -webkit-backdrop-filter:blur(18px);
+    border-bottom:1px solid rgba(0,0,0,.06);
 }
 
-.mega-column h4{
-    color:var(--gold);
-    margin-bottom:18px;
+.main-header .container{
+    max-width:1400px;
+    margin:auto;
+    padding:0 24px;
 }
 
-.mega-column ul{
+.header-inner{
+    height:90px;
     display:flex;
-    flex-direction:column;
-    gap:12px;
+    align-items:center;
+    justify-content:space-between;
+    gap:40px;
 }
 
-.mega-column a{
-    color:#ddd;
+.logo img{
+    width:220px;
+    height:auto;
+    display:block;
 }
 
-.mega-column a:hover{
+.main-nav{
+    flex:1;
+    display:flex;
+    justify-content:center;
+}
+
+.nav-list{
+    display:flex;
+    align-items:center;
+    gap:34px;
+    list-style:none;
+    margin:0;
+    padding:0;
+}
+
+.nav-item{
+    position:relative;
+}
+
+.nav-link{
+    color:#222;
+    text-decoration:none;
+    font-weight:600;
+    padding:8px 0;
+    transition:.3s;
+}
+
+.nav-link:hover,
+.nav-link.active{
     color:var(--gold);
 }
 
-.nav-list a:hover{
-
-color:var(--primary);
-
+.header-actions{
+    display:flex;
+    align-items:center;
+    gap:16px;
 }
 
-.nav-list a:hover::after,
+.icon-btn{
+    width:44px;
+    height:44px;
+    border:none;
+    background:transparent;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    cursor:pointer;
+    position:relative;
+    color:#222;
+    text-decoration:none;
+}
 
-.nav-list a.active::after{
-
-width:100%;
-
+.icon-btn span{
+    position:absolute;
+    top:-6px;
+    right:-6px;
+    width:18px;
+    height:18px;
+    border-radius:50%;
+    background:var(--gold);
+    color:#000;
+    font-size:11px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
 }
 
 /*==================================
@@ -556,39 +505,147 @@ MEGA MENU
     position:relative;
 }
 
+.mega-parent>.nav-link{
+    display:flex;
+    align-items:center;
+    gap:8px;
+}
+
 .mega-menu{
     position:absolute;
     top:100%;
     left:50%;
-    transform:translateX(-50%);
+    transform:translateX(-50%) translateY(20px);
     width:1200px;
     max-width:95vw;
     background:#111;
+    border-radius:0 0 20px 20px;
     padding:40px;
-    display:none;
-    border-top:1px solid rgba(255,255,255,.08);
-    z-index:9999;
+    opacity:0;
+    visibility:hidden;
+    transition:.35s ease;
+    z-index:999;
+    box-shadow:0 20px 60px rgba(0,0,0,.25);
 }
 
 .mega-parent:hover .mega-menu{
-    display:block;
+    opacity:1;
+    visibility:visible;
+    transform:translateX(-50%) translateY(0);
 }
 
 .mega-grid{
     display:grid;
     grid-template-columns:repeat(4,1fr);
     gap:35px;
+    align-items:start;
+}
+
+.mega-column h4{
+    color:var(--gold);
+    margin-bottom:18px;
+    font-size:18px;
 }
 
 .mega-column ul{
+    list-style:none;
+    padding:0;
+    margin:0;
     display:flex;
     flex-direction:column;
     gap:12px;
 }
 
-.mega-column h4{
-    margin-bottom:18px;
+.mega-column a{
+    color:#ddd;
+    text-decoration:none;
+    transition:.3s;
+}
+
+.mega-column a:hover{
     color:var(--gold);
+    padding-left:8px;
+}
+
+.mega-banner{
+    position:relative;
+    overflow:hidden;
+    border-radius:16px;
+}
+
+.mega-banner img{
+    width:100%;
+    height:100%;
+    object-fit:cover;
+    display:block;
+}
+
+.mega-banner-content{
+    position:absolute;
+    inset:0;
+    display:flex;
+    flex-direction:column;
+    justify-content:flex-end;
+    padding:24px;
+    background:linear-gradient(to top,rgba(0,0,0,.75),transparent);
+    color:#fff;
+}
+
+    /*==================================
+MOBILE HEADER
+==================================*/
+
+.mobile-menu-btn{
+    display:none;
+}
+
+@media (max-width:992px){
+
+.main-nav{
+    display:none;
+}
+
+.mobile-menu-btn{
+    display:flex;
+}
+
+.header-inner{
+    height:80px;
+}
+
+.logo img{
+    width:180px;
+}
+
+.header-actions{
+    gap:12px;
+}
+
+.mega-menu{
+    display:none !important;
+}
+
+}
+
+@media (max-width:576px){
+
+.main-header .container{
+    padding:0 16px;
+}
+
+.logo img{
+    width:150px;
+}
+
+.icon-btn{
+    width:40px;
+    height:40px;
+}
+
+.header-actions{
+    gap:8px;
+}
+
 }
 
 /*==============================
