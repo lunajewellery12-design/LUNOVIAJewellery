@@ -263,7 +263,7 @@ color:#fff;
 HEADER
 ==================================================*/
 
-.header{
+.main-header{
 
 position:sticky;
 
@@ -287,13 +287,13 @@ transition:all .35s ease;
 
 }
 
-.header.scrolled{
+.main-header.scrolled{
 
 box-shadow:0 10px 30px rgba(0,0,0,.08);
 
 }
 
-.header .container{
+.main-header .container{
 
 display:grid;
 
@@ -353,7 +353,63 @@ NAVIGATION
 .main-nav{
     display:flex;
     justify-content:center;
+}
+
+.header-actions{
+    display:flex;
     align-items:center;
+    gap:16px;
+}
+
+.mega-parent{
+    position:relative;
+}
+
+.mega-menu{
+    position:absolute;
+    top:100%;
+    left:50%;
+    transform:translateX(-50%) translateY(20px);
+    width:1200px;
+    max-width:95vw;
+    background:#111;
+    padding:45px;
+    border-radius:0 0 20px 20px;
+    opacity:0;
+    visibility:hidden;
+    transition:.35s;
+    z-index:999;
+}
+
+.mega-parent:hover .mega-menu{
+    opacity:1;
+    visibility:visible;
+    transform:translateX(-50%) translateY(0);
+}
+
+.mega-grid{
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    gap:35px;
+}
+
+.mega-column h4{
+    color:var(--gold);
+    margin-bottom:18px;
+}
+
+.mega-column ul{
+    display:flex;
+    flex-direction:column;
+    gap:12px;
+}
+
+.mega-column a{
+    color:#ddd;
+}
+
+.mega-column a:hover{
+    color:var(--gold);
 }
 
 .nav-item{
@@ -406,6 +462,76 @@ background:var(--primary);
 
 transition:.35s;
 
+}
+
+.header-inner{
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    gap:40px;
+}
+
+.main-nav{
+    flex:1;
+    display:flex;
+    justify-content:center;
+}
+
+.header-actions{
+    display:flex;
+    align-items:center;
+    gap:16px;
+}
+
+.mega-parent{
+    position:relative;
+}
+
+.mega-menu{
+    position:absolute;
+    top:100%;
+    left:50%;
+    transform:translateX(-50%) translateY(20px);
+    width:1200px;
+    max-width:95vw;
+    background:#111;
+    padding:45px;
+    border-radius:0 0 20px 20px;
+    opacity:0;
+    visibility:hidden;
+    transition:.35s;
+    z-index:999;
+}
+
+.mega-parent:hover .mega-menu{
+    opacity:1;
+    visibility:visible;
+    transform:translateX(-50%) translateY(0);
+}
+
+.mega-grid{
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    gap:35px;
+}
+
+.mega-column h4{
+    color:var(--gold);
+    margin-bottom:18px;
+}
+
+.mega-column ul{
+    display:flex;
+    flex-direction:column;
+    gap:12px;
+}
+
+.mega-column a{
+    color:#ddd;
+}
+
+.mega-column a:hover{
+    color:var(--gold);
 }
 
 .nav-list a:hover{
