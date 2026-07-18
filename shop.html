@@ -1,31 +1,26 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" dir="ltr">
 
 <head>
-
     <meta charset="UTF-8">
-
-    <meta http-equiv="X-UA-Compatible"
-          content="IE=edge">
-
     <meta name="viewport"
           content="width=device-width, initial-scale=1.0">
 
-    <title>
-
-        Shop | LUNOVIA Jewellery
-
-    </title>
+    <title>Shop | LUNOVIA Jewellery</title>
 
     <meta name="description"
-          content="Browse our luxury jewellery collection.">
+          content="Discover luxury jewellery collections from LUNOVIA. Rings, necklaces, bracelets, earrings, watches and more.">
+
+    <meta name="keywords"
+          content="Jewellery,Rings,Bracelets,Earrings,Necklaces,LUNOVIA">
 
     <meta name="theme-color"
-          content="#B9925A">
+          content="#b8955b">
 
     <link rel="icon"
-          href="assets/images/favicon.ico">
+          href="assets/images/logo.png">
 
+    <!-- Fonts -->
     <link rel="preconnect"
           href="https://fonts.googleapis.com">
 
@@ -33,147 +28,76 @@
           href="https://fonts.gstatic.com"
           crossorigin>
 
-    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap"
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Poppins:wght@300;400;500;600;700&display=swap"
           rel="stylesheet">
 
+    <!-- Icons -->
     <link rel="stylesheet"
-          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.1/css/all.min.css">
 
+    <!-- CSS -->
     <link rel="stylesheet"
           href="assets/css/style.css">
-
 </head>
 
 <body>
 
-<!-- PRELOADER -->
+<div class="page-wrapper">
 
-<div id="preloader">
+<!-- ================= HEADER ================= -->
 
-    <div class="loader">
-
-        <span>
-
-            LUNOVIA
-
-        </span>
-
-    </div>
-
-</div>
-
-<!-- HEADER -->
-
-<header id="header"
-        class="header">
+<header class="header">
 
     <div class="container">
 
-        <div class="header-inner">
+        <a href="index.html" class="logo">
 
-            <a href="index.html"
-               class="logo">
+            <img src="assets/images/logo.png"
+                 alt="LUNOVIA">
 
-                <img src="assets/images/logo.svg"
-                     alt="LUNOVIA">
+        </a>
 
+        <nav class="navbar">
+
+            <ul>
+
+                <li><a href="index.html">Home</a></li>
+
+                <li><a class="active"
+                       href="shop.html">Shop</a></li>
+
+                <li><a href="categories.html">Categories</a></li>
+
+                <li><a href="offers.html">Offers</a></li>
+
+                <li><a href="about.html">About</a></li>
+
+                <li><a href="contact.html">Contact</a></li>
+
+            </ul>
+
+        </nav>
+
+        <div class="header-actions">
+
+            <a href="search.html">
+                <i class="fa-solid fa-magnifying-glass"></i>
             </a>
 
-            <nav class="main-nav">
+            <a href="wishlist.html">
+                <i class="fa-regular fa-heart"></i>
+            </a>
 
-                <ul class="nav-list">
+            <a href="cart.html">
+                <i class="fa-solid fa-bag-shopping"></i>
+                <span class="cart-count">0</span>
+            </a>
 
-                    <li>
+            <button class="mobile-menu-btn">
 
-                        <a href="index.html">
+                <i class="fa-solid fa-bars"></i>
 
-                            Home
-
-                        </a>
-
-                    </li>
-
-                    <li>
-
-                        <a href="shop.html"
-                           class="active">
-
-                            Shop
-
-                        </a>
-
-                    </li>
-
-                    <li>
-
-                        <a href="collections.html">
-
-                            Collections
-
-                        </a>
-
-                    </li>
-
-                    <li>
-
-                        <a href="about.html">
-
-                            About
-
-                        </a>
-
-                    </li>
-
-                    <li>
-
-                        <a href="contact.html">
-
-                            Contact
-
-                        </a>
-
-                    </li>
-
-                </ul>
-
-            </nav>
-
-            <div class="header-actions">
-
-                <button id="searchBtn"
-                        class="icon-btn">
-
-                    <i class="fa-solid fa-magnifying-glass"></i>
-
-                </button>
-
-                <a href="wishlist.html"
-                   class="icon-btn">
-
-                    <i class="fa-regular fa-heart"></i>
-
-                    <span id="wishlistCount">
-
-                        0
-
-                    </span>
-
-                </a>
-
-                <a href="cart.html"
-                   class="icon-btn">
-
-                    <i class="fa-solid fa-bag-shopping"></i>
-
-                    <span id="cartCount">
-
-                        0
-
-                    </span>
-
-                </a>
-
-            </div>
+            </button>
 
         </div>
 
@@ -181,485 +105,464 @@
 
 </header>
 
-<main>
+<!-- ================= PAGE TITLE ================= -->
 
-<!-- PAGE HEADER -->
-
-<section class="page-header">
+<section class="page-banner">
 
     <div class="container">
 
-        <div class="page-header-content">
+        <h1>Luxury Jewellery Collection</h1>
 
-            <h1>
+        <p>
 
-                Shop
+            Explore premium rings, necklaces,
+            bracelets, earrings, watches and more.
 
-            </h1>
-
-            <nav class="breadcrumb">
-
-                <a href="index.html">
-
-                    Home
-
-                </a>
-
-                <span>
-
-                    /
-
-                </span>
-
-                <span>
-
-                    Shop
-
-                </span>
-
-            </nav>
-
-        </div>
+        </p>
 
     </div>
 
 </section>
 
-<!-- SHOP -->
+<!-- ================= SHOP ================= -->
 
 <section class="shop-page">
 
-    <div class="container">
+<div class="container">
 
-        <div class="shop-layout">
+<div class="shop-layout">
+<!-- ================= SHOP SIDEBAR ================= -->
 
-            <!-- SIDEBAR -->
+<aside class="shop-sidebar">
 
-            <aside class="shop-sidebar">
+    <!-- Search -->
 
-                <div class="filter-box">
+    <div class="filter-box">
 
-                    <h3>
+        <h3>Search</h3>
 
-                        Categories
+        <div class="search-box">
 
-                    </h3>
+            <input
+                type="search"
+                id="shopSearch"
+                placeholder="Search products...">
 
-                    <ul>
+            <button type="button">
 
-                        <li>
+                <i class="fa-solid fa-magnifying-glass"></i>
 
-                            <label>
+            </button>
 
-                                <input
-                                    type="checkbox"
-                                    value="rings">
+        </div>
 
-                                Rings
+    </div>
 
-                            </label>
+    <!-- Categories -->
 
-                        </li>
+    <div class="filter-box">
 
-                        <li>
+        <h3>Categories</h3>
 
-                            <label>
+        <ul class="category-list">
 
-                                <input
-                                    type="checkbox"
-                                    value="necklaces">
+            <li>
+                <label>
+                    <input type="checkbox" value="rings">
+                    Rings
+                </label>
+            </li>
 
-                                Necklaces
+            <li>
+                <label>
+                    <input type="checkbox" value="necklaces">
+                    Necklaces
+                </label>
+            </li>
 
-                            </label>
+            <li>
+                <label>
+                    <input type="checkbox" value="bracelets">
+                    Bracelets
+                </label>
+            </li>
 
-                        </li>
+            <li>
+                <label>
+                    <input type="checkbox" value="earrings">
+                    Earrings
+                </label>
+            </li>
 
-                        <li>
+            <li>
+                <label>
+                    <input type="checkbox" value="watches">
+                    Watches
+                </label>
+            </li>
 
-                            <label>
+            <li>
+                <label>
+                    <input type="checkbox" value="anklets">
+                    Anklets
+                </label>
+            </li>
 
-                                <input
-                                    type="checkbox"
-                                    value="bracelets">
+            <li>
+                <label>
+                    <input type="checkbox" value="piercing">
+                    Piercing
+                </label>
+            </li>
 
-                                Bracelets
+            <li>
+                <label>
+                    <input type="checkbox" value="glasses">
+                    Luxury Glasses
+                </label>
+            </li>
 
-                            </label>
+        </ul>
 
-                        </li>
+    </div>
 
-                        <li>
+    <!-- Price -->
 
-                            <label>
+    <div class="filter-box">
 
-                                <input
-                                    type="checkbox"
-                                    value="earrings">
+        <h3>Price</h3>
 
-                                Earrings
+        <input
+            type="range"
+            id="priceRange"
+            min="0"
+            max="5000"
+            value="5000">
 
-                            </label>
+        <div class="price-values">
 
-                        </li>
+            <span>$0</span>
 
-                    </ul>
+            <span id="priceValue">$5000</span>
 
-                </div>
+        </div>
 
-                <div class="filter-box">
+    </div>
 
-                    <h3>
+    <!-- Rating -->
 
-                        Price
+    <div class="filter-box">
 
-                    </h3>
+        <h3>Rating</h3>
 
-                    <input
-                        type="range"
-                        id="priceRange"
-                        min="0"
-                        max="5000">
+        <label><input type="radio" name="rating"> ★★★★★</label>
 
-                    <span id="priceValue">
+        <label><input type="radio" name="rating"> ★★★★☆ & Up</label>
 
-                        $5000
+        <label><input type="radio" name="rating"> ★★★☆☆ & Up</label>
 
-                    </span>
+    </div>
 
-                </div>
-              
-                <!-- MATERIAL FILTER -->
+    <!-- Availability -->
 
-                <div class="filter-box">
+    <div class="filter-box">
 
-                    <h3>
+        <h3>Availability</h3>
 
-                        Material
+        <label>
 
-                    </h3>
+            <input type="checkbox">
 
-                    <ul>
+            In Stock
 
-                        <li>
+        </label>
 
-                            <label>
+        <label>
 
-                                <input type="checkbox"
-                                       value="gold"
-                                       class="material-filter">
+            <input type="checkbox">
 
-                                Gold
+            On Sale
 
-                            </label>
+        </label>
 
-                        </li>
+        <label>
 
-                        <li>
+            <input type="checkbox">
 
-                            <label>
+            New Arrival
 
-                                <input type="checkbox"
-                                       value="silver"
-                                       class="material-filter">
+        </label>
 
-                                Silver
+    </div>
 
-                            </label>
+    <!-- Reset -->
 
-                        </li>
+    <button
+        class="btn btn-outline"
+        id="resetFilters">
 
-                        <li>
+        Reset Filters
 
-                            <label>
+    </button>
 
-                                <input type="checkbox"
-                                       value="diamond"
-                                       class="material-filter">
+</aside>
+    <!-- ================= SHOP CONTENT ================= -->
 
-                                Diamond
+<div class="shop-content">
 
-                            </label>
+    <!-- Toolbar -->
 
-                        </li>
+    <div class="shop-toolbar">
 
-                        <li>
+        <div class="results-info">
 
-                            <label>
+            <span id="productsCount">
+                Showing 0 Products
+            </span>
 
-                                <input type="checkbox"
-                                       value="platinum"
-                                       class="material-filter">
+        </div>
 
-                                Platinum
+        <div class="toolbar-actions">
 
-                            </label>
+            <!-- View Mode -->
 
-                        </li>
+            <div class="view-switch">
 
-                    </ul>
+                <button
+                    class="view-btn active"
+                    id="gridView"
+                    title="Grid View">
 
-                </div>
-
-                <!-- COLLECTION FILTER -->
-
-                <div class="filter-box">
-
-                    <h3>
-
-                        Collection
-
-                    </h3>
-
-                    <ul>
-
-                        <li>
-
-                            <label>
-
-                                <input type="checkbox"
-                                       value="new">
-
-                                New Arrivals
-
-                            </label>
-
-                        </li>
-
-                        <li>
-
-                            <label>
-
-                                <input type="checkbox"
-                                       value="best">
-
-                                Best Sellers
-
-                            </label>
-
-                        </li>
-
-                        <li>
-
-                            <label>
-
-                                <input type="checkbox"
-                                       value="luxury">
-
-                                Luxury Collection
-
-                            </label>
-
-                        </li>
-
-                        <li>
-
-                            <label>
-
-                                <input type="checkbox"
-                                       value="wedding">
-
-                                Wedding Collection
-
-                            </label>
-
-                        </li>
-
-                    </ul>
-
-                </div>
-
-                <!-- RATING FILTER -->
-
-                <div class="filter-box">
-
-                    <h3>
-
-                        Rating
-
-                    </h3>
-
-                    <label>
-
-                        <input type="radio"
-                               name="rating"
-                               value="5">
-
-                        ★★★★★
-
-                    </label>
-
-                    <label>
-
-                        <input type="radio"
-                               name="rating"
-                               value="4">
-
-                        ★★★★☆
-
-                    </label>
-
-                    <label>
-
-                        <input type="radio"
-                               name="rating"
-                               value="3">
-
-                        ★★★☆☆
-
-                    </label>
-
-                </div>
-
-                <button class="btn btn-primary"
-                        id="clearFilters">
-
-                    Clear Filters
+                    <i class="fa-solid fa-grip"></i>
 
                 </button>
 
-            </aside>
+                <button
+                    class="view-btn"
+                    id="listView"
+                    title="List View">
 
-            <!-- SHOP CONTENT -->
+                    <i class="fa-solid fa-list"></i>
 
-            <div class="shop-content">
+                </button>
 
-                <!-- TOOLBAR -->
+            </div>
 
-                <div class="shop-toolbar">
+            <!-- Sort -->
 
-                    <div class="results-count">
+            <select id="sortProducts">
 
-                        <span id="resultsCount">
+                <option value="default">
+                    Default Sorting
+                </option>
 
-                            0 Products
+                <option value="latest">
+                    Latest Products
+                </option>
 
-                        </span>
+                <option value="popular">
+                    Most Popular
+                </option>
 
-                    </div>
+                <option value="rating">
+                    Highest Rated
+                </option>
 
-                    <div class="toolbar-actions">
+                <option value="price-low">
+                    Price: Low to High
+                </option>
 
-                        <select id="sortProducts">
+                <option value="price-high">
+                    Price: High to Low
+                </option>
 
-                            <option value="featured">
+                <option value="name">
+                    Name A-Z
+                </option>
 
-                                Featured
+            </select>
 
-                            </option>
+        </div>
 
-                            <option value="latest">
+    </div>
 
-                                Latest
+    <!-- Products -->
 
-                            </option>
+    <div
+        id="productsGrid"
+        class="products-grid">
 
-                            <option value="price-low">
+        <!-- يتم إنشاء جميع البطاقات بواسطة JavaScript -->
 
-                                Price: Low to High
+    </div>
 
-                            </option>
+    <!-- Loading -->
 
-                            <option value="price-high">
+    <div
+        id="loadingProducts"
+        class="loading-products">
 
-                                Price: High to Low
+        <div class="spinner"></div>
 
-                            </option>
+        <p>Loading Products...</p>
 
-                            <option value="name">
+    </div>
 
-                                Name
+    <!-- Empty -->
 
-                            </option>
+    <div
+        id="emptyProducts"
+        class="empty-products"
+        style="display:none;">
 
-                        </select>
+        <i class="fa-solid fa-gem"></i>
 
-                        <div class="view-buttons">
+        <h3>No Products Found</h3>
 
-                            <button id="gridView"
-                                    class="active">
+        <p>
 
-                                <i class="fa-solid fa-table-cells"></i>
+            Try changing the filters
+            or search keyword.
 
-                            </button>
+        </p>
 
-                            <button id="listView">
+    </div>
 
-                                <i class="fa-solid fa-list"></i>
+    <!-- Pagination -->
 
-                            </button>
+    <nav
+        class="shop-pagination"
+        id="shopPagination">
 
-                        </div>
+        <!-- يتم توليدها تلقائياً -->
 
-                    </div>
+    </nav>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+    <!-- ================= QUICK VIEW MODAL ================= -->
+
+<div
+    class="modal"
+    id="quickViewModal">
+
+    <div class="modal-overlay"></div>
+
+    <div class="modal-content">
+
+        <button
+            class="modal-close"
+            id="closeQuickView">
+
+            <i class="fa-solid fa-xmark"></i>
+
+        </button>
+
+        <div class="quick-view-wrapper">
+
+            <div class="quick-view-image">
+
+                <img
+                    id="quickViewImage"
+                    src="assets/images/placeholders/product.webp"
+                    alt="Product">
+
+            </div>
+
+            <div class="quick-view-info">
+
+                <span
+                    class="product-category"
+                    id="quickViewCategory">
+
+                    Jewellery
+
+                </span>
+
+                <h2 id="quickViewTitle">
+
+                    Product Name
+
+                </h2>
+
+                <div
+                    class="product-rating"
+                    id="quickViewRating">
 
                 </div>
 
-                <!-- PRODUCTS -->
+                <div
+                    class="product-price"
+                    id="quickViewPrice">
 
-                <div id="shopProducts"
-                     class="products-grid">
-
-                    <!-- يتم تحميل المنتجات من products.json -->
-
-                </div>
-
-                <!-- LOADING -->
-
-                <div id="productsLoader"
-                     class="products-loader hidden">
-
-                    <span class="spinner"></span>
+                    $0.00
 
                 </div>
 
-                <!-- EMPTY STATE -->
+                <p
+                    id="quickViewDescription">
 
-                <div id="emptyProducts"
-                     class="empty-products hidden">
+                </p>
 
-                    <i class="fa-solid fa-gem"></i>
-
-                    <h3>
-
-                        No Products Found
-
-                    </h3>
-
-                    <p>
-
-                        Try changing the selected filters.
-
-                    </p>
-
-                </div>
-
-                <!-- PAGINATION -->
-
-                <nav class="pagination"
-                     id="pagination">
+                <div class="quantity-box">
 
                     <button
-                        class="page-btn"
-                        id="prevPage">
+                        class="qty-minus">
 
-                        <i class="fa-solid fa-chevron-left"></i>
+                        -
 
                     </button>
 
-                    <div id="paginationNumbers">
-
-                    </div>
+                    <input
+                        type="number"
+                        id="quickViewQty"
+                        value="1"
+                        min="1">
 
                     <button
-                        class="page-btn"
-                        id="nextPage">
+                        class="qty-plus">
 
-                        <i class="fa-solid fa-chevron-right"></i>
+                        +
 
                     </button>
 
-                </nav>
+                </div>
+
+                <div class="quick-actions">
+
+                    <button
+                        class="btn btn-primary"
+                        id="quickAddCart">
+
+                        <i class="fa-solid fa-bag-shopping"></i>
+
+                        Add To Cart
+
+                    </button>
+
+                    <button
+                        class="btn btn-outline"
+                        id="quickWishlist">
+
+                        <i class="fa-regular fa-heart"></i>
+
+                    </button>
+
+                    <button
+                        class="btn btn-outline"
+                        id="quickCompare">
+
+                        <i class="fa-solid fa-code-compare"></i>
+
+                    </button>
+
+                </div>
 
             </div>
 
@@ -667,233 +570,37 @@
 
     </div>
 
-  </section>
-      <!-- =========================
-         RECENTLY VIEWED
-    ========================== -->
+</div>
 
-    <section class="recently-viewed">
-
-        <div class="container">
-
-            <div class="section-heading">
-
-                <span>
-
-                    Recently Viewed
-
-                </span>
-
-                <h2>
-
-                    Continue Shopping
-
-                </h2>
-
-            </div>
-
-            <div id="recentProducts"
-                 class="products-grid">
-
-                <!-- يتم تعبئته بواسطة JavaScript -->
-
-            </div>
-
-        </div>
-
-    </section>
-
-    <!-- =========================
-         RECOMMENDED PRODUCTS
-    ========================== -->
-
-    <section class="recommended-products">
-
-        <div class="container">
-
-            <div class="section-heading">
-
-                <span>
-
-                    Recommended
-
-                </span>
-
-                <h2>
-
-                    You May Also Like
-
-                </h2>
-
-                <p>
-
-                    Carefully selected jewellery based on your interests.
-
-                </p>
-
-            </div>
-
-            <div id="recommendedProducts"
-                 class="products-grid">
-
-                <!-- Dynamic -->
-
-            </div>
-
-        </div>
-
-    </section>
-
-    <!-- =========================
-         NEWSLETTER
-    ========================== -->
-
-    <section class="newsletter-section">
-
-        <div class="container">
-
-            <div class="newsletter-wrapper">
-
-                <div class="newsletter-content">
-
-                    <span>
-
-                        Newsletter
-
-                    </span>
-
-                    <h2>
-
-                        Stay Updated
-
-                    </h2>
-
-                    <p>
-
-                        Receive exclusive offers and be the first to
-                        discover our latest luxury collections.
-
-                    </p>
-
-                </div>
-
-                <form id="newsletterForm"
-                      class="newsletter-form">
-
-                    <input
-                        type="email"
-                        id="newsletterEmail"
-                        placeholder="Enter your email"
-                        required>
-
-                    <button
-                        type="submit"
-                        class="btn btn-primary">
-
-                        Subscribe
-
-                    </button>
-
-                </form>
-
-            </div>
-
-        </div>
-
-    </section>
-
-</main>
-
-<!-- =========================
-     FOOTER
-========================= -->
+<!-- ================= FOOTER ================= -->
 
 <footer class="footer">
 
     <div class="container">
 
-        <div class="footer-grid">
+        <div class="footer-content">
 
-            <div>
+            <img
+                src="assets/images/logo.png"
+                alt="LUNOVIA"
+                class="footer-logo">
 
-                <h3>
+            <p>
 
-                    LUNOVIA
+                Luxury Jewellery crafted for
+                timeless elegance and everyday beauty.
 
-                </h3>
+            </p>
 
-                <p>
+            <div class="footer-social">
 
-                    Luxury handcrafted jewellery created with timeless
-                    elegance and premium craftsmanship.
+                <a href="#"><i class="fab fa-facebook-f"></i></a>
 
-                </p>
+                <a href="#"><i class="fab fa-instagram"></i></a>
 
-            </div>
+                <a href="#"><i class="fab fa-x-twitter"></i></a>
 
-            <div>
-
-                <h4>
-
-                    Shop
-
-                </h4>
-
-                <ul>
-
-                    <li><a href="shop.html">Shop</a></li>
-
-                    <li><a href="collections.html">Collections</a></li>
-
-                    <li><a href="wishlist.html">Wishlist</a></li>
-
-                    <li><a href="cart.html">Cart</a></li>
-
-                </ul>
-
-            </div>
-
-            <div>
-
-                <h4>
-
-                    Company
-
-                </h4>
-
-                <ul>
-
-                    <li><a href="about.html">About</a></li>
-
-                    <li><a href="contact.html">Contact</a></li>
-
-                    <li><a href="privacy.html">Privacy Policy</a></li>
-
-                    <li><a href="terms.html">Terms</a></li>
-
-                </ul>
-
-            </div>
-
-            <div>
-
-                <h4>
-
-                    Follow Us
-
-                </h4>
-
-                <div class="footer-social">
-
-                    <a href="#"><i class="fa-brands fa-facebook-f"></i></a>
-
-                    <a href="#"><i class="fa-brands fa-instagram"></i></a>
-
-                    <a href="#"><i class="fa-brands fa-pinterest-p"></i></a>
-
-                    <a href="#"><i class="fa-brands fa-tiktok"></i></a>
-
-                </div>
+                <a href="#"><i class="fab fa-pinterest"></i></a>
 
             </div>
 
@@ -903,7 +610,8 @@
 
             <p>
 
-                © 2026 LUNOVIA Jewellery. All rights reserved.
+                © 2026 LUNOVIA Jewellery.
+                All Rights Reserved.
 
             </p>
 
@@ -913,83 +621,21 @@
 
 </footer>
 
-<!-- SEARCH OVERLAY -->
-
-<div id="searchOverlay"
-     class="search-overlay">
-
-    <div class="search-box">
-
-        <button id="closeSearch">
-
-            <i class="fa-solid fa-xmark"></i>
-
-        </button>
-
-        <input
-            id="searchInput"
-            type="search"
-            placeholder="Search products...">
-
-        <div id="searchResults"></div>
-
-    </div>
-
 </div>
 
-<!-- QUICK VIEW -->
+<!-- ================= JAVASCRIPT ================= -->
 
-<div id="quickViewModal"
-     class="modal">
-
-    <div class="modal-content">
-
-        <button id="closeQuickView"
-                class="close-modal">
-
-            <i class="fa-solid fa-xmark"></i>
-
-        </button>
-
-        <div id="quickViewContent">
-
-        </div>
-
-    </div>
-
-</div>
-
-<!-- TOAST -->
-
-<div id="toastContainer"></div>
-
-<!-- BACK TO TOP -->
-
-<button id="backToTop"
-        class="back-to-top">
-
-    <i class="fa-solid fa-arrow-up"></i>
-
-</button>
-
-<!-- JAVASCRIPT -->
-
-<script src="assets/js/storage.js"></script>
-
+<script src="assets/js/utils.js"></script>
+<script src="assets/js/security.js"></script>
 <script src="assets/js/products.js"></script>
-
 <script src="assets/js/cart.js"></script>
-
 <script src="assets/js/wishlist.js"></script>
-
 <script src="assets/js/search.js"></script>
-
 <script src="assets/js/ui.js"></script>
-
-<script src="assets/js/main.js"></script>
-
 <script src="assets/js/shop.js"></script>
 
 </body>
 
-  </html>
+</html>
+
+    
