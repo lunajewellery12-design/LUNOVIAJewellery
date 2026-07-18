@@ -1032,3 +1032,457 @@ console.log(
 "LUNOVIA Main.js Loaded Successfully"
 
 );
+
+/* ==========================================
+   LUNOVIA Header Loader
+========================================== */
+
+function loadHeader() {
+
+    const header = document.getElementById("header");
+
+    if (!header) return;
+
+    header.innerHTML = `
+<header class="main-header">
+
+    <div class="container">
+
+        <div class="header-inner">
+
+            <a href="index.html"
+               class="logo">
+
+                <img src="assets/images/logo.png"
+                     alt="LUNOVIA Jewellery">
+
+            </a>
+
+            <nav class="main-nav"
+                 id="mainNav">
+
+                <ul class="nav-list">
+
+                    <li class="nav-item">
+
+                        <a href="index.html"
+                           class="nav-link">
+
+                            Home
+
+                        </a>
+
+                    </li>
+
+                    <li class="nav-item mega-parent has-mega-menu">
+
+                        <a href="shop.html"
+                           class="nav-link">
+
+                            Shop
+
+                            <i class="fa-solid fa-chevron-down"></i>
+
+                        </a>
+
+                                                <div class="mega-menu">
+
+                            <div class="mega-grid">
+
+                                <!-- Categories -->
+
+                                <div class="mega-column">
+
+                                    <h4>
+
+                                        Categories
+
+                                    </h4>
+
+                                    <ul>
+
+                                        <li>
+
+                                            <a href="shop.html?category=rings">
+
+                                                Rings
+
+                                            </a>
+
+                                        </li>
+
+                                        <li>
+
+                                            <a href="shop.html?category=necklaces">
+
+                                                Necklaces
+
+                                            </a>
+
+                                        </li>
+
+                                        <li>
+
+                                            <a href="shop.html?category=bracelets">
+
+                                                Bracelets
+
+                                            </a>
+
+                                        </li>
+
+                                        <li>
+
+                                            <a href="shop.html?category=earrings">
+
+                                                Earrings
+
+                                            </a>
+
+                                        </li>
+
+                                    </ul>
+
+                                </div>
+
+                                <!-- Collections -->
+
+                                <div class="mega-column">
+
+                                    <h4>
+
+                                        Collections
+
+                                    </h4>
+
+                                    <ul>
+
+                                        <li>
+
+                                            <a href="collections.html">
+
+                                                Luxury Collection
+
+                                            </a>
+
+                                        </li>
+
+                                        <li>
+
+                                            <a href="collections.html">
+
+                                                Wedding Collection
+
+                                            </a>
+
+                                        </li>
+
+                                        <li>
+
+                                            <a href="collections.html">
+
+                                                Diamond Collection
+
+                                            </a>
+
+                                        </li>
+
+                                        <li>
+
+                                            <a href="collections.html">
+
+                                                New Arrivals
+
+                                            </a>
+
+                                        </li>
+
+                                    </ul>
+
+                                </div>
+
+                                                                <!-- Customer -->
+
+                                <div class="mega-column">
+
+                                    <h4>
+
+                                        Customer
+
+                                    </h4>
+
+                                    <ul>
+
+                                        <li>
+
+                                            <a href="wishlist.html">
+
+                                                Wishlist
+
+                                            </a>
+
+                                        </li>
+
+                                        <li>
+
+                                            <a href="cart.html">
+
+                                                Shopping Cart
+
+                                            </a>
+
+                                        </li>
+
+                                        <li>
+
+                                            <a href="profile.html">
+
+                                                My Account
+
+                                            </a>
+
+                                        </li>
+
+                                        <li>
+
+                                            <a href="contact.html">
+
+                                                Support
+
+                                            </a>
+
+                                        </li>
+
+                                    </ul>
+
+                                </div>
+
+                                <!-- Banner -->
+
+                                <div class="mega-banner">
+
+                                    <img src="assets/images/menu/menu-banner.webp"
+                                         alt="Luxury Jewellery">
+
+                                    <div class="mega-banner-content">
+
+                                        <span>
+
+                                            Exclusive
+
+                                        </span>
+
+                                        <h3>
+
+                                            Luxury Collection
+
+                                        </h3>
+
+                                        <a href="shop.html"
+                                           class="btn btn-primary">
+
+                                            Shop Now
+
+                                        </a>
+
+                                    </div>
+
+                                </div>
+
+                            </div>
+
+                        </div>
+
+                    </li>
+
+                    <li class="nav-item">
+
+                        <a href="collections.html"
+                           class="nav-link">
+
+                            Collections
+
+                        </a>
+
+                    </li>
+
+                    <li class="nav-item">
+
+                        <a href="about.html"
+                           class="nav-link">
+
+                            About
+
+                        </a>
+
+                    </li>
+
+                    <li class="nav-item">
+
+                        <a href="contact.html"
+                           class="nav-link">
+
+                            Contact
+
+                        </a>
+
+                    </li>
+
+                </ul>
+
+            </nav>
+
+                        <!-- =========================
+                 HEADER ACTIONS
+            ========================== -->
+
+            <div class="header-actions">
+
+                <!-- Search -->
+
+                <button class="icon-btn"
+                        id="searchBtn"
+                        aria-label="Search">
+
+                    <i class="fa-solid fa-magnifying-glass"></i>
+
+                </button>
+
+                <!-- Theme -->
+
+                <button class="icon-btn"
+                        id="themeToggle"
+                        aria-label="Toggle Theme">
+
+                    <i class="fa-solid fa-moon"></i>
+
+                </button>
+
+                <!-- Language -->
+
+                <button class="icon-btn"
+                        id="languageToggle"
+                        aria-label="Language">
+
+                    EN
+
+                </button>
+
+                <!-- Wishlist -->
+
+                <a href="wishlist.html"
+                   class="icon-btn wishlist-btn">
+
+                    <i class="fa-regular fa-heart"></i>
+
+                    <span id="wishlistCount">
+
+                        0
+
+                    </span>
+
+                </a>
+
+                <!-- Cart -->
+
+                <a href="cart.html"
+                   class="icon-btn cart-btn">
+
+                    <i class="fa-solid fa-bag-shopping"></i>
+
+                    <span id="cartCount">
+
+                        0
+
+                    </span>
+
+                </a>
+
+                <!-- User -->
+
+                <div class="user-menu"
+                     id="userMenu">
+
+                    <button class="icon-btn"
+                            id="userMenuBtn">
+
+                        <i class="fa-regular fa-user"></i>
+
+                    </button>
+
+                    <div class="user-dropdown"
+                         id="userDropdown">
+
+                        <a href="login.html">
+
+                            Login
+
+                        </a>
+
+                        <a href="register.html">
+
+                            Register
+
+                        </a>
+
+                        <a href="profile.html">
+
+                            Profile
+
+                        </a>
+
+                        <a href="orders.html">
+
+                            Orders
+
+                        </a>
+
+                        <a href="admin.html"
+                           id="adminLink"
+                           style="display:none;">
+
+                            Admin Dashboard
+
+                        </a>
+
+                        <button id="logoutBtn"
+                                class="dropdown-btn">
+
+                            Logout
+
+                        </button>
+
+                    </div>
+
+                </div>
+
+                <!-- Mobile -->
+
+                <button class="icon-btn mobile-menu-btn"
+                        id="mobileMenuBtn"
+                        aria-label="Open Menu">
+
+                    <i class="fa-solid fa-bars"></i>
+
+                </button>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</header>
+    `;
+
+}
+
+/* ==========================================
+   Initialize Shared Layout
+========================================== */
+
+document.addEventListener("DOMContentLoaded", () => {
+
+    loadHeader();
+
+});
