@@ -1,0 +1,392 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Checkout | LUNOVIA Jewellery</title>
+
+    <meta name="description" content="Secure Checkout - LUNOVIA Jewellery">
+    <meta name="keywords" content="Jewellery, Checkout, LUNOVIA">
+
+    <link rel="icon" href="assets/images/logo.png">
+
+    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="assets/css/responsive.css">
+</head>
+
+<body>
+
+<div class="site-wrapper">
+
+<header id="header"></header>
+
+<main class="checkout-page">
+
+<section class="page-header">
+    <div class="container">
+
+        <h1 data-i18n="checkout.title">
+            Checkout
+        </h1>
+
+        <nav class="breadcrumb">
+
+            <a href="index.html"
+               data-i18n="breadcrumb.home">
+               Home
+            </a>
+
+            <span>/</span>
+
+            <a href="cart.html"
+               data-i18n="breadcrumb.cart">
+               Cart
+            </a>
+
+            <span>/</span>
+
+            <span
+                data-i18n="breadcrumb.checkout">
+                Checkout
+            </span>
+
+        </nav>
+
+    </div>
+</section>
+
+
+<section class="checkout-section">
+
+<div class="container">
+
+<div class="checkout-layout">
+
+<div class="checkout-form">
+
+<h2 data-i18n="checkout.billing">
+Billing Details
+</h2>
+
+<form id="checkoutForm"
+      class="checkout-form-content"
+      novalidate>
+
+<div class="form-row">
+
+<div class="form-group">
+
+<label for="firstName"
+data-i18n="checkout.firstName">
+First Name
+</label>
+
+<input
+type="text"
+id="firstName"
+name="firstName"
+required>
+
+</div>
+
+<div class="form-group">
+
+<label for="lastName"
+data-i18n="checkout.lastName">
+Last Name
+</label>
+
+<input
+type="text"
+id="lastName"
+name="lastName"
+required>
+
+</div>
+
+</div>
+
+<div class="form-group">
+
+<label
+for="email"
+data-i18n="checkout.email">
+Email
+</label>
+
+<input
+type="email"
+id="email"
+name="email"
+required>
+
+</div>
+
+<div class="form-group">
+
+<label
+for="phone"
+data-i18n="checkout.phone">
+Phone
+</label>
+
+<input
+type="tel"
+id="phone"
+name="phone"
+required>
+
+</div>
+
+<div class="form-group">
+
+<label
+for="country"
+data-i18n="checkout.country">
+Country
+</label>
+
+<input
+type="text"
+id="country"
+name="country"
+required>
+
+</div>
+
+<div class="form-group">
+
+<label
+for="city"
+data-i18n="checkout.city">
+City
+</label>
+
+<input
+type="text"
+id="city"
+name="city"
+required>
+
+</div>
+
+<div class="form-group">
+
+<label
+for="address"
+data-i18n="checkout.address">
+Address
+</label>
+
+<textarea
+id="address"
+name="address"
+rows="4"
+required></textarea>
+
+  </div>
+                  <div class="form-group">
+
+                    <label for="postalCode"
+                           data-i18n="checkout.postalCode">
+                        Postal Code
+                    </label>
+
+                    <input
+                        type="text"
+                        id="postalCode"
+                        name="postalCode">
+
+                </div>
+
+                <div class="form-group">
+
+                    <label for="notes"
+                           data-i18n="checkout.notes">
+                        Order Notes
+                    </label>
+
+                    <textarea
+                        id="notes"
+                        name="notes"
+                        rows="5"
+                        placeholder="Special notes about your order"></textarea>
+
+                </div>
+
+            </form>
+
+        </div>
+
+        <aside class="checkout-sidebar">
+
+            <div class="order-summary">
+
+                <h2 data-i18n="checkout.orderSummary">
+                    Order Summary
+                </h2>
+
+                <div
+                    class="checkout-products"
+                    id="checkoutProducts">
+
+                </div>
+
+                <div class="summary-row">
+
+                    <span data-i18n="cart.subtotal">
+                        Subtotal
+                    </span>
+
+                    <span id="checkoutSubtotal">
+                        $0.00
+                    </span>
+
+                </div>
+
+                <div class="summary-row">
+
+                    <span data-i18n="cart.shipping">
+                        Shipping
+                    </span>
+
+                    <span id="checkoutShipping">
+                        Free
+                    </span>
+
+                </div>
+
+                <div class="summary-row">
+
+                    <span data-i18n="cart.tax">
+                        Tax
+                    </span>
+
+                    <span id="checkoutTax">
+                        $0.00
+                    </span>
+
+                </div>
+
+                <div class="summary-row total">
+
+                    <strong data-i18n="cart.total">
+                        Total
+                    </strong>
+
+                    <strong id="checkoutTotal">
+                        $0.00
+                    </strong>
+
+                </div>
+
+            </div>
+
+            <div class="payment-methods">
+
+                <h2 data-i18n="checkout.paymentMethod">
+                    Payment Method
+                </h2>
+
+                <label class="payment-option">
+
+                    <input
+                        type="radio"
+                        name="payment"
+                        value="card"
+                        checked>
+
+                    <span data-i18n="checkout.creditCard">
+                        Credit / Debit Card
+                    </span>
+
+                </label>
+
+                <label class="payment-option">
+
+                    <input
+                        type="radio"
+                        name="payment"
+                        value="paypal">
+
+                    <span>PayPal</span>
+
+                </label>
+
+                <label class="payment-option">
+
+                    <input
+                        type="radio"
+                        name="payment"
+                        value="cash">
+
+                    <span data-i18n="checkout.cash">
+                        Cash On Delivery
+                    </span>
+
+                </label>
+
+                <button
+                    id="placeOrderBtn"
+                    class="btn btn-primary btn-lg">
+
+                    <span data-i18n="checkout.placeOrder">
+                        Place Order
+                    </span>
+
+                </button>
+
+            </div>
+
+        </aside>
+
+    </div>
+
+</div>
+
+                  </section>
+                  </main>
+
+<footer id="footer"></footer>
+
+</div>
+
+<!-- JavaScript -->
+<script src="assets/js/utils.js"></script>
+<script src="assets/js/security.js"></script>
+<script src="assets/js/theme.js"></script>
+<script src="assets/js/language.js"></script>
+<script src="assets/js/products.js"></script>
+<script src="assets/js/cart.js"></script>
+<script src="assets/js/checkout.js"></script>
+<script src="assets/js/ui.js"></script>
+
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+
+    if (typeof initializeTheme === 'function') {
+        initializeTheme();
+    }
+
+    if (typeof initializeLanguage === 'function') {
+        initializeLanguage();
+    }
+
+    if (typeof initializeUI === 'function') {
+        initializeUI();
+    }
+
+    if (typeof initializeCart === 'function') {
+        initializeCart();
+    }
+
+    if (typeof initializeCheckout === 'function') {
+        initializeCheckout();
+    }
+
+});
+</script>
+
+</body>
+</html>
