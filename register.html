@@ -1,0 +1,379 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0">
+
+    <title>Create Account | LUNOVIA Jewellery</title>
+
+    <meta
+        name="description"
+        content="Create your LUNOVIA Jewellery account">
+
+    <link
+        rel="icon"
+        href="assets/images/logo.png">
+
+    <link
+        rel="stylesheet"
+        href="assets/css/style.css">
+
+    <link
+        rel="stylesheet"
+        href="assets/css/responsive.css">
+
+</head>
+
+<body>
+
+<div class="site-wrapper">
+
+<header id="header"></header>
+
+<main class="register-page">
+
+<section class="page-header">
+
+    <div class="container">
+
+        <h1 data-i18n="register.title">
+            Create Account
+        </h1>
+
+        <nav class="breadcrumb">
+
+            <a
+                href="index.html"
+                data-i18n="breadcrumb.home">
+                Home
+            </a>
+
+            <span>/</span>
+
+            <span
+                data-i18n="register.title">
+                Create Account
+            </span>
+
+        </nav>
+
+    </div>
+
+</section>
+
+<section class="register-section">
+
+<div class="container">
+
+<div class="register-wrapper">
+
+<div class="register-card">
+
+<h2 data-i18n="register.heading">
+Join LUNOVIA
+</h2>
+
+<p data-i18n="register.subtitle">
+Create your account to start shopping.
+</p>
+
+<form
+id="registerForm"
+class="register-form"
+novalidate>
+
+<div class="form-row">
+
+<div class="form-group">
+
+<label
+for="firstName"
+data-i18n="register.firstName">
+
+First Name
+
+</label>
+
+<input
+type="text"
+id="firstName"
+name="firstName"
+required>
+
+</div>
+
+<div class="form-group">
+
+<label
+for="lastName"
+data-i18n="register.lastName">
+
+Last Name
+
+</label>
+
+<input
+type="text"
+id="lastName"
+name="lastName"
+required>
+
+</div>
+
+</div>
+
+<div class="form-group">
+
+<label
+for="email"
+data-i18n="register.email">
+
+Email
+
+</label>
+
+<input
+type="email"
+id="email"
+name="email"
+autocomplete="email"
+required>
+
+</div>
+
+<div class="form-group">
+
+<label
+for="phone"
+data-i18n="register.phone">
+
+Phone Number
+
+</label>
+
+<input
+type="tel"
+id="phone"
+name="phone"
+autocomplete="tel"
+required>
+
+</div>
+
+<div class="form-group">
+
+<label
+for="password"
+data-i18n="register.password">
+
+Password
+
+</label>
+
+<div class="password-field">
+
+<input
+type="password"
+id="password"
+name="password"
+required>
+
+<button
+type="button"
+class="password-toggle">
+
+<i class="icon-eye"></i>
+
+</button>
+
+</div>
+
+</div>
+
+<div class="form-group">
+
+<label
+for="confirmPassword"
+data-i18n="register.confirmPassword">
+
+Confirm Password
+
+</label>
+
+<div class="password-field">
+
+<input
+type="password"
+id="confirmPassword"
+name="confirmPassword"
+required>
+
+<button
+type="button"
+class="password-toggle">
+
+<i class="icon-eye"></i>
+
+</button>
+
+</div>
+
+  </div>
+                  <div class="form-group">
+
+                    <label class="checkbox">
+
+                        <input
+                            type="checkbox"
+                            id="acceptTerms"
+                            required>
+
+                        <span>
+
+                            <span
+                                data-i18n="register.accept">
+                                I agree to the
+                            </span>
+
+                            <a
+                                href="terms.html"
+                                data-i18n="footer.terms">
+                                Terms & Conditions
+                            </a>
+
+                            <span>&</span>
+
+                            <a
+                                href="privacy.html"
+                                data-i18n="footer.privacy">
+                                Privacy Policy
+                            </a>
+
+                        </span>
+
+                    </label>
+
+                </div>
+
+                <button
+                    type="submit"
+                    id="registerBtn"
+                    class="btn btn-primary btn-lg btn-block">
+
+                    <span data-i18n="register.createAccount">
+                        Create Account
+                    </span>
+
+                </button>
+
+                <div class="login-divider">
+
+                    <span data-i18n="register.or">
+                        OR
+                    </span>
+
+                </div>
+
+                <div class="social-login">
+
+                    <button
+                        type="button"
+                        class="btn btn-google">
+
+                        <img
+                            src="assets/images/icons/google.svg"
+                            alt="Google">
+
+                        <span>Continue with Google</span>
+
+                    </button>
+
+                    <button
+                        type="button"
+                        class="btn btn-apple">
+
+                        <img
+                            src="assets/images/icons/apple.svg"
+                            alt="Apple">
+
+                        <span>Continue with Apple</span>
+
+                    </button>
+
+                </div>
+
+                <div class="register-footer">
+
+                    <p>
+
+                        <span
+                            data-i18n="register.haveAccount">
+                            Already have an account?
+                        </span>
+
+                        <a
+                            href="login.html"
+                            data-i18n="register.signIn">
+
+                            Sign In
+
+                        </a>
+
+                    </p>
+
+                </div>
+
+            </form>
+
+        </div>
+
+    </div>
+
+</div>
+
+</section>
+
+</main>
+
+<footer id="footer"></footer>
+
+</div>
+
+<script src="assets/js/utils.js"></script>
+<script src="assets/js/security.js"></script>
+<script src="assets/js/theme.js"></script>
+<script src="assets/js/language.js"></script>
+<script src="assets/js/ui.js"></script>
+<script src="assets/js/auth.js"></script>
+
+<script>
+
+document.addEventListener("DOMContentLoaded", () => {
+
+    if (typeof initializeTheme === "function") {
+        initializeTheme();
+    }
+
+    if (typeof initializeLanguage === "function") {
+        initializeLanguage();
+    }
+
+    if (typeof initializeUI === "function") {
+        initializeUI();
+    }
+
+    if (typeof initializeAuth === "function") {
+        initializeAuth();
+    }
+
+});
+
+</script>
+
+</body>
+  </html>
