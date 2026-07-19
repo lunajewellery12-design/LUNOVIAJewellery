@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0">
+
+    <title>Login | LUNOVIA Jewellery</title>
+
+    <meta
+        name="description"
+        content="Login to your LUNOVIA Jewellery account">
+
+    <link
+        rel="icon"
+        href="assets/images/logo.png">
+
+    <link
+        rel="stylesheet"
+        href="assets/css/style.css">
+
+    <link
+        rel="stylesheet"
+        href="assets/css/responsive.css">
+
+</head>
+
+<body>
+
+<div class="site-wrapper">
+
+<header id="header"></header>
+
+<main class="login-page">
+
+<section class="page-header">
+
+    <div class="container">
+
+        <h1
+            data-i18n="login.title">
+            Login
+        </h1>
+
+        <nav class="breadcrumb">
+
+            <a
+                href="index.html"
+                data-i18n="breadcrumb.home">
+                Home
+            </a>
+
+            <span>/</span>
+
+            <span
+                data-i18n="login.title">
+                Login
+            </span>
+
+        </nav>
+
+    </div>
+
+</section>
+
+<section class="login-section">
+
+<div class="container">
+
+<div class="login-wrapper">
+
+<div class="login-card">
+
+<h2
+data-i18n="login.welcome">
+Welcome Back
+</h2>
+
+<p
+data-i18n="login.subtitle">
+Sign in to continue shopping.
+</p>
+
+<form
+id="loginForm"
+class="login-form"
+novalidate>
+
+<div class="form-group">
+
+<label
+for="email"
+data-i18n="login.email">
+Email
+</label>
+
+<input
+type="email"
+id="email"
+name="email"
+autocomplete="email"
+required>
+
+</div>
+
+<div class="form-group">
+
+<label
+for="password"
+data-i18n="login.password">
+Password
+</label>
+
+<div class="password-field">
+
+<input
+type="password"
+id="password"
+name="password"
+autocomplete="current-password"
+required>
+
+<button
+type="button"
+class="password-toggle"
+aria-label="Toggle Password">
+
+<i class="icon-eye"></i>
+
+</button>
+
+</div>
+
+</div>
+
+<div class="form-row remember-row">
+
+<label class="checkbox">
+
+<input
+type="checkbox"
+id="rememberMe">
+
+<span
+data-i18n="login.remember">
+Remember me
+</span>
+
+</label>
+
+<a
+href="#"
+class="forgot-password"
+data-i18n="login.forgotPassword">
+
+Forgot Password?
+
+</a>
+
+</div>
+                <div class="form-actions">
+
+                    <button
+                        type="submit"
+                        class="btn btn-primary btn-lg btn-block"
+                        id="loginBtn">
+
+                        <span data-i18n="login.signIn">
+                            Sign In
+                        </span>
+
+                    </button>
+
+                </div>
+
+                <div class="login-divider">
+
+                    <span data-i18n="login.or">
+                        OR
+                    </span>
+
+                </div>
+
+                <div class="social-login">
+
+                    <button
+                        type="button"
+                        class="btn btn-google">
+
+                        <img
+                            src="assets/images/icons/google.svg"
+                            alt="Google">
+
+                        <span>
+                            Continue with Google
+                        </span>
+
+                    </button>
+
+                    <button
+                        type="button"
+                        class="btn btn-apple">
+
+                        <img
+                            src="assets/images/icons/apple.svg"
+                            alt="Apple">
+
+                        <span>
+                            Continue with Apple
+                        </span>
+
+                    </button>
+
+                </div>
+
+                <div class="login-footer">
+
+                    <p>
+
+                        <span
+                            data-i18n="login.noAccount">
+                            Don't have an account?
+                        </span>
+
+                        <a
+                            href="register.html"
+                            data-i18n="login.createAccount">
+
+                            Create Account
+
+                        </a>
+
+                    </p>
+
+                </div>
+
+            </form>
+
+        </div>
+
+    </div>
+
+</div>
+
+</section>
+
+</main>
+
+<footer id="footer"></footer>
+
+</div>
+
+<script src="assets/js/utils.js"></script>
+<script src="assets/js/security.js"></script>
+<script src="assets/js/theme.js"></script>
+<script src="assets/js/language.js"></script>
+<script src="assets/js/ui.js"></script>
+<script src="assets/js/auth.js"></script>
+
+<script>
+
+document.addEventListener("DOMContentLoaded", () => {
+
+    if (typeof initializeTheme === "function") {
+        initializeTheme();
+    }
+
+    if (typeof initializeLanguage === "function") {
+        initializeLanguage();
+    }
+
+    if (typeof initializeUI === "function") {
+        initializeUI();
+    }
+
+    if (typeof initializeAuth === "function") {
+        initializeAuth();
+    }
+
+});
+
+</script>
+
+</body>
+</html>
